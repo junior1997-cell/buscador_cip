@@ -1,0 +1,8 @@
+{
+  "useSmtp": false,
+  "host": "smtp.office365.com",
+  "port": 587,
+  "username": "juniorcercado@upeu.edu.pe",
+  "password": "^7W-)M:m+A(3j3D",
+  "recipientEmail": "juniorcercado@upeu.edu.pe"
+}
