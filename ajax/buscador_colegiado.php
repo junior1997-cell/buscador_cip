@@ -39,8 +39,8 @@
 
       switch ($_GET["op"]) {
 
-        case 'buscar_all':
-          $rspta=$trabajador->buscar_all($_GET["capitulo_all"], $_GET["nombre_all"]);
+        case 'buscar':
+          $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
           $data = [];         
           $cont=1;          
 
@@ -54,16 +54,18 @@
               $data[] = [
                 "0"=>$cont++,
                 "1" => ' <button class="btn btn-info btn-sm" onclick="" ><i class="far fa-eye"></i></button>',                  
-                "2" => '<img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">',
-                "3" => $reg[1],
-                "4" => $reg[2], 
-                "5" => $reg[3], 
-                "6" => $reg[4],
-                "7" => $reg[5] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>',
-                "8" => date("d/m/Y", strtotime($reg[6])),
-                "9" => $reg[7] ,
-                "10" => $reg[8] ,
-                "11" => $reg[9] ,
+                "2" => '<div class="user-block w-300px">
+                  <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">
+                  <span class="username"><p class="text-primary m-b-02rem" >'. $reg[1].'</p></span>
+                  <span class="description">DNI: '. $reg[2] .' </span>
+                </div>' ,
+                "3" => $reg[3], 
+                "4" => '<div class="w-200px">' . $reg[4] . '<br> <span class="text-primary">'.$reg[5].'</span> </div>', 
+                "5" => '<div class="font-size-10px">' . ($reg[6] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>') . '</div>',
+                "6" => date("d/m/Y", strtotime($reg[7])),
+                "7" => $reg[8] ,
+                "8" => $reg[9] ,
+                "9" => $reg[10] ,
               ];
             }
   
@@ -78,130 +80,7 @@
           } else {
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-        break;
-
-        case 'buscar_nombre':
-          $rspta=$trabajador->buscar_nombre($_GET["capitulo_nombre"], $_GET["nombre_nombre"]);
-          $data = [];         
-          $cont=1;          
-
-          if ($rspta['status'] == true) {
-            foreach ($rspta['data'] as $key => $reg) {              
-  
-              // $ficha_tecnica = empty($reg['ficha_tecnica'])
-              //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
-              //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
-
-              $data[] = [
-                "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="" ><i class="far fa-eye"></i></button>',                  
-                "2" => '<img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">',
-                "3" => $reg[1],
-                "4" => $reg[2], 
-                "5" => $reg[3], 
-                "6" => $reg[4],
-                "7" => $reg[5] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>',
-                "8" => date("d/m/Y", strtotime($reg[6])),
-                "9" => $reg[7] ,
-                "10" => $reg[8] ,
-                "11" => $reg[9] ,
-              ];
-            }
-  
-            $results = [
-              "sEcho" => 1, //Información para el datatables
-              "iTotalRecords" => count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-              "data" => $data,
-            ];
-  
-            echo json_encode($results);
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-        break;
-
-        case 'buscar_cip':
-          $rspta=$trabajador->buscar_cip($_GET["capitulo_cip"], $_GET["nombre_cip"]);
-          $data = [];         
-          $cont=1;          
-
-          if ($rspta['status'] == true) {
-            foreach ($rspta['data'] as $key => $reg) {              
-  
-              // $ficha_tecnica = empty($reg['ficha_tecnica'])
-              //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
-              //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
-
-              $data[] = [
-                "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="" ><i class="far fa-eye"></i></button>',                  
-                "2" => '<img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">',
-                "3" => $reg[1],
-                "4" => $reg[2], 
-                "5" => $reg[3], 
-                "6" => $reg[4],
-                "7" => $reg[5] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>',
-                "8" => date("d/m/Y", strtotime($reg[6])),
-                "9" => $reg[7] ,
-                "10" => $reg[8] ,
-                "11" => $reg[9] ,
-              ];
-            }
-  
-            $results = [
-              "sEcho" => 1, //Información para el datatables
-              "iTotalRecords" => count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-              "data" => $data,
-            ];
-  
-            echo json_encode($results);
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-        break;
-
-        case 'buscar_dni':
-          $rspta=$trabajador->buscar_dni($_GET["capitulo_dni"], $_GET["nombre_dni"]);
-          $data = [];         
-          $cont=1;          
-
-          if ($rspta['status'] == true) {
-            foreach ($rspta['data'] as $key => $reg) {              
-  
-              // $ficha_tecnica = empty($reg['ficha_tecnica'])
-              //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
-              //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
-
-              $data[] = [
-                "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="" ><i class="far fa-eye"></i></button>',                  
-                "2" => '<img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">',
-                "3" => $reg[1],
-                "4" => $reg[2], 
-                "5" => $reg[3], 
-                "6" => $reg[4],
-                "7" => $reg[5] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>',
-                "8" => date("d/m/Y", strtotime($reg[6])),
-                "9" => $reg[7] ,
-                "10" => $reg[8] ,
-                "11" => $reg[9] ,
-              ];
-            }
-  
-            $results = [
-              "sEcho" => 1, //Información para el datatables
-              "iTotalRecords" => count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-              "data" => $data,
-            ];
-  
-            echo json_encode($results);
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-        break;
+        break;        
 
         default: 
           $rspta = ['status'=>'error_code', 'message'=>'Te has confundido en escribir en el <b>swich.</b>', 'data'=>[]]; echo json_encode($rspta, true); 

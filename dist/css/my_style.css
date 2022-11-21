@@ -1,3 +1,134 @@
+/*  ══════════════════════════════════════════ - W I D T H   S I Z E - ══════════════════════════════════════════ */
+.w-5px{ width: 5px !important; }
+.w-10px{ width: 10px !important; }
+.w-15px{ width: 15px !important; }
+.w-20px{ width: 20px !important; }
+.w-25px{ width: 25px !important; }
+.w-30px{ width: 30px !important; }
+.w-35px{ width: 35px !important; }
+.w-40px{ width: 40px !important; }
+.w-45px{ width: 45px !important; }
+.w-50px{ width: 50px !important; }
+.w-55px{ width: 55px !important; }
+.w-60px{ width: 60px !important; }
+.w-65px{ width: 65px !important; }
+.w-70px{ width: 70px !important; }
+.w-75px{ width: 75px !important; }
+.w-80px{ width: 80px !important; }
+.w-85px{ width: 85px !important; }
+.w-90px{ width: 90px !important; }
+.w-95px{ width: 95px !important; }
+.w-100px{ width: 100px !important; }
+.w-110px{ width: 110px !important; }
+.w-120px{ width: 120px !important; }
+.w-125px{ width: 125px !important; }
+.w-130px{ width: 130px !important; }
+.w-135px{ width: 135px !important; }
+.w-140px{ width: 140px !important; }
+.w-145px{ width: 145px !important; }
+.w-150px{ width: 150px !important; }
+.w-155px{ width: 155px !important; }
+.w-160px{ width: 160px !important; }
+.w-165px{ width: 165px !important; }
+.w-170px{ width: 170px !important; }
+.w-180px{ width: 180px !important; }
+.w-190px{ width: 190px !important; }
+.w-200px{ width: 200px !important; }
+.w-250px{ width: 250px !important; }
+.w-280px{ width: 280px !important; }
+.w-300px{ width: 300px !important; }
+.w-350px{ width: 350px !important; }
+.w-400px{ width: 400px !important; }
+.w-450px{ width: 450px !important; }
+.w-500px{ width: 500px !important; }
+.w-550px{ width: 550px !important; }
+.w-600px{ width: 600px !important; }
+
+.w-xy-20px{  width: 20px !important;  height: 20px !important; }
+
+.w-01rem{ width: 0.1rem !important; }
+.w-02rem{ width: 0.2rem !important; }
+.w-03rem{ width: 0.3rem !important; }
+.w-04rem{ width: 0.4rem !important; }
+.w-05rem{ width: 0.5rem !important; }
+.w-06rem{ width: 0.6rem !important; }
+.w-07rem{ width: 0.7rem !important; }
+.w-08rem{ width: 0.8rem !important; }
+.w-09rem{ width: 0.9rem !important; }
+.w-1rem{ width: 1rem !important; }
+.w-2rem{ width: 2rem !important; }
+.w-3rem{ width: 3rem !important; }
+
+/*  ══════════════════════════════════════════ - H E I G H T   S I Z E - ══════════════════════════════════════════ */
+
+.h-10px{ height: 10px !important; }
+.h-15px{ height: 15px !important; }
+.h-20px{ height: 20px !important; }
+.h-30px{ height: 30px !important; }
+.h-40px{ height: 40px !important; }
+.h-45px{ height: 45px !important; }
+.h-50px{ height: 50px !important; }
+.h-60px{ height: 60px !important; }
+.h-70px{ height: 70px !important; }
+.h-80px{ height: 80px !important; }
+.h-90px{ height: 90px !important; }
+.h-100px{ height: 100px !important; }
+.h-150px{ height: 150px !important; }
+.h-200px{ height: 200px !important; }
+.h-250px{ height: 250px !important; }
+.h-300px{ height: 300px !important; }
+.h-350px{ height: 350px !important; }
+.h-400px{ height: 400px !important; }
+.h-500px{ height: 500px !important; }
+.h-600px{ height: 600px !important; }
+.h-700px{ height: 700px !important; }
+
+.h-01rem{ height: 0.1rem !important; }
+.h-02rem{ height: 0.2rem !important; }
+.h-03rem{ height: 0.3rem !important; }
+.h-04rem{ height: 0.4rem !important; }
+.h-05rem{ height: 0.5rem !important; }
+.h-06rem{ height: 0.6rem !important; }
+.h-07rem{ height: 0.7rem !important; }
+.h-08rem{ height: 0.8rem !important; }
+.h-09rem{ height: 0.9rem !important; }
+.h-1rem{ height: 1rem !important; }
+.h-2rem{ height: 2rem !important; }
+.h-3rem{ height: 3rem !important; }
+
+/*  ══════════════════════════════════════════ - F O N T   S I Z E - ══════════════════════════════════════════ */
+
+.font-size-1px{ font-size: 1px; }
+.font-size-2px{ font-size: 2px; }
+.font-size-3px{ font-size: 3px; }
+.font-size-4px{ font-size: 4px; }
+.font-size-5px{ font-size: 5px; }
+.font-size-6px{ font-size: 6px; }
+.font-size-7px{ font-size: 7px; }
+.font-size-8px{ font-size: 8px; }
+.font-size-9px{ font-size: 9px; }
+.font-size-10px{ font-size: 10px; }
+.font-size-11px{ font-size: 11px; }
+.font-size-12px{ font-size: 12px; }
+.font-size-13px{ font-size: 13px; }
+.font-size-14px{ font-size: 14px; }
+.font-size-15px{ font-size: 15px; }
+.font-size-16px{ font-size: 16px; }
+.font-size-17px{ font-size: 17px; }
+.font-size-18px{ font-size: 18px; }
+.font-size-19px{ font-size: 19px; }
+.font-size-20px{ font-size: 20px; }
+.font-size-21px{ font-size: 21px; }
+.font-size-22px{ font-size: 22px; }
+.font-size-23px{ font-size: 23px; }
+.font-size-24px{ font-size: 24px; }
+.font-size-25px{ font-size: 25px; }
+.font-size-26px{ font-size: 26px; }
+.font-size-27px{ font-size: 27px; }
+.font-size-28px{ font-size: 28px; }
+.font-size-29px{ font-size: 29px; }
+.font-size-30px{ font-size: 30px; }
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -16,3 +147,43 @@
 table.dataTable tbody td {
   vertical-align: center !important;
 }
+
+/* user foto table */
+.user-block {
+  float: left;
+}
+
+.user-block img {
+  float: left;
+  height: 40px;
+  width: 40px;
+}
+.img-circle {
+  border-radius: 50%;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.user-block .username {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: -1px;
+}
+.block .username {
+  display: block;
+  margin-left: 50px;
+}
+
+.user-block .description {
+  color: #6c757d;
+  font-size: 13px;
+  margin-top: -3px;
+}
+
+.user-block .comment, .user-block .description, .user-block .username {
+  display: block;
+  margin-left: 50px;
+}
+/* user foto table */

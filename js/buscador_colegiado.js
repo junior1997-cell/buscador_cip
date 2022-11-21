@@ -78,7 +78,7 @@ function buscar_all() {
       { extend: 'pdfHtml5', footer: false, orientation: 'landscape', pageSize: 'LEGAL', exportOptions: { columns: [0,2,10,4,5,11,7,8], } },      
     ],
     ajax: {
-      url: `ajax/buscador_colegiado.php?op=buscar_all&capitulo_all=${capitulo_all}&nombre_all=${nombre_all}`,
+      url: `ajax/buscador_colegiado.php?op=buscar&capitulo=${capitulo_all}&nombre=${nombre_all}&tipo_busqueda=all`,
       type: "get",
       dataType: "json",
       error: function (e) {
@@ -90,8 +90,10 @@ function buscar_all() {
       if (data[0] != '') { $("td", row).eq(0).addClass("text-center"); } 
       // columna: op
       if (data[1] != '') { $("td", row).eq(1).addClass("text-nowrap"); }
+      // columna: nombres
+      if (data[2] != '') { $("td", row).eq(2).addClass("w-100px"); }
       // columna: estado
-      if (data[7] != '') { $("td", row).eq(7).addClass("text-nowrap"); }
+      if (data[5] != '') { $("td", row).eq(5).addClass("text-nowrap"); }
     },
     language: {
       lengthMenu: "Mostrar: _MENU_ registros",
@@ -125,7 +127,7 @@ function buscar_nombre() {
       { extend: 'pdfHtml5', footer: false, orientation: 'landscape', pageSize: 'LEGAL', exportOptions: { columns: [0,2,10,4,5,11,7,8], } },      
     ],
     ajax: {
-      url: `ajax/buscador_colegiado.php?op=buscar_nombre&capitulo_nombre=${capitulo_nombre}&nombre_nombre=${nombre_nombre}`,
+      url: `ajax/buscador_colegiado.php?op=buscar&capitulo=${capitulo_nombre}&nombre=${nombre_nombre}&tipo_busqueda=nombre`,
       type: "get",
       dataType: "json",
       error: function (e) {
@@ -137,8 +139,10 @@ function buscar_nombre() {
       if (data[0] != '') { $("td", row).eq(0).addClass("text-center"); } 
       // columna: op
       if (data[1] != '') { $("td", row).eq(1).addClass("text-nowrap"); }
+      // columna: nombres
+      // if (data[2] != '') { $("td", row).eq(2).addClass("w-100px"); }
       // columna: estado
-      if (data[7] != '') { $("td", row).eq(7).addClass("text-nowrap"); }
+      if (data[5] != '') { $("td", row).eq(5).addClass("text-nowrap"); }
     },
     language: {
       lengthMenu: "Mostrar: _MENU_ registros",
@@ -172,7 +176,7 @@ function buscar_cip() {
       { extend: 'pdfHtml5', footer: false, orientation: 'landscape', pageSize: 'LEGAL', exportOptions: { columns: [0,2,10,4,5,11,7,8], } },      
     ],
     ajax: {
-      url: `ajax/buscador_colegiado.php?op=buscar_cip&capitulo_cip=${capitulo_cip}&nombre_cip=${nombre_cip}`,
+      url: `ajax/buscador_colegiado.php?op=buscar&capitulo=${capitulo_cip}&nombre=${nombre_cip}&tipo_busqueda=cip`,
       type: "get",
       dataType: "json",
       error: function (e) {
@@ -184,8 +188,10 @@ function buscar_cip() {
       if (data[0] != '') { $("td", row).eq(0).addClass("text-center"); } 
       // columna: op
       if (data[1] != '') { $("td", row).eq(1).addClass("text-nowrap"); }
+      // columna: nombres
+      // if (data[2] != '') { $("td", row).eq(2).addClass("text-nowrap"); }
       // columna: estado
-      if (data[7] != '') { $("td", row).eq(7).addClass("text-nowrap"); }
+      if (data[5] != '') { $("td", row).eq(5).addClass("text-nowrap"); }
     },
     language: {
       lengthMenu: "Mostrar: _MENU_ registros",
@@ -219,7 +225,7 @@ function buscar_dni() {
       { extend: 'pdfHtml5', footer: false, orientation: 'landscape', pageSize: 'LEGAL', exportOptions: { columns: [0,2,10,4,5,11,7,8], } },      
     ],
     ajax: {
-      url: `ajax/buscador_colegiado.php?op=buscar_dni&capitulo_dni=${capitulo_dni}&nombre_dni=${nombre_dni}`,
+      url: `ajax/buscador_colegiado.php?op=buscar&capitulo=${capitulo_dni}&nombre=${nombre_dni}&tipo_busqueda=dni`,
       type: "get",
       dataType: "json",
       error: function (e) {
@@ -231,8 +237,10 @@ function buscar_dni() {
       if (data[0] != '') { $("td", row).eq(0).addClass("text-center"); } 
       // columna: op
       if (data[1] != '') { $("td", row).eq(1).addClass("text-nowrap"); }
+      // columna: nombres
+      // if (data[2] != '') { $("td", row).eq(2).addClass("text-nowrap"); }
       // columna: estado
-      if (data[7] != '') { $("td", row).eq(7).addClass("text-nowrap"); }
+      if (data[5] != '') { $("td", row).eq(5).addClass("text-nowrap"); }
     },
     language: {
       lengthMenu: "Mostrar: _MENU_ registros",
