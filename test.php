@@ -98,15 +98,15 @@
               <div class="tabs-custom tabs-horizontal tabs-line tabs-line-big text-center text-md-left" id="tabs-6">
                 <!-- Nav tabs-->
                 <ul class="nav nav-tabs">
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-1" data-toggle="tab">All</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-2" data-toggle="tab">Nombre</a></li>
+                  <!-- <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-1" data-toggle="tab">All</a></li> -->
+                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-2" data-toggle="tab">Nombre</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-3" data-toggle="tab">CIP</a></li>
                   <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-4" data-toggle="tab">DNI</a></li>
                 </ul>
                 <!-- Tab panes-->
                 <div class="tab-content">
                   <!-- Buscar por Todo -->
-                  <div class="tab-pane fade show active" id="tabs-6-1">
+                  <!-- <div class="tab-pane fade show active" id="tabs-6-1">
                     <h5 class="font-weight-normal">Buscar Profesional</h5>
                     <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>
                     
@@ -127,7 +127,7 @@
                         <input class="form-control" type="text" name="nombre_all" id="nombre_all" placeholder="Nombre, CIP o DNI" onkeyup="convert_mayuscula(this);">
                       </div>   
 
-                      <!-- barprogress -->
+                      barprogress
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px; display: none;" id="barra_progress_all_div">
                         <div class="progress" >
                           <div id="barra_progress_all" class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
@@ -138,10 +138,10 @@
 
                       <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
                     </form>
-                  </div>
+                  </div> -->
 
-                  <!-- Buscar por nombre -->
-                  <div class="tab-pane fade" id="tabs-6-2">
+                  <!-- Buscar por nombre --> 
+                  <div class="tab-pane fade show active" id="tabs-6-2">
                     <h5 class="font-weight-normal">Buscar Profesional</h5>
                     <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
                     <form id="form-buscar-nombre" name="form-buscar-nombre" method="post">
@@ -236,11 +236,9 @@
                   <tr class="text-nowrap">
                     <th scope="col">#</th>
                     <th scope="col">OP</th>
-                    <th class="col">Foto</th>
-                    <th scope="col">Nombres</th>
+                    <th class="col">Nombres</th>
                     <th scope="col">N° CIP</th>
-                    <th scope="col">Capítulo</th>
-                    <th scope="col">Especialidad</th>
+                    <th scope="col">Cap./Espec.</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Incorporacion</th>
                     <th scope="col">Situación</th>
@@ -253,11 +251,9 @@
                   <tr class="text-nowrap">
                     <th scope="col">#</th>
                     <th scope="col">OP</th>
-                    <th class="col">Foto</th>
-                    <th scope="col">Nombres</th>
+                    <th class="col">Nombres</th>
                     <th scope="col">N° CIP</th>
-                    <th scope="col">Capítulo</th>
-                    <th scope="col">Especialidad</th>
+                    <th scope="col">Cap./Espec.</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Incorporacion</th>
                     <th scope="col">Situación</th>
