@@ -104,41 +104,7 @@
                   <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-4" data-toggle="tab">DNI</a></li>
                 </ul>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <!-- Buscar por Todo -->
-                  <!-- <div class="tab-pane fade show active" id="tabs-6-1">
-                    <h5 class="font-weight-normal">Buscar Profesional</h5>
-                    <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>
-                    
-                    <form id="form-buscar-all" name="form-buscar-all" method="post">
-                      <div class="form-group mt-4"> 
-                        <select class="form-control"  name="capitulo_all" id="capitulo_all" style="width: 100%; height: auto !important;" >
-                          <option value="0">TODOS</option>
-                          <option value="1">ING. AGRONOMOS</option>
-                          <option value="2">ING. CIVIL</option>
-                          <option value="3">ING. IND Y SIST</option>
-                          <option value="4">ING. SANIT Y AMB</option>
-                          <option value="5">ING. MEC. Y ELECTRI</option>
-                          <option value="6">ING. INDUST. ALIMENT Y AGROIND</option>
-                          <option value="8">ING. PETROQUIMICO</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <input class="form-control" type="text" name="nombre_all" id="nombre_all" placeholder="Nombre, CIP o DNI" onkeyup="convert_mayuscula(this);">
-                      </div>   
-
-                      barprogress
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px; display: none;" id="barra_progress_all_div">
-                        <div class="progress" >
-                          <div id="barra_progress_all" class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
-                            0%
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
-                    </form>
-                  </div> -->
+                <div class="tab-content">                  
 
                   <!-- Buscar por nombre --> 
                   <div class="tab-pane fade show active" id="tabs-6-2">

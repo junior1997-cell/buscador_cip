@@ -12,23 +12,17 @@
     <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="dist/css/fonts.css">
     <link rel="stylesheet" href="dist/css/style.css">
+
+    <!-- DataTables --> 
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/jquery.dataTables.min.css">    
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/responsive.dataTables.min.css" rel="stylesheet"/>
+
+    <!-- stylo propio -->
+    <link rel="stylesheet" href="dist/css/my_style.css">
     
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
-    <style>
-      .opacity {
-        opacity: 0.5;
-        background-size: cover;
-        background: #33475b00;
-      }
-      .img{
-        background-image:linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))), url("dist/images/slide-bg-1.jpg");
-      }
-      .font_color{
-        color: rgb(0, 0, 0); 
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      }
-
-    </style>
+    
   </head>
   <body>
     <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="dist/images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -70,9 +64,9 @@
                       <ul class="rd-navbar-nav">
                         <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a></li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="#services">Servicios</a></li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="#projects">Projectos</a></li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="#projects">Capítulos</a></li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="#team">Equipo</a></li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="#news">Noticias</a></li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="#news">Búsquedas</a></li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="#contacts">Contacto</a></li>
                       </ul>
                     </div>
@@ -88,24 +82,24 @@
           <div class="swiper-wrapper text-center">
             <div class="swiper-slide opacity" data-slide-bg="dist/images/slide-bg-1.jpg">
               <div class="swiper-slide-caption section-md">
-                <div class="container">
-                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
+                <div class="container bg-050505d1">
+                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color resplandor pt-5">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
                   <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100">Bienvenidos</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide opacity" data-slide-bg="dist/images/slide-bg-2.jpg">
               <div class="swiper-slide-caption section-md">
-                <div class="container">
-                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
+                <div class="container bg-050505d1">
+                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color resplandor  pt-5">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
                   <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100">.</p>
                 </div>
               </div>
             </div>
             <div class="swiper-slide opacity" data-slide-bg="dist/images/slide-bg-3.jpg" >
               <div class="swiper-slide-caption section-md">
-                <div class="container">
-                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
+                <div class="container bg-050505d1">
+                  <h1 data-caption-animate="fadeInLeft" data-caption-delay="0" class="font_color resplandor  pt-5">CONSEJO DEPARTAMENTAL DE SAN MARTÍN TARAPOTO</h1>
                   <p class="text-width-large" data-caption-animate="fadeInRight" data-caption-delay="100"></p>
                 </div>
               </div>
@@ -120,7 +114,7 @@
         </section>
 
       </div>
-      <!-- See all services-->
+      <!-- Servicios -->
       <section class="section section-sm section-first bg-default text-center" id="services">
         <div class="container">
           <div class="row row-30 justify-content-center">
@@ -166,7 +160,7 @@
         </div>
       </section>
 
-      <!-- Cta-->
+      <!--  -->
       <section class="section section-fluid bg-default">
         <div class="parallax-container" data-parallax-img="dist/images/bg-cursos.jpg">
           <div class="parallax-content section-xl context-dark bg-overlay-68 bg-mobile-overlay">
@@ -183,7 +177,7 @@
         </div>
       </section>
 
-      <!-- Latest Projects-->
+      <!-- Capitulos-->
       <section class="section section-sm section-fluid bg-default text-center" id="projects">
         <div class="container-fluid">
           <h2 class="wow fadeInLeft">Capítulos</h2>
@@ -193,67 +187,607 @@
           <div class="isotope-filters isotope-filters-horizontal">
             <button class="isotope-filters-toggle button button-md button-icon button-icon-right button-default-outline button-wapasha" data-custom-toggle="#isotope-3" data-custom-toggle-hide-on-blur="true" data-custom-toggle-disable-on-blur="true"><span class="icon fa fa-caret-down"></span>Filter</button>
             <ul class="isotope-filters-list" id="isotope-3">
-              <li><a class="active" href="#" data-isotope-filter="*" data-isotope-group="gallery">All</a></li>
-              <li><a href="#" data-isotope-filter="Type 1" data-isotope-group="gallery">mobile Apps</a></li>
-              <li><a href="#" data-isotope-filter="Type 2" data-isotope-group="gallery">Custom Software</a></li>
-              <li><a href="#" data-isotope-filter="Type 3" data-isotope-group="gallery">QA & Testing</a></li>
-              <li><a href="#" data-isotope-filter="Type 4" data-isotope-group="gallery">UX and Design</a></li>
+              
+              <li><a class="active" href="#" data-isotope-filter="Type 1" data-isotope-group="gallery">ING. AGRONOMOS</a></li>
+              <li><a href="#" data-isotope-filter="Type 2" data-isotope-group="gallery">ING. CIVIL</a></li>
+              <li><a href="#" data-isotope-filter="Type 3" data-isotope-group="gallery">ING. IND Y SIST</a></li>
+              <li><a href="#" data-isotope-filter="Type 4" data-isotope-group="gallery">ING. SANIT Y AMB</a></li>
+              <li><a href="#" data-isotope-filter="Type 5" data-isotope-group="gallery">ING. MEC. Y ELECTRI</a></li>
+              <li><a href="#" data-isotope-filter="Type 6" data-isotope-group="gallery">ING. INDUST. ALIMENT Y AGROIND</a></li>
+              <li><a href="#" data-isotope-filter="Type 7" data-isotope-group="gallery">ING. PETROQUIMICO</a></li>
+              <li><a href="#" data-isotope-filter="*" data-isotope-group="gallery">TODOS</a></li>
             </ul>
           </div>
           <div class="row row-30 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group">
-            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4">
-              <!-- Thumbnail Classic-->
+            <!-- ::::::::::::::::::::::::::::::::::::  ING. AGRONOMOS  :::::::::::::::::::::::::::::::::::: -->
+
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">
               <article class="thumbnail thumbnail-classic thumbnail-md">
-                <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/agronomos.jpeg" alt="" width="420" height="350"/>
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img1.webp" alt="" width="420" height="350"/>
                 </div>
                 <div class="thumbnail-classic-caption">
-                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/agronomos.jpg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-1-420x350.jpg" alt="" width="420" height="350"/></a>
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img1.webp" data-lightgallery="item"><img src="dist/images/agronomo/img1.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="dist/images/agronomo/img1.webp" data-lightgallery="item">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img2 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img2.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img2.webp" data-lightgallery="item"><img src="dist/images/agronomo/img2.webp" alt="" width="420" height="350"/></a>
                     <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
                   </div>
                   <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
                 </div>
               </article>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">
-              <!-- Thumbnail Classic-->
+
+            <!-- img3 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
               <article class="thumbnail thumbnail-classic thumbnail-md">
-                <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/civil.jpeg" alt="" width="420" height="350"/>
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img3.webp" alt="" width="420" height="350"/>
                 </div>
                 <div class="thumbnail-classic-caption">
-                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/civil.jpeg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-2-420x350.jpg" alt="" width="420" height="350"/></a>
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img3.webp" data-lightgallery="item"><img src="dist/images/agronomo/img3.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img4 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img4.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img4.webp" data-lightgallery="item"><img src="dist/images/agronomo/img4.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img5 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img5.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img5.webp" data-lightgallery="item"><img src="dist/images/agronomo/img5.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img6 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img6.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img6.webp" data-lightgallery="item"><img src="dist/images/agronomo/img6.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img7 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img7.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img7.webp" data-lightgallery="item"><img src="dist/images/agronomo/img7.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img8 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 1" data-wow-delay=".1s">              
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/agronomo/img8.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/agronomo/img8.webp" data-lightgallery="item"><img src="dist/images/agronomo/img8.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE AGRONOMOS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. ELIAS TORRES FLORES</p>
+                </div>
+              </article>
+            </div>
+            
+            <!-- :::::::::::::::::::::::::::::::::::  ING. CIVIL :::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img1.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img1.webp" data-lightgallery="item"><img src="dist/images/civil/img1.webp" alt="" width="420" height="350"/></a>
                     <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
                   </div>
                   <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
                 </div>
               </article>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".2s">
+
+            <!-- img2 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
               <!-- Thumbnail Classic-->
               <article class="thumbnail thumbnail-classic thumbnail-md">
-                <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/alimentaria.jpeg" alt="" width="420" height="350"/>
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img2.webp" alt="" width="420" height="350"/>
                 </div>
                 <div class="thumbnail-classic-caption">
-                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/alimentaria.jpeg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-3-420x350.jpg" alt="" width="420" height="350"/></a>
-                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIAS ALIMENTARIAS Y AGROINDUSTRIALES</a></h5>
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img2.webp" data-lightgallery="item"><img src="dist/images/civil/img2.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img3 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img3.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img3.webp" data-lightgallery="item"><img src="dist/images/civil/img3.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img4 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img4.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img4.webp" data-lightgallery="item"><img src="dist/images/civil/img4.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img5 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img5.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img5.webp" data-lightgallery="item"><img src="dist/images/civil/img5.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img6 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img6.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img6.webp" data-lightgallery="item"><img src="dist/images/civil/img6.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img7 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img7.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img7.webp" data-lightgallery="item"><img src="dist/images/civil/img7.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img8 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 2" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/civil/img8.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/civil/img8.webp" data-lightgallery="item"><img src="dist/images/civil/img8.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO DE CIVILES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. MAXIMO ALCIBIADES VILCA COTRINA</p>
+                </div>
+              </article>
+            </div>
+            
+
+            <!-- ::::::::::::::::::::::::::::::::::: ING. IND Y SIST  ::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img1.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img1.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img1.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
                   </div>
                   <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
                 </div>
               </article>
             </div>
+
+            <!-- img2 -->
             <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
               <!-- Thumbnail Classic-->
               <article class="thumbnail thumbnail-classic thumbnail-md">
-                <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/sistemas.jpeg" alt="" width="420" height="350"/>
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img2.webp" alt="" width="420" height="350"/>
                 </div>
                 <div class="thumbnail-classic-caption">
-                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/sistemas.jpeg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-4-420x350.jpg" alt="" width="420" height="350"/></a>
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img2.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img2.webp" alt="" width="420" height="350"/></a>
                     <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img3 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img3.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img3.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img3.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img4 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img4.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img4.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img4.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img5 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img5.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img5.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img5.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img6 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img6.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img6.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img6.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img7 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img7.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img7.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img7.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img8 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img8.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img8.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img8.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img9 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img9.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img9.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img9.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img10 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img10.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img10.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img10.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img11 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img11.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img11.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img11.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- img12 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 3" data-wow-delay=".3s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sistemas_industrial/img12.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sistemas_industrial/img12.webp" data-lightgallery="item"><img src="dist/images/sistemas_industrial/img12.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIALES Y SISTEMAS</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. RICHER GARAY MONTES.</p>
+                </div>
+              </article>
+            </div>
+            <!-- ::::::::::::::::::::::::::::::::::: ING. SANIT Y AMB ::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->            
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img1.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img1.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img12.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
                   </div>
                   <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
                 </div>
               </article>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 3">
+            <!-- img2 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img2.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img2.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img2.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img3 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img3.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img3.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img3.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img4 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img4.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img4.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img4.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img5 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img5.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img5.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img5.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img6 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img6.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img6.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img6.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img7 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img7.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img7.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img7.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img8 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img8.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img8.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img8.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img9 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img9.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img9.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img9.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img10 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img10.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img10.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img10.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img11 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img11.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img11.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img11.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+            <!-- img12 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInRight" data-filter="Type 4" data-wow-delay=".1s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/sanitaria_ambiental/img12.webp" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/sanitaria_ambiental/img12.webp" data-lightgallery="item"><img src="dist/images/sanitaria_ambiental/img12.webp" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. JUAN ORLANDO RIASCOS ARMAS</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- ::::::::::::::::::::::::::::::::::: ING. MEC. Y ELECTRI ::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 5" data-wow-delay=".2s">
               <!-- Thumbnail Classic-->
               <article class="thumbnail thumbnail-classic thumbnail-md">
                 <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/mecanica.jpeg" alt="" width="420" height="350"/>
@@ -266,14 +800,33 @@
                 </div>
               </article>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 1" data-wow-delay=".1s">
+
+            <!-- ::::::::::::::::::::::::::::::::::: ING. INDUST. ALIMENT Y AGROIND ::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 6" data-wow-delay=".6s">
               <!-- Thumbnail Classic-->
               <article class="thumbnail thumbnail-classic thumbnail-md">
                 <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/ambiental.jpeg" alt="" width="420" height="350"/>
                 </div>
                 <div class="thumbnail-classic-caption">
                   <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/ambiental.jpeg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-6-420x350.jpg" alt="" width="420" height="350"/></a>
-                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO SANITARIOS Y AMBIENTALES</a></h5>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO INDUSTRIAS ALIMENTARIAS Y AGROINDUSTRIALES</a></h5>
+                  </div>
+                  <p class="thumbnail-classic-text">PRESIDENTE: ING. HENRY CARBAJAL MOGOLLON</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- ::::::::::::::::::::::::::::::::::: ING. PETROQUIMICO ::::::::::::::::::::::::::::::::::: -->
+            <!-- img1 -->
+            <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item wow fadeInLeft" data-filter="Type 7" data-wow-delay=".7s">
+              <!-- Thumbnail Classic-->
+              <article class="thumbnail thumbnail-classic thumbnail-md">
+                <div class="thumbnail-classic-figure"><img src="dist/images/capitulos/ambiental.jpeg" alt="" width="420" height="350"/>
+                </div>
+                <div class="thumbnail-classic-caption">
+                  <div class="thumbnail-classic-title-wrap"><a class="icon fl-bigmug-line-zoom60" href="dist/images/capitulos/ambiental.jpeg" data-lightgallery="item"><img src="dist/images/fullwidth-gallery-6-420x350.jpg" alt="" width="420" height="350"/></a>
+                    <h5 class="thumbnail-classic-title"><a href="#">CAPÍTULO PETROQUIMICO</a></h5>
                   </div>
                   <p class="thumbnail-classic-text">PRESIDENTE: ING. HENRY CARBAJAL MOGOLLON</p>
                 </div>
@@ -283,7 +836,7 @@
         </div>
       </section>
 
-      <!-- Years of experience-->
+      <!-- años de experiencia -->
       <section class="section section-sm bg-default">
         <div class="container">
           <div class="row row-30 row-xl-24 justify-content-center align-items-center align-items-lg-start text-left">
@@ -295,24 +848,24 @@
                 <p class="text-gray-500">El propósito permanente del CIP es representar, promover, normar, controlar y defender el desarrollo de la Ingeniería Peruana y el ejercicio profesional de los Ingenieros. </p><a class="button button-secondary button-pipaluk" href="#">Ponerse en contacto</a>
               </div>
             </div>
-            <div class="col-sm-10 col-md-8 col-lg-6 col-xl-6 wow fadeInRight" data-wow-delay=".1s">
+            <!-- <div class="col-sm-10 col-md-8 col-lg-6 col-xl-6 wow fadeInRight" data-wow-delay=".1s">
               <div class="row justify-content-center border-2-column offset-top-xl-26">
                 <div class="text-width-extra-small offset-top-lg-24 wow fadeInUp">
                   <h3 class="title-decoration-lines-left">Años de experiencia</h3>
                   <p class="text-gray-500">El propósito permanente del CIP es representar, promover, normar, controlar y defender el desarrollo de la Ingeniería Peruana y el ejercicio profesional de los Ingenieros. </p><a class="button button-secondary button-pipaluk" href="#">Ponerse en contacto</a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
 
-      <!-- Meet The Team-->
+      <!-- Equipo de trabajo-->
       <section class="section section-sm section-fluid bg-default" id="team">
         <div class="container-fluid">
-          <h2>Equipo</h2>
+          <h2>Equipo de Trabajo</h2>
           <div class="row row-sm row-30 justify-content-center">
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/alex.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -321,7 +874,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".1s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/jose.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -330,7 +883,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".2s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".2s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/geral.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -339,7 +892,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".3s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".3s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/junior.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -351,10 +904,11 @@
           </div>
         </div>
       </section>
-      <section class="section section-sm section-fluid bg-default" id="team">
+
+      <section class="section section-sm section-fluid bg-default" >
         <div class="container-fluid">
           <div class="row row-sm row-30 justify-content-center">
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/sergio.jpeg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -363,7 +917,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".1s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/pedro.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -372,7 +926,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".1s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/erick.jpeg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -381,7 +935,7 @@
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".1s">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/jhon.jpg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -393,19 +947,20 @@
           </div>
         </div>
       </section>
-      <section class="section section-sm section-fluid bg-default" id="team">
+
+      <section class="section section-sm section-fluid bg-default" >
         <div class="container-fluid">
           <div class="row row-sm row-30 justify-content-center">
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight" data-wow-delay=".1s">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight" data-wow-delay=".1s">
               <!-- Team Classic-->
-              <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/team-11-420x424.jpg" alt="" width="420px" height="424px"/></a>
+              <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/davico.png" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
                   <h4 class="team-classic-name"><a href="#">David Melvin Requejo Santa Cruz</a></h4>
                   <p class="team-classic-status">RRHH</p>
                 </div>
               </article>
             </div>
-            <div class="col-md-6 col-lg-5 col-xl-3 wow fadeInRight">
+            <div class="col-md-6 col-lg-4 col-xl-2 wow fadeInRight">
               <!-- Team Classic-->
               <article class="team-classic team-classic-lg"><a class="team-classic-figure" href="#"><img src="dist/images/equipo/jhon_1.jpeg" alt="" width="420px" height="424px"/></a>
                 <div class="team-classic-caption">
@@ -419,215 +974,160 @@
         </div>
       </section>
 
-      <!-- You dream — we embody-->
-      <section class="section section-sm bg-default text-md-left">
+      <!-- Busquedas -->
+      <section class="section section-sm section-fluid bg-default text-center" id="news">
+        <div class="container-fluid">
+          <h2 class="wow fadeInLeft"> Busca tu profesional con principios</h2>
+          <p class="quote-jean wow fadeInRight" data-wow-delay=".1s">Entre estos principios éticos están la responsabilidad, el respeto, la diligencia, la constancia, la puntualidad, la justicia o la honestidad.</p>          
+        </div>
+      </section>      
+
+      <!-- Busquedas -->
+      <section class="section section-sm bg-default text-md-left" >
         <div class="container">
           <div class="row row-50 align-items-center justify-content-center justify-content-xl-between">
             <div class="col-lg-6 col-xl-5 wow fadeInLeft">
-              <h2>Get More With Us</h2>
+              <h2>Buscador</h2>
+              <!-- <p class="wow fadeInRight" data-wow-delay=".1s">Entre estos principios éticos están la responsabilidad, el respeto, la diligencia, la constancia, la puntualidad, la justicia o la honestidad.</p> -->
+
               <!-- Bootstrap tabs-->
               <div class="tabs-custom tabs-horizontal tabs-line tabs-line-big text-center text-md-left" id="tabs-6">
                 <!-- Nav tabs-->
                 <ul class="nav nav-tabs">
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-1" data-toggle="tab">01</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-2" data-toggle="tab">02</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-3" data-toggle="tab">03</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-4" data-toggle="tab">04</a></li>
+                  <!-- <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-1" data-toggle="tab">All</a></li> -->
+                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big active" href="#tabs-6-2" data-toggle="tab">Nombre</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-3" data-toggle="tab">CIP</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link nav-link-big" href="#tabs-6-4" data-toggle="tab">DNI</a></li>
                 </ul>
                 <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-6-1">
-                    <h5 class="font-weight-normal">FREE APPS</h5>
-                    <p>We regularly upload new free apps to our website, which is fully accessible to our clients and subscribers. You can also find out about free apps in our blog.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Get in touch</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                <div class="tab-content">                  
+
+                  <!-- Buscar por nombre --> 
+                  <div class="tab-pane fade show active" id="tabs-6-2">
+                    <h5 class="font-weight-normal">Buscar Profesional</h5>
+                    <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
+                    <form id="form-buscar-nombre" name="form-buscar-nombre" method="post">
+                      <div class="form-group"> 
+                        <select class="form-control"  name="capitulo_nombre" id="capitulo_nombre" style="width: 100%; height: auto !important;">
+                          <option value="0">TODOS</option>
+                          <option value="1">ING. AGRONOMOS</option>
+                          <option value="2">ING. CIVIL</option>
+                          <option value="3">ING. IND Y SIST</option>
+                          <option value="4">ING. SANIT Y AMB</option>
+                          <option value="5">ING. MEC. Y ELECTRI</option>
+                          <option value="6">ING. INDUST. ALIMENT Y AGROIND</option>
+                          <option value="8">ING. PETROQUIMICO</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" type="text" name="nombre_nombre" id="nombre_nombre" placeholder="Nombre" onkeyup="convert_mayuscula(this);">
+                      </div> 
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-nombre" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
+                    </form>                    
                   </div>
-                  <div class="tab-pane fade" id="tabs-6-2">
-                    <h5 class="font-weight-normal">GET SOCIAL</h5>
-                    <p>Every app we develop has built-in social support that allows you to stay connected to your accounts on Facebook, Instagram, Twitter and other networks.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Get in touch</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
-                  </div>
+
+                  <!-- buscar por CIP -->
                   <div class="tab-pane fade" id="tabs-6-3">
-                    <h5 class="font-weight-normal">CUSTOMER SERVICE</h5>
-                    <p>Every customer of RatherApp can get access to our friendly and qualified 24/7 support via chat or phone. Fell free to ask us any question!</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Get in touch</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <h5 class="font-weight-normal">Buscar Profesional</h5>
+                    <p>Escribe codigo CIP, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
+                    <form id="form-buscar-cip" name="form-buscar-cip" method="post">
+                      <div class="form-group"> 
+                        <select class="form-control"  name="capitulo_cip" id="capitulo_cip" style="width: 100%; height: auto !important;">
+                          <option value="0">TODOS</option>
+                          <option value="1">ING. AGRONOMOS</option>
+                          <option value="2">ING. CIVIL</option>
+                          <option value="3">ING. IND Y SIST</option>
+                          <option value="4">ING. SANIT Y AMB</option>
+                          <option value="5">ING. MEC. Y ELECTRI</option>
+                          <option value="6">ING. INDUST. ALIMENT Y AGROIND</option>
+                          <option value="8">ING. PETROQUIMICO</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" type="number" name="nombre_cip" id="nombre_cip" placeholder="CIP" onkeyup="convert_mayuscula(this);">
+                      </div> 
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-cip" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                     
+                    </form>                    
                   </div>
+
+                  <!-- Buscar por DNI -->
                   <div class="tab-pane fade" id="tabs-6-4">
-                    <h5 class="font-weight-normal">GREAT USABILITY</h5>
-                    <p>All our apps are designed to have great usability in order to easily operate our applications. That is why our software has high ratings and lots of awards.</p>
-                    <div class="group-sm group-middle"><a class="button button-secondary button-pipaluk" href="#modalCta" data-toggle="modal">Get in touch</a><a class="button button-default-outline button-wapasha" href="#">Learn More</a></div>
+                    <h5 class="font-weight-normal">Buscar Profesional</h5>
+                    <p>Escribe DNI, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
+                    <form id="form-buscar-dni" name="form-buscar-dni" method="post">
+                      <div class="form-group"> 
+                        <select class="form-control"  name="capitulo_dni" id="capitulo_dni" style="width: 100%; height: auto !important;">
+                          <option value="0">TODOS</option>
+                          <option value="1">ING. AGRONOMOS</option>
+                          <option value="2">ING. CIVIL</option>
+                          <option value="3">ING. IND Y SIST</option>
+                          <option value="4">ING. SANIT Y AMB</option>
+                          <option value="5">ING. MEC. Y ELECTRI</option>
+                          <option value="6">ING. INDUST. ALIMENT Y AGROIND</option>
+                          <option value="8">ING. PETROQUIMICO</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" type="number" name="nombre_dni" id="nombre_dni" placeholder="DNI" onkeyup="convert_mayuscula(this);">
+                      </div>   
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-dni" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                   
+                    </form>                    
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 text-center wow fadeInUp" data-wow-delay=".1s">
-              <div class="owl-carousel owl-style-1" data-items="2" data-stage-padding="0" data-loop="true" data-margin="0" data-mouse-drag="true" data-autoplay="true"><a class="box-device" href="#"><img src="dist/images/index-4-313x580.png" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="dist/images/index-5-313x580.png" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="dist/images/index-4-313x580.png" alt="" width="313" height="580"/></a><a class="box-device" href="#"><img src="dist/images/index-5-313x580.png" alt="" width="313" height="580"/></a></div>
+            <div class="col-lg-6 text-center wow fadeInUp" data-wow-delay=".05s">
+              <div class="owl-carousel owl-style-1" data-items="2" data-stage-padding="0" data-loop="true" data-margin="0" data-mouse-drag="true" data-autoplay="true">
+                <a class="box-device" href="#"><img src="dist/images/img_1.png" alt="" width="313" height="580"/></a>
+                <a class="box-device" href="#"><img src="dist/images/img_2.png" alt="" width="313" height="580"/></a>
+                <a class="box-device" href="#"><img src="dist/images/img_3.png" alt="" width="313" height="580"/></a>
+                <a class="box-device" href="#"><img src="dist/images/img_4.png" alt="" width="313" height="580"/></a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- What people Say-->
-      <section class="section section-sm section-bottom-70 section-fluid bg-default">
-        <div class="container-fluid">
-          <h2>What people Say</h2>
-          <div class="row row-50 row-sm">
-            <div class="col-md-6 col-xl-4 wow fadeInRight">
-              <!-- Quote Modern-->
-              <article class="quote-modern quote-modern-custom">
-                <div class="unit unit-spacing-md align-items-center">
-                  <div class="unit-left"><a class="quote-modern-figure" href="#"><img class="img-circles" src="dist/images/user-11-75x75.jpg" alt="" width="75" height="75"/></a></div>
-                  <div class="unit-body">
-                    <h4 class="quote-modern-cite"><a href="#">Catherine Williams</a></h4>
-                    <p class="quote-modern-status">Regular client</p>
-                  </div>
-                </div>
-                <div class="quote-modern-text">
-                  <p class="q">RatherApp offers a high caliber of resources skilled in Microsoft Azure .NET, mobile and Quality Assurance. They became our true business partners over the past three years.</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-4 wow fadeInRight" data-wow-delay=".1s">
-              <!-- Quote Modern-->
-              <article class="quote-modern quote-modern-custom">
-                <div class="unit unit-spacing-md align-items-center">
-                  <div class="unit-left"><a class="quote-modern-figure" href="#"><img class="img-circles" src="dist/images/user-12-75x75.jpg" alt="" width="75" height="75"/></a></div>
-                  <div class="unit-body">
-                    <h4 class="quote-modern-cite"><a href="#">Rupert Wood</a></h4>
-                    <p class="quote-modern-status">Regular client</p>
-                  </div>
-                </div>
-                <div class="quote-modern-text">
-                  <p class="q">RatherApp powered us with a competent team to develop products for banking services. The team has been delivering results within budget and time, which is amazing.</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-xl-4 wow fadeInRight" data-wow-delay=".2s">
-              <!-- Quote Modern-->
-              <article class="quote-modern quote-modern-custom">
-                <div class="unit unit-spacing-md align-items-center">
-                  <div class="unit-left"><a class="quote-modern-figure" href="#"><img class="img-circles" src="dist/images/user-20-75x75.jpg" alt="" width="75" height="75"/></a></div>
-                  <div class="unit-body">
-                    <h4 class="quote-modern-cite"><a href="#">Samantha Brown</a></h4>
-                    <p class="quote-modern-status">Regular client</p>
-                  </div>
-                </div>
-                <div class="quote-modern-text">
-                  <p class="q">RatherApp is a highly skilled and uniquely capable firm with multitudes of talent on-board. We have collaborated on a number of diverse projects that have been a great success.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing-->
-      <section class="section section-sm section-bottom-70 section-fluid bg-default">
+      <!-- resultado en tabla -->
+      <section class="section section-sm bg-default text-md-left div-resultado"  style="display: none !important;">
         <div class="container">
-          <h2>Pricing</h2>
-          <div class="row row-30 justify-content-center">
-            <div class="col-md-6 col-lg-5 col-xl-4">
-              <div class="box-pricing box-pricing-black">
-                <div class="box-pricing-body">
-                  <h5 class="box-pricing-title">basic</h5>
-                  <h3 class="box-pricing-price">$500.00</h3>
-                  <div class="box-pricing-time">starting at</div>
-                  <div class="box-pricing-divider">
-                    <div class="divider"></div><span>Basic</span>
-                  </div>
-                  <ul class="box-pricing-list">
-                    <li class="active">Concept development</li>
-                    <li class="active">UI design</li>
-                    <li>Configuration management</li>
-                    <li>Software quality assurance</li>
-                    <li>App integration</li>
-                  </ul>
-                </div>
-                <div class="box-pricing-button"><a class="button button-lg button-block button-gray-4" href="#">Get started</a></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-5 col-xl-4">
-              <div class="box-pricing box-pricing-black box-pricing-popular">
-                <div class="box-pricing-body">
-                  <h5 class="box-pricing-title">Optimal</h5>
-                  <h3 class="box-pricing-price">$800.00</h3>
-                  <div class="box-pricing-time">starting at</div>
-                  <div class="box-pricing-divider">
-                    <div class="divider"></div><span>Optimal</span>
-                  </div>
-                  <ul class="box-pricing-list">
-                    <li class="active">Concept development</li>
-                    <li class="active">UI design</li>
-                    <li class="active">Configuration management</li>
-                    <li class="active">Software quality assurance</li>
-                    <li>App integration</li>
-                  </ul>
-                </div>
-                <div class="box-pricing-button"><a class="button button-lg button-block button-primary" href="#">Get started</a></div>
-                <div class="box-pricing-badge">popular</div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-5 col-xl-4">
-              <div class="box-pricing box-pricing-black">
-                <div class="box-pricing-body">
-                  <h5 class="box-pricing-title">Ultimate</h5>
-                  <h3 class="box-pricing-price">$1200.00</h3>
-                  <div class="box-pricing-time">starting at</div>
-                  <div class="box-pricing-divider">
-                    <div class="divider"></div><span>Ultimate</span>
-                  </div>
-                  <ul class="box-pricing-list">
-                    <li class="active">Concept development</li>
-                    <li class="active">UI design</li>
-                    <li class="active">Configuration management</li>
-                    <li class="active">Software quality assurance</li>
-                    <li class="active">App integration</li>
-                  </ul>
-                </div>
-                <div class="box-pricing-button"><a class="button button-lg button-block button-gray-4" href="#">Get started</a></div>
-              </div>
+          <div class="row">
+            <div class="col-12 table-responsive">
+              <table id="tabla-resultado-busqueda" class="table table-bordered table-striped display" style="width: 100% !important;" >
+                <thead>
+                  <tr class="text-nowrap">
+                    <th scope="col">#</th>
+                    <th scope="col">OP</th>
+                    <th class="col">Nombres</th>
+                    <th scope="col">N° CIP</th>
+                    <th scope="col">Cap./Espec.</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Incorporacion</th>
+                    <th scope="col">Situación</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">CV</th>                  
+                  </tr>
+                </thead>
+                <tbody>  </tbody>
+                <tfoot>
+                  <tr class="text-nowrap">
+                    <th scope="col">#</th>
+                    <th scope="col">OP</th>
+                    <th class="col">Nombres</th>
+                    <th scope="col">N° CIP</th>
+                    <th scope="col">Cap./Espec.</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Incorporacion</th>
+                    <th scope="col">Situación</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">CV</th>                  
+                  </tr>
+                </tfoot>
+              </table>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- Latest blog posts-->
-      <section class="section section-sm bg-default" id="news">
-        <div class="container">
-          <h2>Latest blog posts</h2>
-          <div class="row row-45">
-            <div class="col-sm-6 col-lg-4 wow fadeInLeft">
-              <!-- Post Modern-->
-              <article class="post post-modern"><a class="post-modern-figure" href="#"><img src="dist/images/post-10-370x307.jpg" alt="" width="370" height="307"/>
-                  <div class="post-modern-time">
-                    <time datetime="2019-07-04"><span class="post-modern-time-month">07</span><span class="post-modern-time-number">04</span></time>
-                  </div></a>
-                <h4 class="post-modern-title"><a href="#">Benefits of Async/Await</a></h4>
-                <p class="post-modern-text">Asynchronous functions are a good and bad thing in JavaScript. The good side is that asynchronous functions are non-blocking and...</p>
-              </article>
-            </div>
-            <div class="col-sm-6 col-lg-4 wow fadeInLeft" data-wow-delay=".1s">
-              <!-- Post Modern-->
-              <article class="post post-modern"><a class="post-modern-figure" href="#"><img src="dist/images/post-11-370x307.jpg" alt="" width="370" height="307"/>
-                  <div class="post-modern-time">
-                    <time datetime="2019-07-17"><span class="post-modern-time-month">07</span><span class="post-modern-time-number">17</span></time>
-                  </div></a>
-                <h4 class="post-modern-title"><a href="#">Key Considerations of iPaaS</a></h4>
-                <p class="post-modern-text">Digital transformation requires cloud appropriate adoption, legacy IT systems modernization, and Agile-based methodologies for faster...</p>
-              </article>
-            </div>
-            <div class="col-sm-6 col-lg-4 wow fadeInLeft" data-wow-delay=".2s">
-              <!-- Post Modern-->
-              <article class="post post-modern"><a class="post-modern-figure" href="#"><img src="dist/images/post-12-370x307.jpg" alt="" width="370" height="307"/>
-                  <div class="post-modern-time">
-                    <time datetime="2019-07-22"><span class="post-modern-time-month">07</span><span class="post-modern-time-number">22</span></time>
-                  </div></a>
-                <h4 class="post-modern-title"><a href="#">Never Stop Optimizing Your Code</a></h4>
-                <p class="post-modern-text">In this tutorial, we will discuss the Hibernate Query Language. HQL is an object-oriented query language. Hibernate Query...</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
+      </section>  
 
       <!-- Contact information-->
       <section class="section section-sm bg-default" id="contacts">
@@ -638,8 +1138,8 @@
                 <div class="box-contacts-body">
                   <div class="box-contacts-icon fl-bigmug-line-cellphone55"></div>
                   <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="tel:#">+1 323-913-4688</a></p>
-                  <p class="box-contacts-link"><a href="tel:#">+1 323-888-4554</a></p>
+                  <p class="box-contacts-link"><a href="tel:042-523155">042-523155</a></p>
+                  <p class="box-contacts-link"><a href="tel:+51942690155">+51 942690155</a></p>
                 </div>
               </article>
             </div>
@@ -648,7 +1148,7 @@
                 <div class="box-contacts-body">
                   <div class="box-contacts-icon fl-bigmug-line-up104"></div>
                   <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="#">4730 Crystal Springs Dr, Los Angeles, CA 90027</a></p>
+                  <p class="box-contacts-link"><a href="#">Jr.Ángel Delgado Morey #577 - Tarapoto</a></p>
                 </div>
               </article>
             </div>
@@ -657,74 +1157,14 @@
                 <div class="box-contacts-body">
                   <div class="box-contacts-icon fl-bigmug-line-chat55"></div>
                   <div class="box-contacts-decor"></div>
-                  <p class="box-contacts-link"><a href="mailto:#">mail@demolink.org</a></p>
-                  <p class="box-contacts-link"><a href="mailto:#">info@demolink.org</a></p>
+                  <p class="box-contacts-link"><a href="mailto:administradora.cdtarapoto@cip.org.pe">administradora@cip.org.pe</a></p>
+                  <p class="box-contacts-link"><a href="mailto:secretaria.cdtarapoto@cip.org.pe">secretaria@cip.org.pe</a></p>
                 </div>
               </article>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- Contact Form-->
-      <!-- <section class="section section-sm section-last bg-default text-left" >
-        <div class="container">
-          <article class="title-classic">
-            <div class="title-classic-title">
-              <h3>Get in touch</h3>
-            </div>
-            <div class="title-classic-text">
-              <p>If you have any questions, just fill in the contact form, and we will answer you shortly.</p>
-            </div>
-          </article>
-          <form class="rd-form rd-form-variant-2 rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-            <div class="row row-14 gutters-14">
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-your-name-2" type="text" name="name" data-constraints="@Required">
-                  <label class="form-label" for="contact-your-name-2">Your Name</label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-email-2" type="email" name="email" data-constraints="@Email @Required">
-                  <label class="form-label" for="contact-email-2">E-mail</label>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-wrap">
-                  <input class="form-input" id="contact-phone-2" type="text" name="phone" data-constraints="@Numeric">
-                  <label class="form-label" for="contact-phone-2">Phone</label>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-wrap">
-                  <label class="form-label" for="contact-message-2">Message</label>
-                  <textarea class="form-input textarea-lg" id="contact-message-2" name="message" data-constraints="@Required"></textarea>
-                </div>
-              </div>
-            </div>
-            <button class="button button-primary button-pipaluk" type="submit">Send Message</button>
-          </form>
-        </div>
-      </section> -->
-
-      <!-- Bottom Banner-->
-      <!-- <section class="section section-fluid"><a class="section-banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" style="background-image: url(images/banner/banner-bg-01-1920x310.jpg); background-image: -webkit-image-set( url(images/banner/banner-bg-01-1920x310.jpg) 1x, url(images/banner/banner-bg-01-3840x620.jpg) 2x )" target="_blank"><img src="dist/images/banner/banner-fg-01-1600x310.png" srcset="dist/images/banner/banner-fg-01-1600x310.png 1x, images/banner/banner-fg-01-3200x620.png 2x" alt="" width="1600" height="310"></a></section> -->
-
-      <!-- RD Google Map-->
-      <!-- <section class="section section-fluid">
-        
-        <section class="section">
-          <div class="google-map-container" data-center="6036 Richmond hwy., Alexandria, VA, 2230" data-zoom="5" data-styles="[{&quot;featureType&quot;:&quot;administrative&quot;,&quot;elementType&quot;:&quot;labels.text.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#444444&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#f2f2f2&quot;}]},{&quot;featureType&quot;:&quot;poi&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.business&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:45}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;labels.icon&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b4d4e1&quot;},{&quot;visibility&quot;:&quot;on&quot;}]}]">
-            <div class="google-map"></div>
-            <ul class="google-map-markers">
-              <li data-location="6036 Richmond hwy., Alexandria, VA, 2230" data-description="6036 Richmond hwy., Alexandria, VA, 2230" data-icon="dist/images/gmap_marker.png" data-icon-active="dist/images/gmap_marker_active.png"></li>
-            </ul>
-          </div>
-          <div id="map"></div>
-        </section>
-      </section> -->
+      </section>      
 
       <!-- Page Footer-->
       <footer class="section section-fluid footer-minimal context-dark">
@@ -732,11 +1172,11 @@
           <div class="container-fluid">
             <div class="footer-minimal-inset oh">
               <ul class="footer-list-category-2">
-                <li><a href="#">UI Design</a></li>
-                <li><a href="#">Windows/Mac OS Apps</a></li>
-                <li><a href="#">Android/iOS Apps</a></li>
-                <li><a href="#">Cloud Solutions</a></li>
-                <li><a href="#">Customer Support</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#projects">Capítulos</a></li>
+                <li><a href="#team">Equipo</a></li>
+                <li><a href="#news">Búsquedas</a></li>
               </ul>
             </div>
             <div class="footer-minimal-bottom-panel text-sm-left">
@@ -756,7 +1196,7 @@
                   <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span> <span>RatherApp</span>
                   </p>
                 </div>
-                <div class="col-sm-6 col-md-4 text-md-right"><span>All rights reserved.</span> <span>Design&nbsp;by&nbsp;<a href="https://www.templatemonster.com">TemplateMonster</a></span>
+                <div class="col-sm-6 col-md-4 text-md-right"><span>Reservados todos los derechos.</span> <span>Design&nbsp;by&nbsp;<a href="https://www.allsystem.com">All-System</a></span>
                 </div>
               </div>
             </div>
@@ -805,6 +1245,20 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="modal-ver-perfil" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 id="title-name-modal">Perfil</h6>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body text-center" id="div-ver-perfil" >
+              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
@@ -813,7 +1267,33 @@
     <script src="dist/js/script.js"></script>
     <!-- coded by Himic-->
 
-    <!-- google maps -->
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables2/jquery.dataTables.min.js"></script>    
+    <script src="plugins/datatables2/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables2/buttons.html5.min.js"></script>
+    <script src="plugins/datatables2/buttons.colVis.min.js"></script>
+    <script src="plugins/datatables2/jszip.min.js"></script>
+    <script src="plugins/datatables2/pdfmake.min.js"></script>
+    <script src="plugins/datatables2/vfs_fonts.js"></script>
+    <script src="plugins/datatables2/datetime.js"></script>
+    <!-- Responsive datatable -->
+    <script src="plugins/datatables2/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables2/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Select -->
+    <script src="plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- toast -->
+    <script src="plugins/toastr/toastr.min.js"></script>
+
+    <!-- jquery-validation -->
+    <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="plugins/jquery-validation/additional-methods.min.js"></script>
+
+    <!-- Recursos -->
+    <script src="js/funcion_crud.js"></script>
+    <script src="js/funcion_general.js"></script>
+    <script src="js/buscador_colegiado.js"></script>>
 
   </body>
 </html>

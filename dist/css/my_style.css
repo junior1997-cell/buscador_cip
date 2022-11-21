@@ -187,3 +187,22 @@ img {
   margin-left: 50px;
 }
 /* user foto table */
+
+.bg-050505d1 {
+  background-color: #050505d1;
+}
+
+.resplandor {
+  text-shadow: 10px 4px 10px rgb(246 4 4 / 81%);
+  font-weight: bold;
+}
+
+.img{
+  background-image:linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))), url("dist/images/slide-bg-1.jpg");
+}
+
+.font_color{
+  color: rgb(255, 255, 255); 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}

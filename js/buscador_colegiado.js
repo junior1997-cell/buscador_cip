@@ -157,6 +157,8 @@ function buscar_nombre() {
       // { targets: [7], render: function (data, type) { var number = $.fn.dataTable.render.number(',', '.', 2).display(data); if (type === 'display') { let color = 'numero_positivos'; if (data < 0) {color = 'numero_negativos'; } return `<span class="float-left">S/</span> <span class="float-right ${color} "> ${number} </span>`; } return number; }, },
     ],
   }).DataTable();
+
+  $('.div-resultado').show();
 }
 
 function buscar_cip() {
@@ -206,6 +208,8 @@ function buscar_cip() {
       // { targets: [7], render: function (data, type) { var number = $.fn.dataTable.render.number(',', '.', 2).display(data); if (type === 'display') { let color = 'numero_positivos'; if (data < 0) {color = 'numero_negativos'; } return `<span class="float-left">S/</span> <span class="float-right ${color} "> ${number} </span>`; } return number; }, },
     ],
   }).DataTable();
+
+  $('.div-resultado').show();
 }
 
 function buscar_dni() {
@@ -255,6 +259,8 @@ function buscar_dni() {
       // { targets: [7], render: function (data, type) { var number = $.fn.dataTable.render.number(',', '.', 2).display(data); if (type === 'display') { let color = 'numero_positivos'; if (data < 0) {color = 'numero_negativos'; } return `<span class="float-left">S/</span> <span class="float-right ${color} "> ${number} </span>`; } return number; }, },
     ],
   }).DataTable();
+
+  $('.div-resultado').show();
 }
 
 function ver_perfil_colegiado(ruta, nombre) {
