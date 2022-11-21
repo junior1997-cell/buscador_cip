@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="dist/css/fonts.css">
     <link rel="stylesheet" href="dist/css/style.css">
+
+    <!-- DataTables --> 
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/jquery.dataTables.min.css">    
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="plugins/datatables2/responsive.dataTables.min.css" rel="stylesheet"/>
+
+    <!-- stylo propio -->
+    <link rel="stylesheet" href="dist/css/my_style.css">
     
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
@@ -103,7 +111,7 @@
                     <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>
                     
                     <form id="form-buscar-all" name="form-buscar-all" method="post">
-                      <div class="form-group"> 
+                      <div class="form-group mt-4"> 
                         <select class="form-control"  name="capitulo_all" id="capitulo_all" style="width: 100%; height: auto !important;" >
                           <option value="0">TODOS</option>
                           <option value="1">ING. AGRONOMOS</option>
@@ -116,8 +124,18 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="text" name="nombre_all" id="nombre_all" placeholder="Nombre, CIP o DNI">
+                        <input class="form-control" type="text" name="nombre_all" id="nombre_all" placeholder="Nombre, CIP o DNI" onkeyup="convert_mayuscula(this);">
                       </div>   
+
+                      <!-- barprogress -->
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px; display: none;" id="barra_progress_all_div">
+                        <div class="progress" >
+                          <div id="barra_progress_all" class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+                            0%
+                          </div>
+                        </div>
+                      </div>
+
                       <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
                     </form>
                   </div>
@@ -126,9 +144,9 @@
                   <div class="tab-pane fade" id="tabs-6-2">
                     <h5 class="font-weight-normal">Buscar Profesional</h5>
                     <p>Escribe nombre, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
-                    <form action="" method="post">
+                    <form id="form-buscar-nombre" name="form-buscar-nombre" method="post">
                       <div class="form-group"> 
-                        <select class="form-control"  name="capitulo" id="capitulo" style="width: 100%; height: auto !important;">
+                        <select class="form-control"  name="capitulo_nombre" id="capitulo_nombre" style="width: 100%; height: auto !important;">
                           <option value="0">TODOS</option>
                           <option value="1">ING. AGRONOMOS</option>
                           <option value="2">ING. CIVIL</option>
@@ -140,9 +158,9 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="text" name="" id="" placeholder="Nombre">
+                        <input class="form-control" type="text" name="nombre_nombre" id="nombre_nombre" placeholder="Nombre" onkeyup="convert_mayuscula(this);">
                       </div> 
-                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-nombre" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
                     </form>                    
                   </div>
 
@@ -150,9 +168,9 @@
                   <div class="tab-pane fade" id="tabs-6-3">
                     <h5 class="font-weight-normal">Buscar Profesional</h5>
                     <p>Escribe codigo CIP, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
-                    <form action="" method="post">
+                    <form id="form-buscar-cip" name="form-buscar-cip" method="post">
                       <div class="form-group"> 
-                        <select class="form-control"  name="capitulo" id="capitulo" style="width: 100%; height: auto !important;">
+                        <select class="form-control"  name="capitulo_cip" id="capitulo_cip" style="width: 100%; height: auto !important;">
                           <option value="0">TODOS</option>
                           <option value="1">ING. AGRONOMOS</option>
                           <option value="2">ING. CIVIL</option>
@@ -164,9 +182,9 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="number" name="" id="" placeholder="CIP">
+                        <input class="form-control" type="number" name="nombre_cip" id="nombre_cip" placeholder="CIP" onkeyup="convert_mayuscula(this);">
                       </div> 
-                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                     
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-cip" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                     
                     </form>                    
                   </div>
 
@@ -174,9 +192,9 @@
                   <div class="tab-pane fade" id="tabs-6-4">
                     <h5 class="font-weight-normal">Buscar Profesional</h5>
                     <p>Escribe DNI, cip o dni para buscara al profesional, y escala rapidamente con las competencias de nuestros profesionales.</p>                      
-                    <form action="" method="post">
+                    <form id="form-buscar-dni" name="form-buscar-dni" method="post">
                       <div class="form-group"> 
-                        <select class="form-control"  name="capitulo" id="capitulo" style="width: 100%; height: auto !important;">
+                        <select class="form-control"  name="capitulo_dni" id="capitulo_dni" style="width: 100%; height: auto !important;">
                           <option value="0">TODOS</option>
                           <option value="1">ING. AGRONOMOS</option>
                           <option value="2">ING. CIVIL</option>
@@ -188,9 +206,9 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="number" name="" id="" placeholder="DNI">
+                        <input class="form-control" type="number" name="nombre_dni" id="nombre_dni" placeholder="DNI" onkeyup="convert_mayuscula(this);">
                       </div>   
-                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-all" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                   
+                      <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-dni" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                   
                     </form>                    
                   </div>
                 </div>
@@ -203,6 +221,51 @@
                 <a class="box-device" href="#"><img src="dist/images/img_3.png" alt="" width="313" height="580"/></a>
                 <a class="box-device" href="#"><img src="dist/images/img_4.png" alt="" width="313" height="580"/></a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- resultado en tabla -->
+      <section class="section section-sm bg-default text-md-left">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 table-responsive">
+              <table id="tabla-resultado-busqueda" class="table table-bordered table-striped display" style="width: 100% !important;" >
+                <thead>
+                  <tr class="text-nowrap">
+                    <th scope="col">#</th>
+                    <th scope="col">OP</th>
+                    <th class="col">Foto</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">N° CIP</th>
+                    <th scope="col">Capítulo</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Incorporacion</th>
+                    <th scope="col">Situación</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">CV</th>                  
+                  </tr>
+                </thead>
+                <tbody>  </tbody>
+                <tfoot>
+                  <tr class="text-nowrap">
+                    <th scope="col">#</th>
+                    <th scope="col">OP</th>
+                    <th class="col">Foto</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">N° CIP</th>
+                    <th scope="col">Capítulo</th>
+                    <th scope="col">Especialidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Incorporacion</th>
+                    <th scope="col">Situación</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">CV</th>                  
+                  </tr>
+                </tfoot>
+              </table>
             </div>
           </div>
         </div>
@@ -287,6 +350,20 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="modal-ver-perfil" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="title-name-modal">Perfil</h4>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body text-center" id="div-ver-perfil" >
+              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
@@ -294,6 +371,19 @@
     <script src="dist/js/core.min.js"></script>
     <script src="dist/js/script.js"></script>
     <!-- coded by Himic-->
+
+    <!-- DataTables  & Plugins -->
+    <script src="plugins/datatables2/jquery.dataTables.min.js"></script>    
+    <script src="plugins/datatables2/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables2/buttons.html5.min.js"></script>
+    <script src="plugins/datatables2/buttons.colVis.min.js"></script>
+    <script src="plugins/datatables2/jszip.min.js"></script>
+    <script src="plugins/datatables2/pdfmake.min.js"></script>
+    <script src="plugins/datatables2/vfs_fonts.js"></script>
+    <script src="plugins/datatables2/datetime.js"></script>
+    <!-- Responsive datatable -->
+    <script src="plugins/datatables2/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables2/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
     <!-- Select -->
     <script src="plugins/select2/js/select2.full.min.js"></script>
@@ -305,8 +395,10 @@
     <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="plugins/jquery-validation/additional-methods.min.js"></script>
 
-    <!--  -->
-    <script src="js/test.js"></script>
+    <!-- Recursos -->
+    <script src="js/funcion_crud.js"></script>
+    <script src="js/funcion_general.js"></script>
+    <script src="js/buscador_colegiado.js"></script>
 
   </body>
 </html>

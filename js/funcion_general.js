@@ -499,6 +499,7 @@ function preservarNumeroLetra(str) {
 
 // to miniscula
 function convert_minuscula(e) { e.value = e.value.toLowerCase(); }
+function convert_mayuscula(e) { e.value = e.value.toUpperCase(); }
 
 function quitar_punto(string){ 
   return string.replace(/\./g,'');
@@ -1064,6 +1065,115 @@ function doc_view_download_expand(filename, ruta='', nombre_decarga='', width='5
     </div>
     <div class="col-6 col-md-6">
       <a class="btn btn-xs btn-block btn-info ${expand_disabled}" href="${ruta_file}" target="_blank" type="button"><i class="fas fa-expand"></i> Ver completo</a>
+    </div>
+    <div class="col-12 col-md-12 mt-2"  width="auto">   
+      ${html} 
+    </div>
+  </div>`;
+
+  return div_html;
+}
+
+function doc_view_download_expand_url( ruta='', nombre_decarga='', width='50%', height='auto', return_error_img = false, error_img ='') {
+
+  var html = ''; var extencion = '';
+  var expand_disabled = '';
+ 
+  // cargamos la imagen adecuada par el archivo
+  if ( UrlExists(ruta) != 200 ) { console.log('no existe');
+    if (return_error_img == true) {    
+      var html_img_error =  error_img == '' || error_img == null ? `<img src="../dist/svg/404-v2.svg" alt="" width="${width}" >` : `<img src="${error_img}" alt="" width="${width}" onerror="this.src='../dist/svg/404-v2.svg';"  >`;
+      return html_img_error;
+    } else {
+      html = `<div class="callout callout-danger">
+        <p class="text-danger font-size-12px text-left">404 Documento no encontrado!!</p>
+        <p class="font-size-10px text-left">Hubo un <b>error</b> al <b>encontrar este archivo</b> , los mas probable es que se haya eliminado, o se haya movido a otro lugar, se <b>recomienda editar</b> en su módulo correspodiente.</p>
+      </div>`;
+      extencion = extrae_extencion(ruta);
+      return html
+    }
+  }else if ( extrae_extencion(ruta) == "xls") {
+
+    html = `<img src="../dist/svg/xls.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  } else if ( extrae_extencion(ruta) == "xlsx" ) {    
+
+    html = `<img src="../dist/svg/xlsx.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "csv" ) {
+
+    html = `<img src="../dist/svg/csv.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "xlsm" ) {
+
+    html = `<img src="../dist/svg/xlsm.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "xlsb" ) {
+
+    html = `<img src="../dist/svg/xlsb.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "docx" ||  extrae_extencion(ruta) == "docm"  || extrae_extencion(ruta) == "dot" ||  extrae_extencion(ruta) == "dotx" ||  extrae_extencion(ruta) == "dotm") {
+
+    html = `<img src="../dist/svg/docx.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "doc") {
+
+    html = `<img src="../dist/svg/doc.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "dwg") {
+
+    html = `<img src="../dist/svg/dwg.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+    
+  }else if ( extrae_extencion(ruta) == "zip" || extrae_extencion(ruta) == "rar" || extrae_extencion(ruta) == "iso") {
+
+    html = `<img src="../dist/img/default/zip.png" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';
+
+  }else if ( extrae_extencion(ruta) == "pdf" || extrae_extencion(ruta) == "PDF" ) {
+    //recomendado - height="210" 
+    html = `<iframe src="${ruta}" onerror="this.src='../dist/svg/404-v2.svg';" frameborder="0" scrolling="no" width="${width}" height="${height}"> </iframe>`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = '';
+  
+  } else if (
+    extrae_extencion(ruta) == "jpeg" || extrae_extencion(ruta) == "jpg" || extrae_extencion(ruta) == "jpe" ||
+    extrae_extencion(ruta) == "jfif" || extrae_extencion(ruta) == "gif" || extrae_extencion(ruta) == "png" ||
+    extrae_extencion(ruta) == "tiff" || extrae_extencion(ruta) == "tif" || extrae_extencion(ruta) == "webp" ||
+    extrae_extencion(ruta) == "bmp" || extrae_extencion(ruta) == "svg" ) {
+
+    html = `<center><span class="jq_image_zoom"><img id="_cargando_img_" src="${ruta}" alt="" width="${width}" onerror="this.src='../dist/svg/404-v2.svg';"  ></span></center>`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = '';
+    
+  }else{
+    html = `<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" height="50%"  >`;
+    extencion = extrae_extencion(ruta);
+    expand_disabled = 'disabled';    
+  }
+
+  var div_html = `<div class="row">
+    <div class="col-6 col-md-6">
+      <a class="btn btn-xs btn-block btn-warning" href="${ruta}" download="${nombre_decarga}" type="button"><i class="fas fa-download"></i> Descargar</a>
+    </div>
+    <div class="col-6 col-md-6">
+      <a class="btn btn-xs btn-block btn-info ${expand_disabled}" href="${ruta}" target="_blank" type="button"><i class="fas fa-expand"></i> Ver completo</a>
     </div>
     <div class="col-12 col-md-12 mt-2"  width="auto">   
       ${html} 

@@ -77,7 +77,7 @@ if (!function_exists('ejecutarConsulta')) {
 
     if (pg_last_error($conexion)) {
       try {
-        throw new Exception("MySQL error <b>". pg_last_error($conexion) ."</b> Query:<br> $query", pg_result_error_field($conexion, PGSQL_DIAG_SQLSTATE));
+        throw new Exception("MySQL error <b>". pg_last_error($query) ."</b> Query:<br> $query", pg_result_error_field($query, PGSQL_DIAG_SQLSTATE));
       } catch (Exception $e) {
         //echo "Error No: " . $e->getCode() . " - " . $e->getMessage() . "<br >"; echo nl2br($e->getTraceAsString());
         return array( 

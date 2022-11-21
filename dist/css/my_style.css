@@ -1,0 +1,18 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.badge-success{
+  background-color: green;
+  border-radius: 5px;
+}
+
+.badge-danger{
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+}
+
+table.dataTable tbody td {
+  vertical-align: center !important;
+}
