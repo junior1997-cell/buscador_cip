@@ -80,7 +80,47 @@
           } else {
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-        break;        
+        break;     
+        
+        case 'buscar_export_csv':
+          $rspta=$trabajador->buscar_export_csv();
+          $data = [];         
+          $cont=1;          
+
+          if ($rspta['status'] == true) {
+            foreach ($rspta['data'] as $key => $reg) {              
+                $data[] = [
+                "0"=>  $cont++,
+                "1"=> $reg[0],                            
+                "2" => $reg[1],
+                "3" => $reg[2], 
+                "4" => $reg[3], 
+                "5" => $reg[4],
+                "6" => $reg[5],
+                "7" => $reg[6],
+                "8" => "",
+                "9" => $reg[4],
+                "10" => hash("SHA256", $reg[4]),
+                "11" => $reg[7],
+                "12" => $reg[8] ,
+                "13" => $reg[9] ,
+                "14" => $reg[10] ,
+                "15" => 'http://ciptarapoto.com/intranet/web/', 
+              ];
+            }
+  
+            $results = [
+              "sEcho" => 1, //Información para el datatables
+              "iTotalRecords" => count($data), //enviamos el total registros al datatable
+              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+              "data" => $data,
+            ];
+  
+            echo json_encode($results);
+          } else {
+            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+          }
+        break;
 
         default: 
           $rspta = ['status'=>'error_code', 'message'=>'Te has confundido en escribir en el <b>swich.</b>', 'data'=>[]]; echo json_encode($rspta, true); 

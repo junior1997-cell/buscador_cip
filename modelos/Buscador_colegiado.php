@@ -43,6 +43,34 @@
       );
     }    
 
-  }
+    public function buscar_export_csv() {
+      
+
+      $sql_1="SELECT col.idcolegiado, col.foto,  
+      col.nombres||' '||col.ap_pat||' '||col.ap_mat as colegiado, 
+      col.nro_documento, 
+      col.numerocolegiatura, 
+      c.descripcion as Capítulo, 
+      especial.descripcion as Especialidad, 
+      col.estadohabil, 
+      col.fecha_incorporacion, 
+      situa.descripcion as Situación, 
+      col.email
+      FROM colegiado col, detalle_colegiado_capitulo_especialidad det_cap, capitulo c, especialidad especial, situacion situa
+      WHERE col.idsituacion = 1 AND col.idcolegiado = det_cap.idcolegiado AND det_cap.idcapitulo = c.idcapitulo  
+      AND det_cap.idespecialidad = especial.idespecialidad AND col.idsituacion = situa.idsituacion
+  
+      order by col.nombres";
+      $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
+      
+      return  array( 
+        'count' => count($colegiado_0['data']), 
+        'status' => true, 
+        'message' => 'Salió todo ok, en ejecutarConsultaArray()', 
+        'data' => $colegiado_0['data'], 
+      );
+    }    
+
+  } 
 
 ?>

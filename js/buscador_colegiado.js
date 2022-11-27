@@ -263,6 +263,8 @@ function buscar_dni() {
   $('.div-resultado').show();
 }
 
+
+
 function ver_perfil_colegiado(ruta, nombre) {
   $('#title-name-modal').html(nombre);
   $('#div-ver-perfil').html( `<img src="${ruta}" alt="" width="100%" onerror="this.src='dist/svg/user_default.svg';" >` );
