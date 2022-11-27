@@ -46,7 +46,8 @@
     public function buscar_export_csv() {
       
 
-      $sql_1="SELECT col.idcolegiado, col.foto,  
+      $sql_1="SELECT col.idcolegiado, 
+      col.foto,  
       col.nombres||' '||col.ap_pat||' '||col.ap_mat as colegiado, 
       col.nro_documento, 
       col.numerocolegiatura, 

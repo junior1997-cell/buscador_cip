@@ -496,10 +496,10 @@ function ver_errores(e) {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Saliendo...', '<i class="fas fa-spinner fa-pulse"></i> Redireccionando...', 'success');
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/admin_sevens':window.location.origin}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin':window.location.origin}`;
       } else {
         Swal.fire('Cerrando sesion', '<i class="fas fa-spinner fa-pulse"></i> De igual manera vamos a cerrar la sesión, jijijiji...', 'success');
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/admin_sevens':window.location.origin}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin':window.location.origin}`;
       }
     });
 
@@ -508,7 +508,7 @@ function ver_errores(e) {
     Swal.fire({
       title: '<strong>No tienes permiso!!</strong>',
       icon: 'info',
-      html: `Puedes pedir a tu administrador que de acceso o regresa al </b>, <a href="//sweetalert2.github.io">home</a>`,
+      html: `Puedes pedir a tu administrador que de acceso o regresa al </b>, <a href="http://localhost/buscador_cip/">home</a>`,
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -518,9 +518,9 @@ function ver_errores(e) {
       cancelButtonAriaLabel: 'Thumbs down'
     }).then((result) => {
       if (result.isConfirmed) {        
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/admin_sevens/vistas/escritorio.php':window.location.origin+'/vistas/escritorio.php'}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin':window.location.origin+'/admin'}`;
       } else {
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/admin_sevens/vistas/escritorio.php':window.location.origin+'/vistas/escritorio.php'}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin':window.location.origin+'/admin'}`;
       }
     });
   

@@ -12,9 +12,9 @@
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>All Trabajadores | Admin Sevens</title>
+        <title>Datos Principales | CIP</title>
 
-        <?php $title = "All Trabajadores"; require 'head.php'; ?>
+        <?php $title = "Datos Principales"; require 'head.php'; ?>
 
       </head>
       <body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed">
@@ -23,7 +23,7 @@
           <?php
           require 'nav.php';
           require 'aside.php';
-          if ($_SESSION['recurso']==1){
+          if ($_SESSION['colegiado']==1){
             //require 'enmantenimiento.php';
             ?>
 
@@ -34,12 +34,12 @@
                 <div class="container-fluid">
                   <div class="row mb-2">
                     <div class="col-sm-6">
-                      <h1>All Trabajadores</h1>
+                      <h1>Datos Principales</h1>
                     </div>
                     <div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="all_trabajador.php">Home</a></li>
-                        <li class="breadcrumb-item active">Trabajadores</li>
+                        <li class="breadcrumb-item"><a href="dato_principal.php">Home</a></li>
+                        <li class="breadcrumb-item active">Datos Principales</li>
                       </ol>
                     </div>
                   </div>
@@ -55,8 +55,7 @@
                       <div class="card card-primary card-outline">
                         <div class="card-header">
                           <h3 class="card-title">
-                            <button type="button" class="btn bg-gradient-success" data-toggle="modal" data-target="#modal-agregar-trabajador" onclick="limpiar_form_trabajador();"><i class="fas fa-user-plus"></i> Agregar</button>
-                            
+                            <button type="button" class="btn bg-gradient-success" data-toggle="modal" data-target="#modal-agregar-trabajador" onclick="limpiar_form_trabajador();"><i class="fas fa-user-plus"></i> Agregar</button>                            
                             
                             Admnistra de manera eficiente a los trabajdores
                           </h3>
@@ -112,56 +111,7 @@
                                 <th>CCI</th>
                               </tr>
                             </tfoot>
-                          </table>
-                          
-                          <div class="mt-4 card-danger card-outline">
-                            <h1 style="text-align: center;background-color: aliceblue;">Trabajador Expulsado</h1>
-                              <table id="tabla-trabajador-expulsado" class="table table-bordered table-striped display" style="width: 100% !important;">
-                                <thead>
-                                  <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="">Aciones</th>
-                                    <th>Nombres</th>
-                                    <th>Tipo</th>
-                                    <th>Desempeño</th>
-                                    <th>Telefono</th> 
-                                    <th>Descripción</th>
-
-                                    <th>Estado</th>
-                                    <th>Nombres</th>
-                                    <th>Tipo</th>
-                                    <th>Num Doc.</th>
-                                    <th>Nacimiento</th>
-                                    <th>Edad</th>
-                                    <th>Banco</th>
-                                    <th>Cta. Cte.</th>
-                                    <th>CCI</th>
-                                  </tr>
-                                </thead>
-                                <tbody></tbody>
-                                <tfoot>
-                                  <tr>
-                                    <th class="text-center">#</th>
-                                    <th>Aciones</th>
-                                    <th>Nombres</th>
-                                    <th>Tipo</th>
-                                    <th>Desempeño</th>
-                                    <th>Telefono</th>
-                                    <th>Descripción</th>
-
-                                    <th>Estado</th>
-                                    <th>Nombres</th>
-                                    <th>Tipo</th>
-                                    <th>Num Doc.</th>
-                                    <th>Nacimiento</th>
-                                    <th>Edad</th>
-                                    <th>Banco</th>
-                                    <th>Cta. Cte.</th>
-                                    <th>CCI</th>
-                                  </tr>
-                                </tfoot>
-                              </table>
-                          </div>
+                          </table>                           
                           
                         </div>
                         <!-- /.card-body -->
@@ -370,27 +320,7 @@
                                 <input style="display: none;" type="file" name="foto1" id="foto1" accept="image/*" />
                                 <input type="hidden" name="foto1_actual" id="foto1_actual" />
                                 <div class="text-center" id="foto1_nombre"><!-- aqui va el nombre de la FOTO --></div>
-                              </div>
-
-                              <!-- imagen dni anverso -->
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="col-lg-12 borde-arriba-naranja mt-2 mb-2"></div>
-                                <label for="foto2">DNI anverso</label> <br />
-                                <img onerror="this.src='../dist/img/default/dni_anverso.webp';" src="../dist/img/default/dni_anverso.webp" class="img-thumbnail" id="foto2_i" style="cursor: pointer !important;" width="auto" />
-                                <input style="display: none;" type="file" name="foto2" id="foto2" accept="image/*" />
-                                <input type="hidden" name="foto2_actual" id="foto2_actual" />
-                                <div class="text-center" id="foto2_nombre"><!-- aqui va el nombre de la FOTO --></div>
-                              </div>
-
-                              <!-- imagen dni reverso -->
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="col-lg-12 borde-arriba-naranja mt-2 mb-2"></div>
-                                <label for="foto3">DNI reverso</label> <br />
-                                <img onerror="this.src='../dist/img/default/dni_reverso.webp';" src="../dist/img/default/dni_reverso.webp" class="img-thumbnail" id="foto3_i" style="cursor: pointer !important;" width="auto" />
-                                <input style="display: none;" type="file" name="foto3" id="foto3" accept="image/*" />
-                                <input type="hidden" name="foto3_actual" id="foto3_actual" />
-                                <div class="text-center" id="foto3_nombre"><!-- aqui va el nombre de la FOTO --></div>
-                              </div>
+                              </div>                             
 
                               <!-- Pdf 4 -->
                               <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-2">
@@ -413,30 +343,7 @@
                                   <img src="../dist/svg/pdf_trasnparent.svg" alt="" width="50%" />
                                 </div>
                                 <div class="text-center" id="doc4_nombre"><!-- aqui va el nombre del pdf --></div>
-                              </div>
-
-                              <!-- Pdf 5 -->
-                              <div class="col-12 col-sm-6 col-md-6 col-lg-4 mt-2">
-                                <!-- linea divisoria -->
-                                <div class="col-lg-12 borde-arriba-naranja mt-2"></div> 
-                                <div class="row">
-                                  <div class="col-md-12 p-t-15px p-b-5px">
-                                    <label for="analisis-de-costos-unitarios" class="control-label"> CV No Documentado</label>
-                                  </div>
-                                  <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                                    <button type="button" class="btn btn-success btn-block btn-xs" id="doc5_i"><i class="fas fa-file-upload"></i> Subir.</button>
-                                    <input type="hidden" id="doc_old_5" name="doc_old_5" />
-                                    <input style="display: none;" id="doc5" type="file" name="doc5" accept=".pdf, .docx, .doc" class="docpdf" />
-                                  </div>
-                                  <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                                    <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(5, 'all_trabajador', 'cv_no_documentado');"><i class="fa fa-eye"></i> PDF.</button>
-                                  </div>
-                                </div>
-                                <div id="doc5_ver" class="text-center mt-4">
-                                  <img src="../dist/svg/pdf_trasnparent.svg" alt="" width="50%" />
-                                </div>
-                                <div class="text-center" id="doc5_nombre"><!-- aqui va el nombre del pdf --></div>
-                              </div>
+                              </div>                             
 
                               <!-- barprogress -->
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
@@ -467,44 +374,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <!--Modal ver trabajador-->
-                <div class="modal fade" id="modal-ver-trabajador">
-                  <div class="modal-dialog modal-dialog-scrollable modal-xm">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Datos trabajador</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span class="text-danger" aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-
-                      <div class="modal-body">
-                        <div id="datostrabajador" class="class-style">
-                          <!-- vemos los datos del trabajador -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- MODAL - VER PERFIL TRABAJADOR-->
-                <div class="modal fade" id="modal-ver-perfil-trabajador">
-                  <div class="modal-dialog modal-dialog-centered modal-md">
-                    <div class="modal-content bg-color-0202022e shadow-none border-0">
-                      <div class="modal-header">
-                        <h4 class="modal-title text-white modal-title-perfil-trabajador">Foto Perfil</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span class="text-white cursor-pointer" aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-center" id="html-perfil-trabajador" >                         
-                        <!-- vemos los datos del trabajador -->                       
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div>                
 
               </section>
               <!-- /.content -->

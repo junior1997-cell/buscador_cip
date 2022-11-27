@@ -3,7 +3,7 @@
 define("DB_HOST","localhost");
 
 //Nombre de la base de datos
-define("DB_NAME", "admin_sevens");
+define("DB_NAME", "buscador_cip");
 
 //Usuario de la base de datos
 define("DB_USERNAME", "root");
@@ -15,7 +15,7 @@ define("DB_PASSWORD", "");
 define("DB_ENCODE","utf8");
 
 //Definimos una constante como nombre del proyecto
-define("PRO_NOMBRE","admin_sevens");
+define("PRO_NOMBRE","buscador_cip");
 
 // $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 // $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];

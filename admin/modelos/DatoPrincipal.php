@@ -2,7 +2,7 @@
   //Incluímos inicialmente la conexión a la base de datos
   require "../config/Conexion_v2.php";
 
-  class AllTrabajador
+  class DatoPrincipal
   {
     //Implementamos nuestro constructor
     public function __construct()
@@ -122,54 +122,6 @@
       $sw = array( 'status' => true, 'message' => 'todo oka', 'data' => $idtrabajador, 'id_tabla' => $idtrabajador );
 
       return $sw;      
-    }
-
-    //Implementamos un método para desactivar 
-    public function desactivar($idtrabajador, $descripcion) {
-      $sql="UPDATE trabajador SET estado='0', descripcion_expulsion = '$descripcion',user_trash= '" . $_SESSION['idusuario'] . "' WHERE idtrabajador='$idtrabajador'";
-      $desactivar =  ejecutarConsulta($sql);
-
-      if ( $desactivar['status'] == false) {return $desactivar; }  
-
-      //add registro en nuestra bitacora
-      $sql = "INSERT INTO bitacora_bd( nombre_tabla, id_tabla, accion, id_user) VALUES ('trabajador','.$idtrabajador.','Desativar el registro Trabajador','" . $_SESSION['idusuario'] . "')";
-      $bitacora = ejecutarConsulta($sql); if ( $bitacora['status'] == false) {return $bitacora; }  
-
-      return $desactivar;
-    }
-
-    //Implementamos un método para desactivar 
-    public function desactivar_1($idtrabajador) {
-      $sql="UPDATE trabajador SET estado='0',user_trash= '" . $_SESSION['idusuario'] . "' WHERE idtrabajador='$idtrabajador'";
-      return ejecutarConsulta($sql);
-    }
-
-    //Implementamos un método para activar 
-    public function activar($idtrabajador) {
-      $sql="UPDATE trabajador SET estado='1',user_updated= '" . $_SESSION['idusuario'] . "' WHERE idtrabajador='$idtrabajador'";
-      $activar =  ejecutarConsulta($sql);
-      
-      if ( $activar['status'] == false) {return $activar; }  
-
-      //add registro en nuestra bitacora
-      $sql = "INSERT INTO bitacora_bd( nombre_tabla, id_tabla, accion, id_user) VALUES ('trabajador','.$idtrabajador.','Habilitar el registro Trabajador','" . $_SESSION['idusuario'] . "')";
-      $bitacora = ejecutarConsulta($sql); if ( $bitacora['status'] == false) {return $bitacora; }  
-
-      return $activar;
-    }
-
-    //Implementamos un método para activar 
-    public function eliminar($idtrabajador) {
-      $sql="UPDATE trabajador SET estado_delete='0',user_delete= '" . $_SESSION['idusuario'] . "' WHERE idtrabajador='$idtrabajador'";
-      $eliminar =  ejecutarConsulta($sql);
-      
-      if ( $eliminar['status'] == false) {return $eliminar; }  
-
-      //add registro en nuestra bitacora
-      $sql = "INSERT INTO bitacora_bd( nombre_tabla, id_tabla, accion, id_user) VALUES ('trabajador','.$idtrabajador.','Eliminar registro Trabajador','" . $_SESSION['idusuario'] . "')";
-      $bitacora = ejecutarConsulta($sql); if ( $bitacora['status'] == false) {return $bitacora; }  
-
-      return $eliminar;
     }
 
     //Implementar un método para mostrar los datos de un registro a modificar
@@ -296,39 +248,6 @@
       $sql = "SELECT cv_documentado, cv_no_documentado FROM trabajador WHERE idtrabajador='$idtrabajador'";
 
       return ejecutarConsultaSimpleFila($sql);
-    }
-
-    public function select2_banco() {
-      $sql="SELECT idbancos as id, nombre, alias FROM bancos WHERE estado='1' AND idbancos > 1 ORDER BY nombre ASC;";
-      return ejecutarConsulta($sql);		
-    }
-
-    public function formato_banco($idbanco){
-      $sql="SELECT nombre, formato_cta, formato_cci, formato_detracciones FROM bancos WHERE estado='1' AND idbancos = '$idbanco';";
-      return ejecutarConsultaSimpleFila($sql);		
-    }
-
-    /* =========================== S E C C I O N   R E C U P E R A R   B A N C O S =========================== */
-
-    public function recuperar_banco(){
-      $sql="SELECT idtrabajador, idbancos, cuenta_bancaria_format, cci_format FROM trabajador;";
-      $bancos_old = ejecutarConsultaArray($sql);
-      if ($bancos_old['status'] == false) { return $bancos_old;}	
-      
-      $bancos_new = [];
-      foreach ($bancos_old['data'] as $key => $value) {
-        $id = $value['idtrabajador']; 
-        $idbancos = $value['idbancos']; 
-        $cuenta_bancaria_format = $value['cuenta_bancaria_format']; 
-        $cci_format = $value['cci_format'];
-
-        $sql2="INSERT INTO cuenta_banco_trabajador( idtrabajador, idbancos, cuenta_bancaria, cci, banco_seleccionado) 
-        VALUES ('$id','$idbancos','$cuenta_bancaria_format','$cci_format', '1');";
-        $bancos_new = ejecutarConsulta($sql2);
-        if ($bancos_new['status'] == false) { return $bancos_new;}
-      } 
-      
-      return $bancos_new;
     }
 
   }

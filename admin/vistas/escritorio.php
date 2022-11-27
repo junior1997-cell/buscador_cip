@@ -28,7 +28,7 @@
           <?php
             require 'nav.php';
             require 'aside.php';
-            if ($_SESSION['escritorio']==1){
+            if ($_SESSION['colegiado']==1){
               //require 'enmantenimiento.php';
               ?>           
               <!--Contenido-->

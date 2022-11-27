@@ -15,9 +15,9 @@
     //Validamos el acceso solo al usuario logueado y autorizado.
     if ($_SESSION['recurso'] == 1) {
 
-      require_once "../modelos/AllTrabajador.php";
+      require_once "../modelos/DatoPrincipal.php";
 
-      $trabajador = new AllTrabajador();
+      $trabajador = new DatoPrincipal();
 
       date_default_timezone_set('America/Lima');  $date_now = date("d-m-Y h.i.s A");
 
@@ -70,36 +70,6 @@
 						
 					}
 
-          // imgen DNI ANVERSO
-          if (!file_exists($_FILES['foto2']['tmp_name']) || !is_uploaded_file($_FILES['foto2']['tmp_name'])) {
-
-						$imagen2=$_POST["foto2_actual"]; $flat_img2 = false;
-
-					} else {
-
-						$ext2 = explode(".", $_FILES["foto2"]["name"]); $flat_img2 = true;
-
-            $imagen2 = $date_now .' '. rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext2);
-
-            move_uploaded_file($_FILES["foto2"]["tmp_name"], "../dist/docs/all_trabajador/dni_anverso/" . $imagen2);
-						
-					}
-
-          // imgen DNI REVERSO
-          if (!file_exists($_FILES['foto3']['tmp_name']) || !is_uploaded_file($_FILES['foto3']['tmp_name'])) {
-
-						$imagen3=$_POST["foto3_actual"]; $flat_img3 = false;
-
-					} else {
-
-						$ext3 = explode(".", $_FILES["foto3"]["name"]); $flat_img3 = true;
-            
-            $imagen3 = $date_now .' '. rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext3);
-
-            move_uploaded_file($_FILES["foto3"]["tmp_name"], "../dist/docs/all_trabajador/dni_reverso/" . $imagen3);
-						
-					}
-
           // cv documentado
           if (!file_exists($_FILES['doc4']['tmp_name']) || !is_uploaded_file($_FILES['doc4']['tmp_name'])) {
 
@@ -113,22 +83,7 @@
 
             move_uploaded_file($_FILES["doc4"]["tmp_name"], "../dist/docs/all_trabajador/cv_documentado/" .  $cv_documentado);
             
-          }
-
-          // cv  no documentado
-          if (!file_exists($_FILES['doc5']['tmp_name']) || !is_uploaded_file($_FILES['doc5']['tmp_name'])) {
-
-            $cv_nodocumentado=$_POST["doc_old_5"]; $flat_cv2 = false;
-
-          } else {
-
-            $ext3 = explode(".", $_FILES["doc5"]["name"]); $flat_cv2 = true;
-            
-            $cv_nodocumentado = $date_now .' '. rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext3);
-
-            move_uploaded_file($_FILES["doc5"]["tmp_name"], "../dist/docs/all_trabajador/cv_no_documentado/" . $cv_nodocumentado);
-            
-          }
+          }         
 
           if (empty($idtrabajador)){
             
@@ -179,30 +134,6 @@
             
             echo json_encode($rspta, true);
           }            
-
-        break;
-
-        case 'desactivar':
-
-          $rspta=$trabajador->desactivar($_GET["idtrabajador"], $_GET["descripcion"]);
-
-          echo json_encode($rspta, true);
-
-        break;
-
-        case 'activar':
-
-          $rspta=$trabajador->activar($_GET["idtrabajador"]);
-
-          echo json_encode($rspta, true);
-
-        break;
-
-        case 'eliminar':
-
-          $rspta=$trabajador->eliminar($_GET["idtrabajador"]);
-
-          echo json_encode($rspta, true);
 
         break;
 
@@ -265,78 +196,13 @@
           } else {
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-        break;  
-
-        case 'listar_expulsado':
-          $rspta=$trabajador->tbla_principal(0);
-          //Vamos a declarar un array
-          $data= Array(); $cont=1;
-          
-          if ($rspta['status']) {
-
-            foreach ($rspta['data'] as $key => $value) { 
-              $data[]=array(
-                "0"=>$cont++,
-                "1"=>($value['estado'])?'<button class="btn btn-warning btn-sm" onclick="mostrar('.$value['idtrabajador'].')" data-toggle="tooltip" data-original-title="Editar"><i class="fas fa-pencil-alt"></i></button>'.
-                  ' <button class="btn btn-danger btn-sm" onclick="desactivar('.$value['idtrabajador'].')" data-toggle="tooltip" data-original-title="Eliminar o papelera"><i class="far fa-trash-alt  "></i></button>'.
-                  ' <button class="btn btn-info btn-sm" onclick="verdatos('.$value['idtrabajador'].')" data-toggle="tooltip" data-original-title="Ver datos"><i class="far fa-eye"></i></button>':
-                  '<button class="btn btn-warning btn-sm" onclick="mostrar('.$value['idtrabajador'].')" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-pencil-alt"></i></button>'.
-                  ' <button class="btn btn-primary btn-sm" onclick="activar('.$value['idtrabajador'].', \''.encodeCadenaHtml($value['trabajador']).'\')" data-toggle="tooltip" data-original-title="Recuperar"><i class="fa fa-check"></i></button>'.
-                  ' <button class="btn btn-info btn-sm" onclick="verdatos('.$value['idtrabajador'].')" data-toggle="tooltip" data-original-title="Mostrar"><i class="far fa-eye"></i></button>',
-                "2"=>'<div class="user-block">
-                  <img class="img-circle" src="../dist/docs/all_trabajador/perfil/'. $value['imagen_perfil'] .'" alt="User Image" onerror="'.$imagen_error.'">
-                  <span class="username"><p class="text-primary m-b-02rem" >'. $value['trabajador'] .'</p></span>
-                  <span class="description">'. $value['tipo_documento'] .': '. $value['numero_documento'] .'<br>'.format_d_m_a($value['fecha_nacimiento']).' : '.$value['edad'].' años</span>
-                  </div>',
-                "3"=> '<div class="center-vertical">'. $value['nombre_tipo'] .'</div>',
-                "4"=> '<div class="bg-color-242244245 " style="overflow: auto; resize: vertical; height: 45px;" >'.$value['html_desempenio'].'</div>',
-                "5"=> '<a href="tel:+51'.quitar_guion($value['telefono']).'" data-toggle="tooltip" data-original-title="Llamar al trabajador.">'. $value['telefono'] . '</a>',
-                "6"=> $value['descripcion_expulsion'] ,                
-                "7"=>(($value['estado'])?'<span class="text-center badge badge-success">Activado</span>':
-                '<span class="text-center badge badge-danger">Desactivado</span>').$toltip,
-
-                "8"=> $value['trabajador'],
-                "9"=> $value['tipo_documento'],
-                "10"=> $value['numero_documento'],
-                "11"=> format_d_m_a($value['fecha_nacimiento']),
-                "12"=>$value['edad'],
-                "13"=> $value['banco'],
-                "14"=> $value['cuenta_bancaria'],
-                "15"=> $value['cci'],
-              );
-            }
-
-            $results = array(
-              "sEcho"=>1, //Información para el datatables
-              "iTotalRecords"=>count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords"=>1, //enviamos el total registros a visualizar
-              "data"=>$data);
-            echo json_encode($results, true);
-
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-          
-        break;
+        break;         
         
         case 'verdatos':
           $rspta=$trabajador->verdatos($idtrabajador);
           //Codificar el resultado utilizando json
           echo json_encode($rspta, true);
         break;        
-
-        case 'formato_banco':           
-          $rspta=$trabajador->formato_banco($_POST["idbanco"]);
-          //Codificar el resultado utilizando json
-          echo json_encode($rspta, true);           
-        break;
-
-        /* =========================== S E C C I O N   R E C U P E R A R   B A N C O S =========================== */
-        case 'recuperar_banco':           
-          $rspta=$trabajador->recuperar_banco();
-          //Codificar el resultado utilizando json
-          echo json_encode($rspta, true);           
-        break;
 
         default: 
           $rspta = ['status'=>'error_code', 'message'=>'Te has confundido en escribir en el <b>swich.</b>', 'data'=>[]]; echo json_encode($rspta, true); 
