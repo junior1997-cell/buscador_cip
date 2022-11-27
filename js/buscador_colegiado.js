@@ -271,6 +271,10 @@ function ver_perfil_colegiado(ruta, nombre) {
   $('#modal-ver-perfil').modal('show');
 }
 
+function detalle_colegiado(id) {
+  $('#modal-ver-detalle-colegiado').modal('show');
+}
+
 
 $(function () {
 

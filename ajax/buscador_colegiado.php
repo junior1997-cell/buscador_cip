@@ -53,7 +53,7 @@
 
               $data[] = [
                 "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="" ><i class="far fa-eye"></i></button>',                  
+                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado(\' \')" ><i class="far fa-eye"></i></button>',                  
                 "2" => '<div class="user-block w-300px">
                   <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">
                   <span class="username"><p class="text-primary m-b-02rem" >'. $reg[1].'</p></span>
