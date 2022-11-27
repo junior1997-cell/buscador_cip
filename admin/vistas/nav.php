@@ -45,7 +45,7 @@
     <!-- Messages Dropdown Menu -->
     <li class="nav-item dropdown ">
       <a class="nav-link" data-toggle="dropdown" href="#">
-        <img src="../dist/docs/all_trabajador/perfil/<?php echo $_SESSION['imagen']; ?>" class="user-image img-circle" alt="User Image" width="30" onerror="this.src='../dist/svg/user_default.svg';"> 
+        <img src="<?php echo  $_SESSION['hosting'] . $_SESSION['imagen']; ?>" class="user-image img-circle" alt="User Image" width="30" onerror="this.src='../dist/svg/user_default.svg';"> 
              
         <span class="hidden-xs d-none show-min-width-1200px"><?php echo $_SESSION['nombre']; ?></span>
       </a>
@@ -58,7 +58,7 @@
             <h5 class="widget-user-desc"><?php echo $_SESSION['cargo']; ?></h5>
           </div>
           <div class="widget-user-image">
-            <img class="img-circle elevation-2" src="../dist/docs/all_trabajador/perfil/<?php echo $_SESSION['imagen']; ?>" alt="User Avatar" onerror="this.src='../dist/svg/user_default.svg';" />
+            <img class="img-circle elevation-2" src="<?php echo  $_SESSION['hosting'] . $_SESSION['imagen']; ?>" alt="User Avatar" onerror="this.src='../dist/svg/user_default.svg';" />
           </div>
           <div class="card-body pt-5">
             <span class="dropdown-item dropdown-header">Info personal</span>
