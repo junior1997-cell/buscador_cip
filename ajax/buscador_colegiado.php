@@ -47,6 +47,49 @@
           if ($rspta['status'] == true) {
             foreach ($rspta['data'] as $key => $reg) {              
   
+              $ficha_tecnica = empty($reg['documento_cv'])
+              ? ( '<div><center><button class="btn btn-danger"><i class="fa fa-file-pdf-o fa-2x text-gray-50"></i></button></center></div>')
+              : ( '<center><a target="_blank" href="admin/dist/docs/curriculum/cv/' . $reg['documento_cv'] . '"><i class="far fa-file-pdf-o fa-2x" style="color:#ff0000c4"></i></a></center>');
+
+              $data[] = [
+                "0"=>$cont++,
+                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado(\' \')" ><i class="far fa-eye"></i></button>',                  
+                "2" => '<div class="user-block w-300px">
+                  <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg['foto'] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg['foto']. '\', \''.$reg['nombres_y_apellidos'].'\')" width="50px">
+                  <span class="username"><p class="text-primary m-b-02rem" >'. $reg['nombres_y_apellidos'].'</p></span>
+                  <span class="description">DNI: '. $reg['dni'] .' </span>
+                </div>' ,
+                "3" => $reg['codigo_cip'], 
+                "4" => '<div class="w-200px">' . $reg['capitulo'] . '<br> <span class="text-primary">'.$reg['especialidad'].'</span> </div>', 
+                "5" => '<div class="font-size-10px">' . ($reg['estado'] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>') . '</div>',
+                "6" => date("d/m/Y", strtotime($reg['fecha_incorporacion'])),
+                "7" => $reg['situacion'] ,
+                "8" => '<a href="mailto:'.$reg['email'].'">'.$reg['email'].'</a>'  ,
+                "9" => $ficha_tecnica ,
+              ];
+            }
+  
+            $results = [
+              "sEcho" => 1, //Información para el datatables
+              "iTotalRecords" => count($data), //enviamos el total registros al datatable
+              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+              "data" => $data,
+            ];
+  
+            echo json_encode($results);
+          } else {
+            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+          }
+        break;   
+        
+        case 'buscar_pg':
+          $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
+          $data = [];         
+          $cont=1;          
+
+          if ($rspta['status'] == true) {
+            foreach ($rspta['data'] as $key => $reg) {              
+  
               // $ficha_tecnica = empty($reg['ficha_tecnica'])
               //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
               //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
@@ -80,10 +123,10 @@
           } else {
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-        break;     
+        break;
         
         case 'buscar_export_csv':
-          $rspta=$trabajador->buscar_export_csv();
+          $rspta=$trabajador->buscar_export_csv_pg();
           $data = [];         
           $cont=1;          
 

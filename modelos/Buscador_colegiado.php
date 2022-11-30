@@ -1,6 +1,7 @@
 <?php
   //Incluímos inicialmente la conexión a la base de datos
-  require "../config/Conexion.php";
+  require "../config/ConexionPg.php";
+  require "../config/ConexionMySql.php";
 
   class Buscador_colegiado
   {
@@ -9,8 +10,35 @@
     {
     }    
 
-    // buscador all
+    // ══════════════════════════════════════ conexion a Mysql ══════════════════════════════════════
     public function buscar_all($capitulo, $nombre, $tipo) {
+      
+      $filtro_cap = (empty($capitulo) || $capitulo == '0' || $capitulo == 0 ) ? '' : "AND capitulo = '$capitulo'" ;
+
+      $filtro_tipo = "";
+      if ($tipo == 'all') {
+        $filtro_tipo = "AND nombres_y_apellidos LIKE '%$nombre%'";
+      } else if ($tipo == 'nombre') {
+        $filtro_tipo = "AND nombres_y_apellidos LIKE '%$nombre%'";
+      } else if ($tipo == 'cip') {
+        $filtro_tipo = "AND codigo_cip LIKE '%$nombre%'";
+      } else if ($tipo == 'dni') {
+        $filtro_tipo = "AND dni LIKE '%$nombre%'";
+      }
+
+      $sql_1="SELECT * FROM colegiado  WHERE situacion = 'VIVO' $filtro_cap $filtro_tipo  order by nombres_y_apellidos";
+      $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
+      
+      return  array( 
+        'count' => count($colegiado_0['data']), 
+        'status' => true, 
+        'message' => 'Salió todo ok, en ejecutarConsultaArray()', 
+        'data' => $colegiado_0['data'], 
+      );
+    }
+    
+    // ══════════════════════════════════════  Conexcion a postgress ══════════════════════════════════════
+    public function buscar_all_pg($capitulo, $nombre, $tipo) {
       
       $filtro_cap = (empty($capitulo) || $capitulo == '0' || $capitulo == 0 ) ? '' : "AND c.idcapitulo = '$capitulo'" ;
 
@@ -41,9 +69,9 @@
         'message' => 'Salió todo ok, en ejecutarConsultaArray()', 
         'data' => $colegiado_0['data'], 
       );
-    }    
-
-    public function buscar_export_csv() {
+    }
+    
+    public function buscar_export_csv_pg() {
       
 
       $sql_1="SELECT col.idcolegiado, 
@@ -62,7 +90,7 @@
       AND det_cap.idespecialidad = especial.idespecialidad AND col.idsituacion = situa.idsituacion
   
       order by col.nombres";
-      $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
+      $colegiado_0 = ejecutarConsultaArray_Pg($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
       
       return  array( 
         'count' => count($colegiado_0['data']), 
