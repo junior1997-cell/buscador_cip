@@ -23,9 +23,9 @@
         if ( !empty($rspta['data']) ) {
           //Declaramos las variables de sesión
           $_SESSION['idusuario']      = $rspta['data']['idcolegiado'];
-          $_SESSION['idusuario']      = $rspta['data']['id_colegiado_cip'];
+          $_SESSION['id_colegiado_cip']= $rspta['data']['id_colegiado_cip'];
           $_SESSION['imagen']         = $rspta['data']['foto'];
-          $_SESSION['hosting']         = $rspta['data']['hosting'];
+          $_SESSION['hosting']        = $rspta['data']['hosting'];
           $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
           $_SESSION['tipo_documento'] = 'DNI';
           $_SESSION['num_documento']  = $rspta['data']['dni'];
