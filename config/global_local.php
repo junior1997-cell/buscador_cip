@@ -1,24 +1,21 @@
 <?php 
-
-// ════════════════════════ BASE DE DATOS OFICIAL ⚠️ C U I D A D O ⚠️ AL USARLO ═════════════════════
-
 //Ip de la pc servidor de base de datos
-// define("DB_HOST","sql311.byethost15.com");
+define("DB_HOST","localhost");
 
 //Nombre de la base de datos
-// define("DB_NAME", "b15_33090259_buscador_cip");
+define("DB_NAME", "buscador_cip");
 
 //Usuario de la base de datos
-// define("DB_USERNAME", "b15_33090259");
+define("DB_USERNAME", "root");
 
 //Contraseña del usuario de la base de datos
-// define("DB_PASSWORD", "S3rgio29.");
+define("DB_PASSWORD", "");
 
 //definimos la codificación de los caracteres
-// define("DB_ENCODE","utf8");
+define("DB_ENCODE","utf8");
 
 //Definimos una constante como nombre del proyecto
-// define("PRO_NOMBRE","alias_bd");
+define("PRO_NOMBRE","buscador_cip");
 
 // $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 // $config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
