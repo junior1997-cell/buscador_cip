@@ -122,7 +122,7 @@
 
         <?php if ($_SESSION['colegiado']==1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
-            <a href="mano_de_obra.php" class="nav-link pl-2" id="lManodeObra">
+            <a href="datos_hijos.php" class="nav-link pl-2" id="lDatosHijos">
               <i class="nav-icon fa-solid fa-baby"></i>
               <p>Datos de Hijos </p>
             </a>

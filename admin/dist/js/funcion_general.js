@@ -1230,6 +1230,8 @@ function buscar_sunat_reniec(input='') {
             $(`#charge${input}`).hide();
 
             $(`#nombre${input}`).val(data.nombres + " " + data.apellidoPaterno + " " + data.apellidoMaterno);
+            $(`#nombre_h_${input}`).val(data.nombres);
+            $(`#apellido_h_${input}`).val(data.apellidoPaterno + " " + data.apellidoMaterno);
             $(`#titular_cuenta${input}`).val(data.nombres + " " + data.apellidoPaterno + " " + data.apellidoMaterno);
 
             toastr.success("Persona encontrada!!!!");
