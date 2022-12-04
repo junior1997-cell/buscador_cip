@@ -15,7 +15,7 @@
       
       $sql_0 = "INSERT INTO experiencia_laboral( idcolegiado, idempresa, fecha_inicio, fecha_fin, trabajo_actual, cargo_laboral, url_empresa, bg_color, certificado) 
       VALUES ('".$_SESSION['idusuario']."', '$empresa_select2', '$fecha_inicio', '$fecha_fin', '$trabajo_actual', 
-      '$cargo_laboral', '$url_empresa', '$url_empresa', '$bg_color_select2', '$certificado')";
+      '$cargo_laboral', '$url_empresa', '$bg_color_select2', '$certificado')";
       return ejecutarConsulta($sql_0);       
       
     }

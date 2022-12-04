@@ -90,7 +90,7 @@
               $data[]=array(
                 "0"=>$cont++,
                 "1"=>($value['estado'])?'<button class="btn btn-warning btn-sm" onclick="mostrar('.$value['idhijos'].')" data-toggle="tooltip" data-original-title="Editar"><i class="fas fa-pencil-alt"></i></button>'.
-                  ' <button class="btn btn-danger btn-sm" onclick="desactivar('.$value['idhijos'].', \''.encodeCadenaHtml($value['nombres']).'\', \''.encodeCadenaHtml($value['apellidos']).'\')" data-toggle="tooltip" data-original-title="Desactivar"><i class="fas fa-skull-crossbones"></i></button>':
+                  ' <button class="btn btn-danger btn-sm" onclick="desactivar('.$value['idhijos'].', \''.encodeCadenaHtml($value['nombres']).'\', \''.encodeCadenaHtml($value['apellidos']).'\')" data-toggle="tooltip" data-original-title="Desactivar"><i class="fa-solid fa-trash-can"></i></button>':
                   '<button class="btn btn-warning btn-sm" onclick="mostrar('.$value['idhijos'].')" data-toggle="tooltip" data-original-title="Editar"><i class="fas fa-pencil-alt"></i></button>'.
                   ' <button class="btn btn-success btn-sm" onclick="activar('.$value['idhijos'].', \''.encodeCadenaHtml($value['nombres']).'\', \''.encodeCadenaHtml($value['apellidos']).'\')" data-toggle="tooltip" data-original-title="Editar"><i class="fa fa-check"></i></button>',
                 "2"=> $value['nombres'].' '.$value['apellidos'],
