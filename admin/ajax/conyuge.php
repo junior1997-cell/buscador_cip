@@ -24,33 +24,16 @@
       $imagen_error = "this.src='../dist/svg/user_default.svg'";
       $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
       
-      $idtrabajador	  	= isset($_POST["idtrabajador"])? limpiarCadena($_POST["idtrabajador"]):"";
-      $nombre 		      = isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
-      $tipo_documento 	= isset($_POST["tipo_documento"])? limpiarCadena($_POST["tipo_documento"]):"";
-      $num_documento  	= isset($_POST["num_documento"])? limpiarCadena($_POST["num_documento"]):"";
-      $direccion		    = isset($_POST["direccion"])? limpiarCadena($_POST["direccion"]):"";
-      $telefono		      = isset($_POST["telefono"])? limpiarCadena($_POST["telefono"]):"";
-      $nacimiento		    = isset($_POST["nacimiento"])? limpiarCadena($_POST["nacimiento"]):"";
-      $edad		          = isset($_POST["edad"])? limpiarCadena($_POST["edad"]):"";      
-      $email			      = isset($_POST["email"])? limpiarCadena($_POST["email"]):"";
-      $banco_seleccionado= isset($_POST["banco_seleccionado"])? $_POST["banco_seleccionado"] :"";
-      $banco			      = isset($_POST["banco_array"])?$_POST["banco_array"]:"";      
-      $cta_bancaria		  = isset($_POST["cta_bancaria"])?$_POST["cta_bancaria"]:"";
-      $cta_bancaria_format= isset($_POST["cta_bancaria"])?$_POST["cta_bancaria"]:"";
-      $cci	          	= isset($_POST["cci"])?$_POST["cci"]:"";
-      $cci_format      	= isset($_POST["cci"])? $_POST["cci"]:"";
-      $titular_cuenta		= isset($_POST["titular_cuenta"])? limpiarCadena($_POST["titular_cuenta"]):"";
-      $tipo	          	= isset($_POST["tipo"])? limpiarCadena($_POST["tipo"]):"";
-      $ocupacion	      = isset($_POST["ocupacion"])? limpiarCadena($_POST["ocupacion"]):"";
+      $idconyuge        = isset($_POST["idconyuge"])? limpiarCadena($_POST["idconyuge"]):"";
+      $idcolegiado      = isset($_POST["idcolegiado"])? limpiarCadena($_POST["idcolegiado"]):"";
+      $nombres          = isset($_POST["nombres"])? limpiarCadena($_POST["nombres"]):"";
+      $apellidos        = isset($_POST["apellidos"])? limpiarCadena($_POST["apellidos"]):"";
+      $fecha_nacimiento = isset($_POST["fecha_nacimiento"])? limpiarCadena($_POST["fecha_nacimiento"]):"";
+      $telefono1        = isset($_POST["telefono1"])? limpiarCadena($_POST["telefono1"]):"";
+      $telefono2        = isset($_POST["telefono2"])? limpiarCadena($_POST["telefono2"]):"";
+      $telefono3        = isset($_POST["telefono3"])? limpiarCadena($_POST["telefono3"]):"";
+      $sexo             = isset($_POST["sexo"])? limpiarCadena($_POST["sexo"]):"";
 
-      $ruc	          	= isset($_POST["ruc"])? limpiarCadena($_POST["ruc"]):"";
-
-      $imagen1			    = isset($_POST["foto1"])? limpiarCadena($_POST["foto1"]):"";
-      $imagen2			    = isset($_POST["foto2"])? limpiarCadena($_POST["foto2"]):"";
-      $imagen3			    = isset($_POST["foto3"])? limpiarCadena($_POST["foto3"]):"";
-
-      $cv_documentado		= isset($_POST["doc4"])? limpiarCadena($_POST["doc4"]):"";
-      $cv_nodocumentado = isset($_POST["doc5"])? limpiarCadena($_POST["doc5"]):"";
       switch ($_GET["op"]) {
 
         case 'guardaryeditar':
