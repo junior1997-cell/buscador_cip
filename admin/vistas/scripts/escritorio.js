@@ -171,9 +171,9 @@ function tbla_principal() {
 
       // cargamos la imagen adecuada par el archivo
       if (e.data.colegiado.documento_cv == null || e.data.colegiado.documento_cv == "") {
-        $("#div-pdf-cv").html('No tiene doc');
+        $("#div-pdf-cv").html('─ No tiene doc');
       } else {
-        var ver_doc = doc_view_extencion(e.data.colegiado.documento_cv, 'curriculum', 'cv', '100%', '206');
+        var ver_doc = doc_view_extencion(e.data.colegiado.documento_cv, 'colegiado', 'cv', '100%', '406');
         $("#div-pdf-cv").html(ver_doc);
       }
       

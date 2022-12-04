@@ -3,7 +3,7 @@
   <!-- Brand Logo -->
   <a href="escritorio.php" class="brand-link">
     <img src="../dist/svg/logo-icono.svg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8;" />
-    <span class="brand-text font-weight-light">Admin Sevens</span>
+    <span class="brand-text font-weight-light">Colegio de Ingenieros</span>
   </a>
 
   <!-- Sidebar -->
@@ -95,7 +95,7 @@
         
         <?php if ($_SESSION['colegiado']==1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
-            <a href="dato_principal.php" class="nav-link pl-2" id="lSubContrato">
+            <a href="dato_principal.php" class="nav-link pl-2" id="lDatoPrincipal">
               <i class="nav-icon fa-regular fa-address-card"></i>
               <p>Datos Principales </p>
             </a>
@@ -104,7 +104,7 @@
         
         <?php if ($_SESSION['colegiado']==1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
-            <a href="sub_contrato.php" class="nav-link pl-2" id="lSubContrato">
+            <a href="mi_cv.php" class="nav-link pl-2" id="lCurriculum">
               <i class="nav-icon fa-regular fa-folder-open"></i>
               <p>Mi Curriculum </p>
             </a>
@@ -131,7 +131,7 @@
         
         <?php if ($_SESSION['colegiado']==1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
-            <a href="mano_de_obra.php" class="nav-link pl-2" id="lManodeObra">
+            <a href="experiencia_laboral.php" class="nav-link pl-2" id="lExperienciaLaboral">
               <i class="nav-icon fa-solid fa-briefcase"></i>
               <p>Experiencia Laboral </p>
             </a>

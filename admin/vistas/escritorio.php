@@ -11,7 +11,7 @@
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Escritorio | Admin Sevens</title>
+        <title>Escritorio | CIP</title>
 
         <?php $title = "Escritorio"; require 'head.php'; ?>
      
@@ -65,9 +65,7 @@
                         <div class="card card-primary card-outline">
                           <div class="card-body box-profile text-center">
                             <div class="text-center">
-                              <img class="profile-user-img img-fluid img-circle"
-                                  src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>"
-                                  alt="User profile picture">
+                              <img class="profile-user-img img-fluid img-circle" src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>" alt="User profile picture">
                             </div>
 
                             <h3 class="profile-username text-center"> <?php echo $_SESSION['nombre']; ?></h3>
