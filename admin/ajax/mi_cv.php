@@ -35,7 +35,7 @@
             $ext3 = explode(".", $_FILES["doc1"]["name"]); $flat_cv1 = true;            
             $cv_documentado = $date_now .' '. rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext3);
             move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/docs/colegiado/cv/" .  $cv_documentado);            
-          }          
+          }    
             
           //cvs
           if ($flat_cv1 == true) {

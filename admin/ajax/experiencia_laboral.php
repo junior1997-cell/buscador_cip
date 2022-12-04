@@ -29,9 +29,10 @@
       $empresa_select2	  	= isset($_POST["empresa_select2"])? limpiarCadena($_POST["empresa_select2"]):"";
       $fecha_inicio 	      = isset($_POST["fecha_inicio"])? limpiarCadena($_POST["fecha_inicio"]):"";
       $fecha_fin 	          = isset($_POST["fecha_fin"])? limpiarCadena($_POST["fecha_fin"]):"";
-      $trabajo_actual  	    = isset($_POST["trabajo_actual"])? limpiarCadena($_POST["trabajo_actual"]):"";
-      $cargo_laboral		    = isset($_POST["cargo_laboral"])? ($_POST["cargo_laboral"] == '1' ? '1' : '0'  ) :"";
-      $url_empresa		      = isset($_POST["url_empresa"])? limpiarCadena($_POST["url_empresa"]):"";        
+      $trabajo_actual  	    = isset($_POST["trabajo_actual"])? limpiarCadena($_POST["trabajo_actual"]) :"";
+      $cargo_laboral		    = isset($_POST["cargo_laboral"])? limpiarCadena($_POST["cargo_laboral"]) :"";
+      $url_empresa		      = isset($_POST["url_empresa"])? limpiarCadena($_POST["url_empresa"]):"";   
+      $bg_color_select2	  	= isset($_POST["bg_color_select2"])? limpiarCadena($_POST["bg_color_select2"]):"";    
 
       // empresa
       $idempresa	  	      = isset($_POST["idempresa"])? limpiarCadena($_POST["idempresa"]):"";
@@ -43,7 +44,10 @@
 
       switch ($_GET["op"]) {
 
-        case 'guardar_y_editar_experiencia_laboral':          
+        case 'guardar_y_editar_experiencia_laboral':      
+
+          $trabajo_actual = (empty($_POST["trabajo_actual"]) ? '0' : '1'  );  //echo $trabajo_actual; die;  
+
           if (!file_exists($_FILES['doc1']['tmp_name']) || !is_uploaded_file($_FILES['doc1']['tmp_name'])) {
             $certificado=$_POST["doc_old_1"]; $flat_cv1 = false;
           } else {
@@ -52,7 +56,7 @@
             move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/docs/experiencia_laboral/certificado/" .  $certificado);            
           }
           if ( empty($idexperiencia_laboral) ) {
-            $rspta=$experiencia_laboral->crear_experiencia( $empresa_select2, $fecha_inicio, $fecha_fin, $trabajo_actual, $cargo_laboral, $url_empresa, $certificado);          
+            $rspta=$experiencia_laboral->crear_experiencia( $empresa_select2, $fecha_inicio, $fecha_fin, $trabajo_actual, $cargo_laboral, $url_empresa, $bg_color_select2, $certificado);          
             echo json_encode($rspta, true); 
           } else {
 
@@ -62,7 +66,7 @@
               if (empty($doc_ant )) { unlink("../dist/docs/experiencia_laboral/certificado/" . $doc_ant); }
             }    
 
-            $rspta=$experiencia_laboral->editar_experiencia( $idexperiencia_laboral, $empresa_select2, $fecha_inicio, $fecha_fin, $trabajo_actual, $cargo_laboral, $url_empresa, $certificado);          
+            $rspta=$experiencia_laboral->editar_experiencia( $idexperiencia_laboral, $empresa_select2, $fecha_inicio, $fecha_fin, $trabajo_actual, $cargo_laboral, $url_empresa, $bg_color_select2, $certificado);          
             echo json_encode($rspta, true); 
           }          
           
@@ -70,6 +74,18 @@
 
         case 'mostrar_datos_experiencia':
           $rspta=$experiencia_laboral->mostrar_datos_experiencia($idexperiencia_laboral);
+          //Codificar el resultado utilizando json
+          echo json_encode($rspta, true);
+        break;   
+
+        case 'eliminar_experiencia':
+          $rspta=$experiencia_laboral->eliminar_experiencia($idexperiencia_laboral);
+          //Codificar el resultado utilizando json
+          echo json_encode($rspta, true);
+        break;   
+
+        case 'listar_datos_experiencia':
+          $rspta=$experiencia_laboral->listar_datos_experiencia();
           //Codificar el resultado utilizando json
           echo json_encode($rspta, true);
         break;   

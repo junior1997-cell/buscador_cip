@@ -369,6 +369,7 @@
           <p class="login-box-msg">Ingrese sus credenciales para ingresar al sistema.</p>
 
           <form method="post" id="frmAcceso" autocomplet="off">
+            <!-- usuario -->
             <div class="input-group mb-3">
               <input type="text" id="logina" name="logina" class="form-control" placeholder="Usuario" required />
               <div class="input-group-append">
@@ -377,6 +378,8 @@
                 </div>
               </div>
             </div>
+
+            <!-- password -->
             <div class="input-group mb-3 ">
               <input type="password" id="clavea" name="clavea" class="form-control" placeholder="Password" required />
               <div class="input-group-append">
@@ -385,6 +388,22 @@
                 </div>
               </div>
             </div>
+
+            <div class="input-group mb-3 text-right">
+              <div class="custom-control custom-checkbox m-t-5px ">                                   
+                <input class="custom-control-input" type="checkbox" id="ver_password_check" onclick="ver_password();">
+                <label for="ver_password_check" class="custom-control-label">ver password</label>
+              </div>
+            </div>
+
+            <!-- soy adminstrador -->
+            <div class="input-group mb-3 ">
+              <div class="custom-control custom-checkbox">                                   
+                <input class="custom-control-input" type="checkbox" id="soy_administrador" name="soy_administrador" value="1" >
+                <label for="soy_administrador" class="custom-control-label">Soy adminstrador</label>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-12">
                 <button type="submit" class="btn btn-outline-warning btn-block login-btn">Ingresar</button>
@@ -425,6 +444,7 @@
           timer: 3000,
         });
       });
+      
     </script>
     <script type="text/javascript" src="scripts/login.js"></script>
   </body>

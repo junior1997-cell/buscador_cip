@@ -13,38 +13,61 @@
 
       $logina = $_POST['logina'];
       $clavea = $_POST['clavea']; 
+      $soy_administrador = $_POST['soy_administrador']; 
 
       //Hash SHA256 en la contraseña
       $clavehash = hash("SHA256", $clavea); //echo $clavehash; die;
 
-      $rspta = $usuario->verificar($logina, $clavehash);   //$fetch = $rspta->fetch_object();
+      $rspta = $soy_administrador == '1' ? $usuario->verificar_admin($logina, $clavehash) : $usuario->verificar($logina, $clavehash);  
 
       if ( $rspta['status'] == true ) {
         if ( !empty($rspta['data']) ) {
-          //Declaramos las variables de sesión
-          $_SESSION['idusuario']      = $rspta['data']['idcolegiado'];
-          $_SESSION['id_colegiado_cip']= $rspta['data']['id_colegiado_cip'];
-          $_SESSION['imagen']         = $rspta['data']['foto'];
-          $_SESSION['hosting']        = $rspta['data']['hosting'];
-          $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
-          $_SESSION['tipo_documento'] = 'DNI';
-          $_SESSION['codigo_cip']     = $rspta['data']['codigo_cip'];
-          $_SESSION['num_documento']  = $rspta['data']['dni'];
-          $_SESSION['login']          = $rspta['data']['usuario'];
-          $_SESSION['capitulo']       = $rspta['data']['capitulo'];
-          $_SESSION['especialidad']   = $rspta['data']['especialidad'];
-          $_SESSION['cargo']          = 'Colegiado';          
-          $_SESSION['telefono']       = '';
-          $_SESSION['email']          = $rspta['data']['email'];
-          $_SESSION['estado']         = $rspta['data']['estado']; // f ó t
-          $_SESSION['situacion']      = $rspta['data']['situacion']; // VIVO ó MUERTO
-         
 
-          //Determinamos los accesos del usuario
-          $_SESSION['colegiado']  = 1;
-          $_SESSION['admin']      = 0;
-          // in_array(1, $valores) ? ($_SESSION['escritorio'] = 1)         : ($_SESSION['escritorio'] = 0);
-          // in_array(2, $valores) ? ($_SESSION['acceso'] = 1)             : ($_SESSION['acceso'] = 0);
+          if ($soy_administrador == '1') {
+            //Declaramos las variables de sesión
+            $_SESSION['idusuario']      = $rspta['data']['idcolegiado'];
+            $_SESSION['id_colegiado_cip']= $rspta['data']['id_colegiado_cip'];
+            $_SESSION['imagen']         = $rspta['data']['foto'];
+            $_SESSION['hosting']        = $rspta['data']['hosting'];
+            $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
+            $_SESSION['tipo_documento'] = 'DNI';
+            $_SESSION['codigo_cip']     = $rspta['data']['codigo_cip'];
+            $_SESSION['num_documento']  = $rspta['data']['dni'];
+            $_SESSION['login']          = $rspta['data']['usuario'];
+            $_SESSION['capitulo']       = $rspta['data']['capitulo'];
+            $_SESSION['especialidad']   = $rspta['data']['especialidad'];
+            $_SESSION['cargo']          = 'Colegiado';          
+            $_SESSION['telefono']       = '';
+            $_SESSION['email']          = $rspta['data']['email'];
+            $_SESSION['estado']         = $rspta['data']['estado']; // f ó t
+            $_SESSION['situacion']      = $rspta['data']['situacion']; // VIVO ó MUERTO          
+
+            //Determinamos los accesos del usuario
+            $_SESSION['colegiado']  = 0;
+            $_SESSION['admin']      = 1;
+          } else {
+            //Declaramos las variables de sesión
+            $_SESSION['idusuario']      = $rspta['data']['idcolegiado'];
+            $_SESSION['id_colegiado_cip']= $rspta['data']['id_colegiado_cip'];
+            $_SESSION['imagen']         = $rspta['data']['foto'];
+            $_SESSION['hosting']        = $rspta['data']['hosting'];
+            $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
+            $_SESSION['tipo_documento'] = 'DNI';
+            $_SESSION['codigo_cip']     = $rspta['data']['codigo_cip'];
+            $_SESSION['num_documento']  = $rspta['data']['dni'];
+            $_SESSION['login']          = $rspta['data']['usuario'];
+            $_SESSION['capitulo']       = $rspta['data']['capitulo'];
+            $_SESSION['especialidad']   = $rspta['data']['especialidad'];
+            $_SESSION['cargo']          = 'Colegiado';          
+            $_SESSION['telefono']       = '';
+            $_SESSION['email']          = $rspta['data']['email'];
+            $_SESSION['estado']         = $rspta['data']['estado']; // f ó t
+            $_SESSION['situacion']      = $rspta['data']['situacion']; // VIVO ó MUERTO          
+
+            //Determinamos los accesos del usuario
+            $_SESSION['colegiado']  = 1;
+            $_SESSION['admin']      = 0;
+          }          
 
           // Retornamos lo encontrado
           echo json_encode($rspta, true);

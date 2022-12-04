@@ -154,9 +154,10 @@
                               
                               <!-- ══════════════════════════════════════ Experiencia Laboral ═══════════════════════════ -->
                               <div class="tab-pane" id="timeline">
-                                <!-- The timeline -->
-                                <div class="timeline timeline-inverse" id="div-experiencia-laboral">                                  
-                                  
+                                <!-- The timeline -->                                
+                                <div class="row" id="div-experiencia-laboral">
+                                  <div class="col-12">No hay experiencia</div>
+                                  <!-- /.col -->
                                 </div>
                               </div>
                               <!-- /.tab-pane -->

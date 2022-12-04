@@ -71,108 +71,8 @@
                       </div>
                       <div class="card-body">
                         <!-- Timelime example  -->
-                        <div class="row">
-                          <div class="col-md-12">
-                            <!-- The time line -->
-                            <div class="timeline">
-                              <!-- timeline time label -->
-                              <div class="time-label">
-                                <span class="bg-red">10 Feb. 2014</span>
-                              </div>
-                              <!-- /.timeline-label -->
-                              <!-- timeline item -->
-                              <div>
-                                <i class="fas fa-envelope bg-blue"></i>
-                                <div class="timeline-item">
-                                  <span class="time"><i class="fas fa-clock"></i> 12:05</span>
-                                  <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                  <div class="timeline-body">
-                                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                    weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                    jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                    quora plaxo ideeli hulu weebly balihoo...
-                                  </div>
-                                  <div class="timeline-footer">
-                                    <a class="btn btn-primary btn-sm">Read more</a>
-                                    <a class="btn btn-danger btn-sm">Delete</a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- END timeline item -->
-                              <!-- timeline item -->
-                              <div>
-                                <i class="fas fa-user bg-green"></i>
-                                <div class="timeline-item">
-                                  <span class="time"><i class="fas fa-clock"></i> 5 mins ago</span>
-                                  <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
-                                </div>
-                              </div>
-                              <!-- END timeline item -->
-                              <!-- timeline item -->
-                              <div>
-                                <i class="fas fa-comments bg-yellow"></i>
-                                <div class="timeline-item">
-                                  <span class="time"><i class="fas fa-clock"></i> 27 mins ago</span>
-                                  <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-                                  <div class="timeline-body">
-                                    Take me to your leader!
-                                    Switzerland is small and neutral!
-                                    We are more like Germany, ambitious and misunderstood!
-                                  </div>
-                                  <div class="timeline-footer">
-                                    <a class="btn btn-warning btn-sm">View comment</a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- END timeline item -->
-                              <!-- timeline time label -->
-                              <div class="time-label">
-                                <span class="bg-green">3 Jan. 2014</span>
-                              </div>
-                              <!-- /.timeline-label -->
-                              <!-- timeline item -->
-                              <div>
-                                <i class="fa fa-camera bg-purple"></i>
-                                <div class="timeline-item">
-                                  <span class="time"><i class="fas fa-clock"></i> 2 days ago</span>
-                                  <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-                                  <div class="timeline-body">
-                                    <img src="../../dist/img/user1-128x128.jpg" alt="...">
-                                    <img src="../../dist/img/user7-128x128.jpg" alt="...">
-                                    <img src="../../dist/img/user3-128x128.jpg" alt="...">
-                                    <img src="../../dist/img/user4-128x128.jpg" alt="...">
-                                    <img src="../../dist/img/user5-128x128.jpg" alt="...">
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- END timeline item -->
-                              <!-- timeline item -->
-                              <div>
-                                <i class="fas fa-video bg-maroon"></i>
-
-                                <div class="timeline-item">
-                                  <span class="time"><i class="fas fa-clock"></i> 5 days ago</span>
-
-                                  <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
-
-                                  <div class="timeline-body">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                      <!-- <iframe width="727" height="409" src="https://www.youtube.com/embed/ujRvBfyuBhI?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                                      <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen></iframe> -->
-                                    </div>
-                                  </div>
-                                  <div class="timeline-footer">
-                                    <a href="#" class="btn btn-sm bg-maroon">See comments</a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- END timeline item -->
-                              <div>
-                                <i class="fas fa-clock bg-gray"></i>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="row" id="div-html-lista-experiencia">
+                          <div class="col-12">No hay experiencia</div>
                           <!-- /.col -->
                         </div>
                         <!-- /.row -->
@@ -204,12 +104,30 @@
                                 <input type="hidden" name="idexperiencia_laboral" id="idexperiencia_laboral" /> 
 
                                 <!-- Trabajo actual -->
-                                <div class="col-lg-12 my-auto text-center">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 my-auto">
                                   <div class="custom-control custom-checkbox">                                   
                                     <input class="custom-control-input" type="checkbox" id="trabajo_actual" name="trabajo_actual" value="1" onclick="limpiar_fecha_fin()">
                                     <label for="trabajo_actual" class="custom-control-label">Trabajo actual</label>
                                   </div>
                                 </div>   
+                                
+
+                                <!-- Empresa -->
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 bg-">
+                                  <div class="form-group">
+                                    <label for="bg_color_select2">Seleccionar color</label>
+                                    <select name="bg_color_select2" id="bg_color_select2" class="form-control select2" style="width: 100%;"> 
+                                        <option value="bg-dark" title="bg-dark" >bg-black</option>
+                                        <option value="bg-primary" title="bg-primary" >bg-red</option>
+                                        <option value="bg-cyan" title="bg-cyan" >bg-cyan</option>
+                                        <option value="bg-maroon" title="bg-maroon" >bg-maroon</option>
+                                        <option value="bg-yellow" title="bg-yellow" >bg-yellow</option>
+                                        <option value="bg-purple" title="bg-purple" >bg-purple</option>
+                                        <option value="bg-green" title="bg-green" >bg-green</option>
+                                        <option value="bg-pink" title="bg-pink" >bg-pink</option>
+                                    </select>
+                                  </div>
+                                </div>
 
                                 <!-- Empresa -->
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
@@ -223,7 +141,7 @@
                                 <div class="col-lg-6">
                                   <div class="form-group">
                                     <label for="fecha_inicio" class="chargue-format-1">Fecha Inicio</label>
-                                    <input type="date" name="fecha_inicio" class="form-control" id="fecha_inicio" placeholder="Fecha Inicio" />
+                                    <input type="date" name="fecha_inicio" class="form-control" id="fecha_inicio" placeholder="Fecha Inicio" onchange="restrigir_fecha_input();" />
                                   </div>
                                 </div>
 
@@ -319,7 +237,7 @@
 
                         <div class="modal-body">
 
-                          <button type="button" class="btn btn-success mb-4" title="Agregar" data-toggle="modal" data-target="#modal-agregar-empresa">
+                          <button type="button" class="btn btn-success mb-4" title="Agregar" data-toggle="modal" data-target="#modal-agregar-empresa" onclick="limpiar_form_empresa();"> 
                             <i class="fa-solid fa-building"></i> Agregar Empresa
                           </button>
 

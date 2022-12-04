@@ -140,33 +140,70 @@ function tbla_principal() {
       if (e.data.experiencia.length === 0) {
         $("#div-experiencia-laboral").html('─ Asigna tu experiencia laboral.');
       } else {
-        var html_experiencia = `
-        <!-- timeline time label -->
-        <div class="time-label">
-          <span class="bg-warning"> 10 Feb. 2014 </span> &nbsp; al &nbsp; <span class="bg-warning"> 10 Feb. 2014 </span>
-        </div>
-        <!-- /.timeline-label -->
-        <!-- timeline item -->
-        <div>
-          <i class="fas fa-user bg-info"></i>
-          <div class="timeline-item">
-            <span class="time"><i class="far fa-clock"></i> 12:05</span>
-            <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-            <div class="timeline-body">
-              Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-              weebly ning heekya handango imeem plugg dopplr jibjab, movity
-              jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-              quora plaxo ideeli hulu weebly balihoo...
+
+        var data_html = "";
+
+        e.data.experiencia.forEach((val, key) => {
+
+          var fecha_fin = val.trabajo_actual == '0' ? `${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}`: 'Actual' ;
+
+          var certificado = val.certificado == '' || val.certificado == null  ? `<button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-original-title="Vacio"><i class="fa-regular fa-file-pdf fa-2x"></i></button>`:  `<a href="../dist/docs/experiencia_laboral/certificado/${val.certificado}" class="btn btn-info btn-sm" target="_blank" data-toggle="tooltip" data-original-title="Ver doc"><i class="fa-regular fa-file-pdf fa-2x"></i></a>`;
+
+          data_html = data_html.concat(`
+            <!-- timeline time label -->
+            <div class="time-label">
+              <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
             </div>
-            <div class="timeline-footer">
-              <a href="#" class="btn btn-primary btn-sm">Read more</a>
-              <a href="#" class="btn btn-danger btn-sm">Delete</a>
-            </div>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div class="mb-5">
+              <i class="fas fa-briefcase ${val.bg_color}"></i>
+              <div class="timeline-item">
+                <span class="time"><i class="fas fa-clock"></i> ${moment(val.updated_at).format('LT')}</span>
+                <h3 class="timeline-header"><a href="${val.url_empresa}" target="_blank">${val.razon_social}</a> click para visitar</h3>
+
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="text-primary"><label for="">DETALLE COLEGIADO</label></div>
+                    </div>
+                    <div class="col-6">                       
+                      <div class="text-primary"><label for="">DETALLE EMPRESA</label></div>                       
+                    </div>
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
+                        <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
+                        <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
+                        <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
+                      </div> 
+                    </div>              
+
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
+                        <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
+                        <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
+                        <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
+                        <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>                        
+                      </div> 
+                    </div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+            </div>                   
+          `);
+        }); 
+
+        $('#div-experiencia-laboral').html(`
+          <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline"> ${data_html} <div><i class="fas fa-clock bg-gray"></i></div> </div>
+            <!-- END timeline item -->
           </div>
-        </div>
-        <!-- END timeline item --> 
-        `;
-        $("#div-experiencia-laboral").html(`${html_experiencia} <div><i class="far fa-clock bg-gray"></i> </div>`);
+        `);        
       }
 
       // cargamos la imagen adecuada par el archivo
@@ -177,6 +214,7 @@ function tbla_principal() {
         $("#div-pdf-cv").html(ver_doc);
       }
       
+      $('[data-toggle="tooltip"]').tooltip();
 
     } else {
       ver_errores(e);
