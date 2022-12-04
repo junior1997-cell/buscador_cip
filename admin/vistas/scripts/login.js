@@ -15,8 +15,9 @@ $("#frmAcceso").on('submit',function(e) {
     
     logina=$("#logina").val();
     clavea=$("#clavea").val();
+    soy_administrador =  $(`#soy_administrador`).is(':checked')? '1' : '0';
 
-    $.post("../ajax/usuario.php?op=verificar",{"logina":logina,"clavea":clavea}, function(e){
+    $.post("../ajax/usuario.php?op=verificar",{"logina":logina,"clavea":clavea, 'soy_administrador':soy_administrador}, function(e){
         try {
             e = JSON.parse(e); //console.log(e);
 
@@ -79,4 +80,13 @@ function varaibles_get() {
 
 function typeOfVar (obj) {
     return {}.toString.call(obj).split(' ')[1].slice(0, -1).toLowerCase();
+}
+
+function ver_password() {
+    var x = document.getElementById("clavea");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
 }

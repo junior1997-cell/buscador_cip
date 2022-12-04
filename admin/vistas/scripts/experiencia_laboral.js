@@ -4,7 +4,7 @@ function init() {
 
   $("#lExperienciaLaboral").addClass("active");
 
-  mostrar_datos_experiencia();
+  listar_datos_experiencia();
   tabla_empresa_laboral();
 
   // ══════════════════════════════════════ S E L E C T 2 ══════════════════════════════════════
@@ -16,12 +16,20 @@ function init() {
 
   // ══════════════════════════════════════ INITIALIZE SELECT2 ══════════════════════════════════════ 
   $("#empresa_select2").select2({ theme: "bootstrap4", placeholder: "Selecione empresa", allowClear: true, });
+  $("#bg_color_select2").select2({ templateResult: templateColor, theme: "bootstrap4", placeholder: "Selecione empresa", allowClear: true, });
   
   // Formato para telefono
   $("[data-mask]").inputmask();
 }
 
 init();
+
+function templateColor (state) {
+  //console.log(state);
+  if (!state.id) { return state.text; }  
+  var $state = $(`<span ><span class="${state.title}">....</span> ${state.text}</span>`);
+  return $state;
+};
 
 $("#doc1_i").click(function() {  $('#doc1').trigger('click'); });
 $("#doc1").change(function(e) {  addImageApplication(e,$("#doc1").attr("id")) });
@@ -44,6 +52,7 @@ function limpiar_form_experiencia() {
   $("#url_empresa").val("");
 
   $("#empresa_select2").val("").trigger("change");
+  $("#bg_color_select2").val("").trigger("change");
 
   $("#doc1").val("");
   $("#doc_old_1").val("");
@@ -72,14 +81,16 @@ function guardar_y_editar_experiencia(e) {
         e = JSON.parse(e);  //console.log(e); 
         if (e.status == true) {	
           Swal.fire("Correcto!", "Experiencia guardada correctamente", "success");                
-          mostrar_datos_experiencia(); 
-          limpiar_form_experiencia();     
+          listar_datos_experiencia(); 
+          limpiar_form_experiencia();  
+          $('#modal-agregar-experiencia-laboral').modal('hide'); 
+          limpiar_fecha_fin();
         }else{
           ver_errores(e);
         }
       } catch (err) { console.log('Error: ', err.message); toastr_error("Error temporal!!",'Puede intentalo mas tarde, o comuniquese con:<br> <i><a href="tel:+51921305769" >921-305-769</a></i> ─ <i><a href="tel:+51921487276" >921-487-276</a></i>', 700); }      
 
-      $("#guardar_registro").html('Guardar Cambios').removeClass('disabled');
+      $("#guardar_registro_experiencia").html('Guardar Cambios').removeClass('disabled');
       $('#barra_progress_experiencia_div').hide();
     },
     xhr: function () {
@@ -95,7 +106,7 @@ function guardar_y_editar_experiencia(e) {
       return xhr;
     },
     beforeSend: function () {
-      $("#guardar_registro").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
+      $("#guardar_registro_experiencia").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
       $("#barra_progress_experiencia").css({ width: "0%",  });
       $("#barra_progress_experiencia").text("0%");
     },
@@ -108,34 +119,157 @@ function guardar_y_editar_experiencia(e) {
 }
 
 // mostramos los datos para editar
-function mostrar_datos_experiencia() {
+function listar_datos_experiencia() {
+  $('#div-html-lista-experiencia').html(`<div class="col-lg-12 text-center"><i class="fas fa-spinner fa-pulse fa-6x"></i><br/><br/><h4>Cargando...</h4></div>`);
+  $(".tooltip").removeClass("show").addClass("hidde");   
 
-  $(".tooltip").removeClass("show").addClass("hidde");
-
-  limpiar_form_experiencia();  
-
-  $.post("../ajax/experiencia_laboral.php?op=mostrar_datos_experiencia", function (e, status) {
+  $.post("../ajax/experiencia_laboral.php?op=listar_datos_experiencia", function (e, status) {
 
     e = JSON.parse(e);  console.log(e);   
 
-    if (e.status == true) {       
+    if (e.status == true) { 
 
-      $("#usuario").val( e.data.usuario == null || e.data.usuario == '' ? '': e.data.usuario );
-      $("#password").val(''); 
-      $("#email").val( e.data.email == null || e.data.email == '' ? '': e.data.email ); 
-      $("#celular").val( e.data.celular == null || e.data.celular == '' ? '': e.data.celular ); 
-      $("#direccion").val( e.data.direccion == null || e.data.direccion == '' ? '': e.data.direccion );   
+      var data_html = "";
 
-      $("#span_usuario").html( e.data.usuario == null || e.data.usuario == '' ? '--': e.data.usuario );
-      $("#span_password").html( '****' ); 
-      $("#span_email").html( e.data.email == null || e.data.email == '' ? '--': e.data.email ); 
-      $("#span_celular").html( e.data.celular == null || e.data.celular == '' ? '--': e.data.celular ); 
-      $("#span_direccion").html( e.data.direccion == null || e.data.direccion == '' ? '--': e.data.direccion );  
-      
+      if (e.data.length === 0) {
+
+        $('#div-html-lista-experiencia').html("─ Asigna tu experiencia laboral.");
+
+      } else {
+
+        e.data.forEach((val, key) => {
+
+          var fecha_fin = val.trabajo_actual == '0' ? `${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}`: 'Actual' ;
+
+          var certificado = val.certificado == '' || val.certificado == null  ? `<button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-original-title="Vacio"><i class="fa-regular fa-file-pdf fa-2x"></i></button>`:  `<a href="../dist/docs/experiencia_laboral/certificado/${val.certificado}" class="btn btn-info btn-sm" target="_blank" data-toggle="tooltip" data-original-title="Ver doc"><i class="fa-regular fa-file-pdf fa-2x"></i></a>`;
+
+          data_html = data_html.concat(`
+            <!-- timeline time label -->
+            <div class="time-label">
+              <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
+            </div>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div class="mb-5">
+              <i class="fas fa-briefcase ${val.bg_color}"></i>
+              <div class="timeline-item">
+                <span class="time"><i class="fas fa-clock"></i> ${moment(val.updated_at).format('LT')}</span>
+                <h3 class="timeline-header"><a href="${val.url_empresa}" target="_blank">${val.razon_social}</a> click para visitar</h3>
+
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="text-primary"><label for="">DETALLE COLEGIADO</label></div>
+                    </div>
+                    <div class="col-6">                       
+                      <div class="text-primary"><label for="">DETALLE EMPRESA</label></div>                       
+                    </div>
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
+                        <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
+                        <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
+                        <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
+                      </div> 
+                    </div>              
+
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
+                        <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
+                        <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
+                        <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
+                        <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>                        
+                      </div> 
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="timeline-footer">
+                  <button class="btn btn-warning btn-sm" onclick="mostrar_editar_experiencia(${val.idexperiencia_laboral})"><i class="fa-solid fa-pencil"></i> Editar</button>
+                  <button class="btn btn-danger btn-sm" onclick="eliminar_experiencia(${val.idexperiencia_laboral}, '${val.razon_social}')"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                </div>
+              </div>
+            </div>                   
+          `);
+        }); 
+
+        $('#div-html-lista-experiencia').html(`
+          <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline"> ${data_html} <div><i class="fas fa-clock bg-gray"></i></div> </div>
+            <!-- END timeline item -->
+          </div>
+        `);
+      }      
+
+      $('[data-toggle="tooltip"]').tooltip();
+
     } else {
       ver_errores(e);
     }    
   }).fail( function(e) { ver_errores(e); } );
+}
+
+// mostramos los datos para editar
+function mostrar_editar_experiencia(idexperiencia_laboral) {
+
+  $("#cargando-1-fomulario").hide();
+  $("#cargando-2-fomulario").show();
+
+  $(".tooltip").removeClass("show").addClass("hidde");  
+  $('#modal-agregar-experiencia-laboral').modal('show');  
+
+  $.post("../ajax/experiencia_laboral.php?op=mostrar_datos_experiencia",{'idexperiencia_laboral': idexperiencia_laboral}, function (e, status) {
+
+    e = JSON.parse(e);  console.log(e);   
+
+    if (e.status == true) {        
+      $("#idexperiencia_laboral").val(e.data.idexperiencia_laboral);
+      $("#fecha_inicio").val(e.data.fecha_inicio);
+      $("#fecha_fin").val(e.data.fecha_fin);
+      e.data.trabajo_actual == '1' ? $('#trabajo_actual').prop('checked', true) : $('#trabajo_actual').prop('checked', false); 
+      $("#cargo_laboral").val(e.data.cargo_laboral);
+      $("#url_empresa").val(e.data.url_empresa);
+
+      $("#empresa_select2").val(e.data.idempresa).trigger("change");
+      $("#bg_color_select2").val(e.data.bg_color).trigger("change");
+
+      limpiar_fecha_fin();
+
+      restrigir_fecha_input();
+
+      $("#cargando-1-fomulario").show();
+      $("#cargando-2-fomulario").hide();
+
+    } else {
+      ver_errores(e);
+    }    
+  }).fail( function(e) { ver_errores(e); } );
+}
+
+function eliminar_experiencia(idexperiencia_laboral, nombre) {
+  Swal.fire({
+    title: "¿Está Seguro de Eliminar?",
+    html: `<b class="text-danger"><del>${nombre}</del></b> <br> Al <b>Eliminar</b> no podra recuperarlo.`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#28a745",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Eliminar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.post("../ajax/experiencia_laboral.php?op=eliminar_experiencia", { 'idexperiencia_laboral': idexperiencia_laboral }, function (e) {
+        e = JSON.parse(e);  console.log(e); 
+        if (e.status == true) {
+          Swal.fire("Eliminado!", "Tu Experiencia Laboral ha sido eliminada.", "success");    
+          listar_datos_experiencia();          
+        } else {
+          ver_errores(e);
+        }        
+      }).fail( function(e) { ver_errores(e); } );    
+    }
+  });   
 }
 
 function limpiar_fecha_fin() {
@@ -339,23 +473,24 @@ $(function () {
 
   
   $("#empresa_select2").on('change', function() { $(this).trigger('blur'); });
+  $("#bg_color_select2").on('change', function() { $(this).trigger('blur'); });
 
   $("#form-experiencia-laboral").validate({
     rules: {
       empresa_select2:  { required: true, },
-      usuario:  { required: true, minlength: 6, maxlength: 10 },
-      password: { minlength: 6, maxlength: 20 },
-      email:    { email: true, required: true, minlength: 6, maxlength: 100 },
-      celular:  { minlength: 8, maxlength: 20 },
-      direccion:{ minlength: 5, maxlength: 70 },
+      fecha_inicio:     { required: true,  },
+      fecha_fin:        { required: true,  },
+      cargo_laboral:    { required: true, minlength: 4, maxlength: 100 },
+      url_empresa:      { minlength: 8, maxlength: 200 },
+      bg_color_select2: { required: true, },
     },
     messages: {
-      empresa_select2:  {required: "Campo requerido." },
-      usuario:  { required: "Campo requerido.", minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 10 caracteres.", },
-      password: { minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 20 caracteres.", },
-      email:    { required: "Campo requerido.", minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 100 caracteres.", email: "Ingrese un coreo electronico válido.", },
-      celular:  { minlength: "MÍNIMO 8 caracteres.", maxlength: "MÁXIMO 20 caracteres.", },
-      direccion:{ minlength: "MÍNIMO 5 caracteres.", maxlength: "MÁXIMO 70 caracteres.", },
+      empresa_select2:  { required: "Campo requerido.", },
+      fecha_inicio:     { required: "Campo requerido.", },
+      fecha_fin:        { required: "Campo requerido.", },
+      cargo_laboral:    { required: "Campo requerido.", minlength: "MÍNIMO 4 caracteres.", maxlength: "MÁXIMO 100 caracteres.", },
+      url_empresa:      { minlength: "MÍNIMO 8 caracteres.", maxlength: "MÁXIMO 200 caracteres.", },
+      bg_color_select2: { required: "Campo requerido.", },
     },
         
     errorElement: "span",
@@ -415,7 +550,10 @@ $(function () {
   });
 
   $("#empresa_select2").rules('add', { required: true, messages: {  required: "Campo requerido" } });
+  $("#bg_color_select2").rules('add', { required: true, messages: {  required: "Campo requerido" } });
   
 });
 
 // .....::::::::::::::::::::::::::::::::::::: F U N C I O N E S    A L T E R N A S  :::::::::::::::::::::::::::::::::::::::..
+
+function restrigir_fecha_input() {  restrigir_fecha_ant("#fecha_fin",$("#fecha_inicio").val());}

@@ -255,6 +255,12 @@ class Usuario
     return ejecutarConsultaSimpleFila($sql);
   }
 
+  //Función para verificar el acceso al sistema
+  public function verificar_admin($login, $clave) {
+    $sql = "SELECT * FROM colegiado as c WHERE c.usuario = '$login' AND c.password = '$clave';";
+    return ejecutarConsultaSimpleFila($sql);
+  }
+
   //Seleccionar Trabajador Select2
   public function select2_trabajador() {
     $sql = "SELECT idtrabajador as id, nombres as nombre, tipo_documento as documento, numero_documento, imagen_perfil

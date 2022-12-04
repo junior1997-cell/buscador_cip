@@ -84,6 +84,23 @@ function extraer_nombre_mes(fecha) {
   return nombre_completo;
 }
 
+function extraer_nombre_mes_abreviados(fecha) {
+
+  var nombre_completo = "";
+
+  if (fecha == '' || fecha == null || fecha == '0000-00-00') { nombre_completo = "-"; } else {
+    const array_mes = ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.", "Jul.", "Ago.", "Sep.", "Oct.", "Nov.", "Dic."];
+    
+    let date = new Date(fecha.replace(/-+/g, '/'));
+      
+    var mes_indice = date.getMonth();
+
+    nombre_completo = array_mes[mes_indice];
+  }
+
+  return nombre_completo;
+}
+
 // calulamos la cantidad de dias de una mes especifico
 function cantidad_dias_mes(year, month) {
   var diasMes = new Date(year, month, 0).getDate();
