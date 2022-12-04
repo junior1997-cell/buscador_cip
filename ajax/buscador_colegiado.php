@@ -82,88 +82,88 @@
           }
         break;   
         
-        case 'buscar_pg':
-          $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
-          $data = [];         
-          $cont=1;          
+        // case 'buscar_pg':
+        //   $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
+        //   $data = [];         
+        //   $cont=1;          
 
-          if ($rspta['status'] == true) {
-            foreach ($rspta['data'] as $key => $reg) {              
+        //   if ($rspta['status'] == true) {
+        //     foreach ($rspta['data'] as $key => $reg) {              
   
-              // $ficha_tecnica = empty($reg['ficha_tecnica'])
-              //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
-              //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
+        //       // $ficha_tecnica = empty($reg['ficha_tecnica'])
+        //       //   ? ( '<div><center><a type="btn btn-danger" class=""><i class="far fa-file-pdf fa-2x text-gray-50"></i></a></center></div>')
+        //       //   : ( '<center><a target="_blank" href="../dist/docs/material/ficha_tecnica/' . $reg['ficha_tecnica'] . '"><i class="far fa-file-pdf fa-2x" style="color:#ff0000c4"></i></a></center>');
 
-              $data[] = [
-                "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado(\' \')" ><i class="far fa-eye"></i></button>',                  
-                "2" => '<div class="user-block w-300px">
-                  <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">
-                  <span class="username"><p class="text-primary m-b-02rem" >'. $reg[1].'</p></span>
-                  <span class="description">DNI: '. $reg[2] .' </span>
-                </div>' ,
-                "3" => $reg[3], 
-                "4" => '<div class="w-200px">' . $reg[4] . '<br> <span class="text-primary">'.$reg[5].'</span> </div>', 
-                "5" => '<div class="font-size-10px">' . ($reg[6] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>') . '</div>',
-                "6" => date("d/m/Y", strtotime($reg[7])),
-                "7" => $reg[8] ,
-                "8" => $reg[9] ,
-                "9" => $reg[10] ,
-              ];
-            }
+        //       $data[] = [
+        //         "0"=>$cont++,
+        //         "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado(\' \')" ><i class="far fa-eye"></i></button>',                  
+        //         "2" => '<div class="user-block w-300px">
+        //           <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg[0] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg[0]. '\', \''.$reg[1].'\')" width="50px">
+        //           <span class="username"><p class="text-primary m-b-02rem" >'. $reg[1].'</p></span>
+        //           <span class="description">DNI: '. $reg[2] .' </span>
+        //         </div>' ,
+        //         "3" => $reg[3], 
+        //         "4" => '<div class="w-200px">' . $reg[4] . '<br> <span class="text-primary">'.$reg[5].'</span> </div>', 
+        //         "5" => '<div class="font-size-10px">' . ($reg[6] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>') . '</div>',
+        //         "6" => date("d/m/Y", strtotime($reg[7])),
+        //         "7" => $reg[8] ,
+        //         "8" => $reg[9] ,
+        //         "9" => $reg[10] ,
+        //       ];
+        //     }
   
-            $results = [
-              "sEcho" => 1, //Información para el datatables
-              "iTotalRecords" => count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-              "data" => $data,
-            ];
+        //     $results = [
+        //       "sEcho" => 1, //Información para el datatables
+        //       "iTotalRecords" => count($data), //enviamos el total registros al datatable
+        //       "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+        //       "data" => $data,
+        //     ];
   
-            echo json_encode($results);
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-        break;
+        //     echo json_encode($results);
+        //   } else {
+        //     echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+        //   }
+        // break;
         
-        case 'buscar_export_csv':
-          $rspta=$trabajador->buscar_export_csv_pg();
-          $data = [];         
-          $cont=1;          
+        // case 'buscar_export_csv':
+        //   $rspta=$trabajador->buscar_export_csv_pg();
+        //   $data = [];         
+        //   $cont=1;          
 
-          if ($rspta['status'] == true) {
-            foreach ($rspta['data'] as $key => $reg) {              
-                $data[] = [
-                "0"=>  $cont++,
-                "1"=> $reg[0],                            
-                "2" => $reg[1],
-                "3" => $reg[2], 
-                "4" => $reg[3], 
-                "5" => $reg[4],
-                "6" => $reg[5],
-                "7" => $reg[6],
-                "8" => "",
-                "9" => $reg[4],
-                "10" => hash("SHA256", $reg[4]),
-                "11" => $reg[7],
-                "12" => $reg[8] ,
-                "13" => $reg[9] ,
-                "14" => $reg[10] ,
-                "15" => 'http://ciptarapoto.com/intranet/web/', 
-              ];
-            }
+        //   if ($rspta['status'] == true) {
+        //     foreach ($rspta['data'] as $key => $reg) {              
+        //         $data[] = [
+        //         "0"=>  $cont++,
+        //         "1"=> $reg[0],                            
+        //         "2" => $reg[1],
+        //         "3" => $reg[2], 
+        //         "4" => $reg[3], 
+        //         "5" => $reg[4],
+        //         "6" => $reg[5],
+        //         "7" => $reg[6],
+        //         "8" => "",
+        //         "9" => $reg[4],
+        //         "10" => hash("SHA256", $reg[4]),
+        //         "11" => $reg[7],
+        //         "12" => $reg[8] ,
+        //         "13" => $reg[9] ,
+        //         "14" => $reg[10] ,
+        //         "15" => 'http://ciptarapoto.com/intranet/web/', 
+        //       ];
+        //     }
   
-            $results = [
-              "sEcho" => 1, //Información para el datatables
-              "iTotalRecords" => count($data), //enviamos el total registros al datatable
-              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-              "data" => $data,
-            ];
+        //     $results = [
+        //       "sEcho" => 1, //Información para el datatables
+        //       "iTotalRecords" => count($data), //enviamos el total registros al datatable
+        //       "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+        //       "data" => $data,
+        //     ];
   
-            echo json_encode($results);
-          } else {
-            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-          }
-        break;
+        //     echo json_encode($results);
+        //   } else {
+        //     echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+        //   }
+        // break;
 
         default: 
           $rspta = ['status'=>'error_code', 'message'=>'Te has confundido en escribir en el <b>swich.</b>', 'data'=>[]]; echo json_encode($rspta, true); 

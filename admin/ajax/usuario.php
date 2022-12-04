@@ -18,6 +18,9 @@
       //Hash SHA256 en la contraseña
       $clavehash = hash("SHA256", $clavea); //echo $clavehash; die;
 
+      $scheme_host=  ($_SERVER['HTTP_HOST'] == 'localhost' ? 'http://localhost/buscador_cip/admin/' :  $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].'/admin/');
+
+
       $rspta = $soy_administrador == '1' ? $usuario->verificar_admin($logina, $clavehash) : $usuario->verificar($logina, $clavehash);  
 
       if ( $rspta['status'] == true ) {
@@ -47,8 +50,8 @@
             $_SESSION['admin']      = 1;
           } else {
             //Declaramos las variables de sesión
-            $_SESSION['idusuario']      = $rspta['data']['idcolegiado'];
-            $_SESSION['id_colegiado_cip']= $rspta['data']['id_colegiado_cip'];
+            $_SESSION['idusuario']      = $rspta['data']['idadministrador'];
+            $_SESSION['id_colegiado_cip']= 0;
             $_SESSION['imagen']         = $rspta['data']['foto'];
             $_SESSION['hosting']        = $rspta['data']['hosting'];
             $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
