@@ -28,6 +28,7 @@
           $_SESSION['hosting']        = $rspta['data']['hosting'];
           $_SESSION['nombre']         = $rspta['data']['nombres_y_apellidos'];
           $_SESSION['tipo_documento'] = 'DNI';
+          $_SESSION['codigo_cip']     = $rspta['data']['codigo_cip'];
           $_SESSION['num_documento']  = $rspta['data']['dni'];
           $_SESSION['login']          = $rspta['data']['usuario'];
           $_SESSION['capitulo']       = $rspta['data']['capitulo'];
