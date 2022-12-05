@@ -13,10 +13,10 @@ function init() {
   // ══════════════════════════════════════ INITIALIZE SELECT2 ══════════════════════════════════════
   $("#sexo").select2({ theme: "bootstrap4",  placeholder: "Selecionar Sexo", allowClear: true, });
 
- //$('#nacimiento').inputmask('dd-mm-yyyy', { 'placeholder': 'dd-mm-yyyy' })
- $('#nacimiento').datepicker({ format: "dd-mm-yyyy", language: "es", autoclose: true, endDate: moment().format('DD/MM/YYYY'), clearBtn: true, weekStart: 0, orientation: "bottom auto", todayBtn: true });
- // Formato para telefono
- $("[data-mask]").inputmask();
+  //$('#nacimiento').inputmask('dd-mm-yyyy', { 'placeholder': 'dd-mm-yyyy' })
+  $('#nacimiento').datepicker({ format: "dd-mm-yyyy", language: "es", autoclose: true, endDate: moment().format('DD/MM/YYYY'), clearBtn: true, weekStart: 0, orientation: "bottom auto", todayBtn: true });
+  // Formato para telefono
+  $("[data-mask]").inputmask();
 
 }
 // click input group para habilitar: datepiker
@@ -34,7 +34,6 @@ function limpiar() {
   $("#apellido_h_").val("");
   $("#sexo").val("").trigger("change");
   $("#nacimiento").val("");
-
 }
 
 //Función Listar

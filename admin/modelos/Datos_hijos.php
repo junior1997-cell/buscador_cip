@@ -12,10 +12,10 @@
     //Implementamos un método para insertar registros
     public function insertar( $idcolegiado, $num_documento, $nombre, $apellido, $nacimiento, $sexo) {
 
-       $sql = "INSERT INTO hijos(idcolegiado, nombres, apellidos, dni, fecha_nacimiento, sexo) 
-       VALUES ('$idcolegiado','$nombre','$apellido','$num_documento','$nacimiento','$sexo')";
-  
-        return ejecutarConsulta($sql);      
+      $sql = "INSERT INTO hijos(idcolegiado, nombres, apellidos, dni, fecha_nacimiento, sexo) 
+      VALUES ('$idcolegiado','$nombre','$apellido','$num_documento','$nacimiento','$sexo')";
+
+      return ejecutarConsulta($sql);      
     }
 
     //Implementamos un método para editar registros $cci, $tipo, $ocupacion, $ruc, $cv_documentado, $cv_nodocumentado

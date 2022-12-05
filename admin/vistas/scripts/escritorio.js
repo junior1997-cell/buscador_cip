@@ -41,8 +41,7 @@ function tbla_principal() {
       
       if (e.data.esposo == null ) {
         $("#div-esposo").append('─ Asigna a tu esposo(a), si no lo tiene omita este mensaje.');
-      }else{
-        $('#actualizado-esposo').html(`Actualizado el: ${e.data.esposo.updated_at}`);
+      }else{        
         
         $("#div-esposo").append(`
           <div class="col-12 col-sm-3 col-md-4 d-flex align-items-stretch flex-column">
@@ -53,7 +52,7 @@ function tbla_principal() {
               <div class="card-body pt-0">
                 <div class="row">
                   <div class="col-7">
-                    <h2 class="lead"><b>${e.data.esposo.nombres}</b></h2>
+                    <h2 class="lead"><b>${e.data.esposo.nombres} ${e.data.esposo.apellidos}</b></h2>
                     <p class="text-muted text-sm"><b>DNI: </b> ${e.data.esposo.dni} </p>
                     <ul class="ml-4 mb-0 fa-ul text-muted">
                       <li class="small"><span class="fa-li"><i class="fa-solid fa-calendar-day"></i></span> Nac.: ${e.data.esposo.fecha_nacimiento}</li>

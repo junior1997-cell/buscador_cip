@@ -19,8 +19,7 @@
 
       $datos_hijos = new Datos_hijos(); 
 
-      date_default_timezone_set('America/Lima');  $date_now = date("d-m-Y h.i.s A");
-      
+      date_default_timezone_set('America/Lima');  $date_now = date("d-m-Y h.i.s A");      
       $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
       
       //obtenemos los datos de la vista datos_hijos.php
@@ -31,9 +30,6 @@
       $apellido	       	= isset($_POST["apellido_h_"])? limpiarCadena($_POST["apellido_h_"]):"";
       $nacimiento	    	= isset($_POST["nacimiento"])? limpiarCadena($_POST["nacimiento"]):"";
       $sexo	  	        = isset($_POST["sexo"])? limpiarCadena($_POST["sexo"]):"";
-
-      //obtenemos el valor de la variable accion
-      // $idhijos, $idcolegiado, $num_documento, $nombre, $apellido, $nacimiento, $sexo
 
       switch ($_GET["op"]) {
 
@@ -61,6 +57,7 @@
           echo json_encode($rspta, true);
 
         break;
+        
         case 'desactivar':
 
           $rspta=$datos_hijos->desactivar($idhijos);
@@ -68,6 +65,7 @@
           echo json_encode($rspta, true);
 
         break;
+
         case 'activar':
 
           $rspta=$datos_hijos->activar($idhijos);

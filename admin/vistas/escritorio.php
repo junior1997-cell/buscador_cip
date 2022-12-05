@@ -142,10 +142,10 @@
                                   <div class="user-block">
                                     <!-- <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image"> -->
                                     <span class="username ml-0">
-                                      <a href="#">Esposo</a>
+                                      <a href="#">Esposo(@)</a>
                                       <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                                     </span>
-                                    <span class="description ml-0 actualizado-esposo">Actualizado el: </span>
+                                    <span class="description ml-0 actualizado-esposo">Datos Actualizados </span>
                                   </div>
                                   <!-- /.user-block -->                                    
                                 </div>
