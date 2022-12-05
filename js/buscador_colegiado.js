@@ -1,67 +1,5 @@
 var tabla;
 function buscar_all() {
-  // $('#tabla-resultado-busqueda>body').html('<tr class="text-center"><td scope="row" colspan="11">Buscando...</td></tr>');
-  // var formData = new FormData($("#form-buscar-all")[0]);
-
-  // $.ajax({
-  //   url: "ajax/buscador_colegiado.php?op=buscar_all",
-  //   type: "POST",
-  //   data: formData,
-  //   contentType: false,
-  //   processData: false,
-  //   success: function (e) {
-  //     e = JSON.parse(e);  console.log(e);  
-  //     if (e.status == true) {   
-  //       var data_html = "";
-  //       e.data.forEach((val, key) => {
-  //         data_html = data_html.concat(`
-  //         <tr>
-  //           <td scope="row">${key+1}</td>
-  //           <td><img class="cursor-pointer" src="http://ciptarapoto.com/intranet/web/${val[0]}" alt="Perfil" onclick="ver_perfil_colegiado('http://ciptarapoto.com/intranet/web/${val[0]}', '${val[1]}')"></td>
-  //           <td>${val[1]}</td>
-  //           <td>${val[2]}</td>
-  //           <td>${val[3]}</td>                  
-  //           <td>${val[4]}</td>
-  //           <td>${val[5]}</td>
-  //           <td>${val[6]}</td>
-  //           <td>${val[7]}</td>
-  //           <td>${val[8]}</td>
-  //           <td>${val[9]}</td>
-  //         </tr>
-  //         `);
-  //       });
-
-  //       $('#tabla-resultado-busqueda>tbody').html(data_html);
-  //       $("#btn-search-all").html('<i class="fa fa-search"></i> Buscar').removeClass('disabled');
-  //       $("#barra_progress_all_div").hide();
-  //     } else {         
-  //       // ver_errores(e);
-  //     }
-  //   },
-  //   xhr: function () {
-  //     var xhr = new window.XMLHttpRequest();
-  //     xhr.upload.addEventListener("progress", function (evt) {
-  //       if (evt.lengthComputable) {
-  //         var percentComplete = (evt.loaded / evt.total)*100;
-  //         /*console.log(percentComplete + '%');*/
-  //         $("#barra_progress_all").css({"width": percentComplete+'%'});
-  //         $("#barra_progress_all").text(percentComplete.toFixed(2)+" %");
-  //       }
-  //     }, false);
-  //     return xhr;
-  //   },
-  //   beforeSend: function () {
-  //     $("#barra_progress_all_div").show();
-  //     $("#btn-search-all").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
-  //     $("#barra_progress_all").css({ width: "0%",  });
-  //     $("#barra_progress_all").text("0%");
-  //   },
-  //   complete: function () {      
-  //     $("#barra_progress_all").css({ width: "0%", });
-  //     $("#barra_progress_all").text("0%");
-  //   },
-  //   error: function (jqXhr) { /*ver_errores(jqXhr);*/ },
-  // });
 
   var capitulo_all = $('#capitulo_all').val() ;
   var nombre_all   = $('#nombre_all').val() ;
@@ -215,7 +153,7 @@ function buscar_cip() {
 function buscar_dni() {
   
   var capitulo_dni = $('#capitulo_dni').val() ;
-  var nombre_dni   = $('#nombre_dni').val() ;
+  var nombre_dni   = $('#nombre_dni').val();
 
   tabla = $("#tabla-resultado-busqueda").dataTable({
     responsive: true,
@@ -272,7 +210,97 @@ function ver_perfil_colegiado(ruta, nombre) {
 }
 
 function detalle_colegiado(id) {
+  console.log("id "+id);    
   $('#modal-ver-detalle-colegiado').modal('show');
+  $('#div-html-lista-experiencia').html(`<div class="col-lg-12 text-center"><i class="fas fa-spinner fa-pulse fa-6x"></i><br/><br/><h4>Cargando...</h4></div>`);
+  $(".tooltip").removeClass("show").addClass("hidde");   
+
+  $.post("../ajax/experiencia_laboral.php?op=listar_datos_experiencia", function (e, status) {
+
+    e = JSON.parse(e);  console.log(e);   
+
+    if (e.status == true) { 
+
+      var data_html = "";
+
+      if (e.data.length === 0) {
+
+        $('#div-html-lista-experiencia').html("─ Asigna tu experiencia laboral.");
+
+      } else {
+
+        e.data.forEach((val, key) => {
+
+          var fecha_fin = val.trabajo_actual == '0' ? `${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}`: 'Actual' ;
+
+          var certificado = val.certificado == '' || val.certificado == null  ? `<button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-original-title="Vacio"><i class="fa-regular fa-file-pdf fa-2x"></i></button>`:  `<a href="../dist/docs/experiencia_laboral/certificado/${val.certificado}" class="btn btn-info btn-sm" target="_blank" data-toggle="tooltip" data-original-title="Ver doc"><i class="fa-regular fa-file-pdf fa-2x"></i></a>`;
+
+          data_html = data_html.concat(`
+            <!-- timeline time label -->
+            <div class="time-label">
+              <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
+            </div>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <div class="mb-5">
+              <i class="fas fa-briefcase ${val.bg_color}"></i>
+              <div class="timeline-item">
+                <span class="time"><i class="fas fa-clock"></i> ${moment(val.updated_at).format('LT')}</span>
+                <h3 class="timeline-header"><a href="${val.url_empresa}" target="_blank">${val.razon_social}</a> click para visitar</h3>
+
+                <div class="timeline-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="text-primary"><label for="">DETALLE COLEGIADO</label></div>
+                    </div>
+                    <div class="col-6">                       
+                      <div class="text-primary"><label for="">DETALLE EMPRESA</label></div>                       
+                    </div>
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
+                        <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
+                        <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
+                        <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
+                      </div> 
+                    </div>              
+
+                    <div class="col-6" >
+                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
+                        <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
+                        <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
+                        <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
+                        <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
+                        <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>                        
+                      </div> 
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="timeline-footer">
+                  <button class="btn btn-warning btn-sm" onclick="mostrar_editar_experiencia(${val.idexperiencia_laboral})"><i class="fa-solid fa-pencil"></i> Editar</button>
+                  <button class="btn btn-danger btn-sm" onclick="eliminar_experiencia(${val.idexperiencia_laboral}, '${val.razon_social}')"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+                </div>
+              </div>
+            </div>                   
+          `);
+        }); 
+
+        $('#div-html-lista-experiencia').html(`
+          <div class="col-md-12">
+            <!-- The time line -->
+            <div class="timeline"> ${data_html} <div><i class="fas fa-clock bg-gray"></i></div> </div>
+            <!-- END timeline item -->
+          </div>
+        `);
+      }      
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+    } else {
+      ver_errores(e);
+    }    
+  }).fail( function(e) { ver_errores(e); } );
 }
 
 
@@ -331,11 +359,11 @@ $(function () {
   $("#form-buscar-cip").validate({
     rules: {
       capitulo_cip: { required: true, },
-      nombre_cip:   { required: true, minlength:2, maxlength:40 },      
+      nombre_cip:   { required: true, minlength:2, maxlength:50 },      
     },
     messages: {
       capitulo_cip: { required: "Campo requerido", },
-      nombre_cip:   { required: "Campo requerido",  minlength:"Minimo 2 caracteres", maxlength:"Maximo 200 caracteres"}, 
+      nombre_cip:   { required: "Campo requerido",  minlength:"Minimo 8 caracteres", maxlength:"Maximo 8 caracteres"}, 
     },
 
     errorElement: "span",
@@ -355,11 +383,11 @@ $(function () {
   $("#form-buscar-dni").validate({
     rules: {
       capitulo_dni: { required: true, },
-      nombre_dni:   { required: true, minlength:2, maxlength:40 },      
+      nombre_dni:   { required: true, number: true, minlength:8, maxlength:8 },      
     },
     messages: {
       capitulo_dni: { required: "Campo requerido", },
-      nombre_dni:   { required: "Campo requerido",  minlength:"Minimo 2 caracteres", maxlength:"Maximo 200 caracteres"}, 
+      nombre_dni:   { required: "Campo requerido",number: 'Ingrese un número',  minlength:"Minimo 8 caracteres", maxlength:"Maximo 8 caracteres"}, 
     },
 
     errorElement: "span",

@@ -2,7 +2,7 @@ var tabla;
 //Función que se ejecuta al inicio
 function init() {
 
-  $("#lCurriculum").addClass("active");
+  $("#lConyuge").addClass("active");
 
   mostrar();
 

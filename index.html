@@ -1021,7 +1021,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="text" name="nombre_nombre" id="nombre_nombre" placeholder="Nombre" onkeyup="convert_mayuscula(this);">
+                        <input class="form-control" type="text" name="nombre_nombre" id="nombre_nombre"  placeholder="Nombre" onkeyup="convert_mayuscula(this);">
                       </div> 
                       <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-nombre" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>
                     </form>                    
@@ -1069,7 +1069,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <input class="form-control" type="number" name="nombre_dni" id="nombre_dni" placeholder="DNI" onkeyup="convert_mayuscula(this);">
+                        <input class="form-control" type="text" name="nombre_dni" id="nombre_dni" placeholder="DNI" onkeyup="convert_mayuscula(this);" minlength="8" maxlength="8">
                       </div>   
                       <div class="group-sm group-middle"><button class="button button-secondary button-pipaluk" type="submit" id="btn-search-dni" ><i class="fa fa-search"></i> Buscar</button><a class="button button-default-outline button-wapasha" href="#">Contactanos</a></div>                   
                     </form>                    
@@ -1261,20 +1261,63 @@
         </div>
       </div>
 
-      <div class="modal fade" id="modal-ver-detalle-colegiado" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+      <div class="modal fade" id="modal-ver-detalle-colegiado">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h6 id="title-name-modal">Datos del colegiado</h6>
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">Experiencia laboral</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-danger" aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="modal-body text-center" >
-              <p>curriculum</p>
-              <p>expericiea lboral</p>
+
+            <div class="modal-body">
+
+              <div>
+                  <!-- card -->
+                <div class="card" style="margin: 5px;">
+                  <div class="card-body">
+                    <h3 class="card-title">Experiencia laboral</h3>
+                  </div>
+                </div>
+                  <!-- /.card-header -->
+                  <!-- card -->
+                <div class="card" style="margin: 5px;">
+                  <div class="card-body">
+                    <h3 class="card-title">Experiencia laboral</h3>
+                  </div>
+                  
+                </div>
+                  <!-- /.card-header -->
+                <hr style="background-color: #fa001f;height: 2px;margin: 5px;">
+              </div> 
+
+              <div>
+                  <!-- card -->
+                <div class="card" style="margin: 5px;">
+                  <div class="card-body">
+                    <h3 class="card-title">Experiencia laboral</h3>
+                  </div>
+                </div>
+                  <!-- /.card-header -->
+                  <!-- card -->
+                <div class="card" style="margin: 5px;">
+                  <div class="card-body">
+                    <h3 class="card-title">Experiencia laboral</h3>
+                  </div>
+                  
+                </div>
+                  <!-- /.card-header -->
+                <hr style="background-color: #fa001f;height: 2px;margin: 5px;">
+              </div>
+            </div>
+
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>

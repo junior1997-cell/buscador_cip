@@ -49,11 +49,11 @@
   
               $ficha_tecnica = empty($reg['documento_cv'])
               ? ( '<div><center><button class="btn btn-danger"><i class="fa fa-file-pdf-o fa-2x text-gray-50"></i></button></center></div>')
-              : ( '<center><a target="_blank" href="admin/dist/docs/curriculum/cv/' . $reg['documento_cv'] . '"><i class="far fa-file-pdf-o fa-2x" style="color:#ff0000c4"></i></a></center>');
+              : ( '<center><a target="_blank" href="admin/dist/docs/colegiado/cv/' . $reg['documento_cv'] . '"><i class="far fa-file-pdf-o fa-2x" style="color:#ff0000c4"></i></a></center>');
 
               $data[] = [
                 "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado(\' \')" ><i class="far fa-eye"></i></button>',                  
+                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado('.$reg['idcolegiado'].')" ><i class="far fa-eye"></i></button>',                  
                 "2" => '<div class="user-block w-300px">
                   <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg['foto'] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg['foto']. '\', \''.$reg['nombres_y_apellidos'].'\')" width="50px">
                   <span class="username"><p class="text-primary m-b-02rem" >'. $reg['nombres_y_apellidos'].'</p></span>
