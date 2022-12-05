@@ -80,9 +80,9 @@
             <!-- /.row -->
             <a href="../ajax/usuario.php?op=salir&file=<?php echo basename($_SERVER['PHP_SELF']); ?> " class="btn btn-danger btn-block">Cerrar sesion</a>
           </div>
-          <div class="card-footer py-1 text-center ">
+          <!-- <div class="card-footer py-1 text-center ">
             <a class="hove-negrita" href="javascript:void(0)" onclick="abrir_calculadora()"><i class="fas fa-calculator"></i> Abrir calculadora</a>
-          </div>
+          </div> -->
         </div>
         <!-- /.widget-user -->
         
