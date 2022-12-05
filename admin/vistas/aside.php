@@ -31,7 +31,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column /*nav-flat*/" data-widget="treeview" role="menu" data-accordion="false">
         <!-- MANUAL DE USUARIO -->
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>
           <!-- ESCRITORIO -->
           <li class="nav-item">
             <a href="escritorio.php" class="nav-link pl-2" id="mEscritorio">
@@ -44,7 +44,7 @@
           </li>
         <?php  }  ?>
 
-        <?php if ($_SESSION['colegiado']==1) {  ?>
+        <?php if ( $_SESSION['admin'] == 1 ) {  ?>
           <!-- ACCESOS -->
           <li class="nav-item  b-radio-3px" id="bloc_Accesos">
             <a href="#" class="nav-link pl-2" id="mAccesos">
@@ -60,28 +60,21 @@
               <li class="nav-item ">
                 <a href="usuario.php" class="nav-link " id="lUsuario">
                   <i class="nav-icon fas fa-users-cog"></i>
-                  <p>Usuarios</p>
+                  <p>Colegiados</p>
                 </a>
-              </li>
-              <!-- Permisos de los usuarios del sistema -->
-              <li class="nav-item ">
-                <a href="permiso.php" class="nav-link" id="lPermiso">
-                  <i class="nav-icon fas fa-lock"></i>
-                  <p>Permisos</p>
-                </a>
-              </li>      
+              </li>    
             </ul>
           </li>
         <?php  }  ?>             
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>
+        <!-- <?php if ($_SESSION['colegiado']==1) {  ?>
           <li class="nav-item">
             <a href="papelera.php" class="nav-link pl-2" id="mPapelera">
               <i class="nav-icon fas fa-trash-alt"></i>
               <p>Papelera</p>
             </a>
           </li>
-        <?php  }  ?>
+        <?php  }  ?> -->
         
         <li class="nav-header">MÓDULOS</li>
 
@@ -93,7 +86,7 @@
           </a>
         </li>           
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>  
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
             <a href="dato_principal.php" class="nav-link pl-2" id="lDatoPrincipal">
               <i class="nav-icon fa-regular fa-address-card"></i>
@@ -102,7 +95,7 @@
           </li>
         <?php  }  ?>  
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>  
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
             <a href="mi_cv.php" class="nav-link pl-2" id="lCurriculum">
               <i class="nav-icon fa-regular fa-folder-open"></i>
@@ -111,7 +104,7 @@
           </li>
         <?php  }  ?> 
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>  
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
             <a href="conyuge.php" class="nav-link pl-2" id="lManodeObra">
               <i class="nav-icon fa-solid fa-children"></i>
@@ -120,7 +113,7 @@
           </li>
         <?php  }  ?>    
 
-        <?php if ($_SESSION['colegiado']==1) {  ?>  
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
             <a href="datos_hijos.php" class="nav-link pl-2" id="lDatosHijos">
               <i class="nav-icon fa-solid fa-baby"></i>
@@ -129,7 +122,7 @@
           </li>
         <?php  }  ?>     
         
-        <?php if ($_SESSION['colegiado']==1) {  ?>  
+        <?php if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1) {  ?>  
           <li class="nav-item ver-otros-modulos-1">
             <a href="experiencia_laboral.php" class="nav-link pl-2" id="lExperienciaLaboral">
               <i class="nav-icon fa-solid fa-briefcase"></i>

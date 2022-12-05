@@ -34,7 +34,7 @@
         'data'=>[
           'colegiado'   =>$colegiado['data'], 
           'esposo'      =>$esposo['data'], 
-          'hijos'       =>$esposo['data'], 
+          'hijos'       =>$hijos['data'], 
           'experiencia' =>$experiencia['data'], 
         ]
       ];

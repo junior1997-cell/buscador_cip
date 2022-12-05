@@ -157,14 +157,14 @@ $(function () {
 
   $("#form-dato-principal").validate({
     rules: {
-      usuario:  { required: true, minlength: 6, maxlength: 10 },
+      usuario:  { required: true, minlength: 4, maxlength: 20 },
       password: { minlength: 6, maxlength: 20 },
       email:    { email: true, required: true, minlength: 6, maxlength: 100 },
       celular:  { minlength: 8, maxlength: 20 },
       direccion:{ minlength: 5, maxlength: 70 },
     },
     messages: {
-      usuario:  { required: "Campo requerido.", minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 10 caracteres.", },
+      usuario:  { required: "Campo requerido.", minlength: "MÍNIMO 4 caracteres.", maxlength: "MÁXIMO 20 caracteres.", },
       password: { minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 20 caracteres.", },
       email:    { required: "Campo requerido.", minlength: "MÍNIMO 6 caracteres.", maxlength: "MÁXIMO 100 caracteres.", email: "Ingrese un coreo electronico válido.", },
       celular:  { minlength: "MÍNIMO 8 caracteres.", maxlength: "MÁXIMO 20 caracteres.", },

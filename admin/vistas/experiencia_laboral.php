@@ -28,7 +28,7 @@
           <?php
             require 'nav.php';
             require 'aside.php';
-            if ($_SESSION['colegiado']==1){
+            if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1){
               //require 'enmantenimiento.php';
               ?>           
               <!--Contenido-->
@@ -242,7 +242,7 @@
                           </button>
 
                           <table id="tabla-empresas" class="table table-bordered table-striped display" style="width: 100% !important;">
-                            <thead>
+                            <thead style="background-color: #0b0b0b; color: white;">
                               <tr>
                                 <th class="text-center">#</th>
                                 <th class="text-center">Aciones</th>

@@ -28,7 +28,7 @@
           <?php
             require 'nav.php';
             require 'aside.php';
-            if ($_SESSION['colegiado']==1){
+            if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1){
               //require 'enmantenimiento.php';
               ?>           
               <!--Contenido-->
@@ -65,7 +65,7 @@
                         <div class="card card-primary card-outline">
                           <div class="card-body box-profile text-center">
                             <div class="text-center">
-                              <img class="profile-user-img img-fluid img-circle" src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>" alt="User profile picture">
+                              <img class="profile-user-img img-fluid img-circle" src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>" alt="User profile picture" onerror="this.src='../dist/svg/user_default.svg'">
                             </div>
 
                             <h3 class="profile-username text-center"> <?php echo $_SESSION['nombre']; ?></h3>
@@ -92,7 +92,23 @@
                               </div>
                               <!-- /.card-header -->
                               <div class="card-body" id="div-todo-sobre-mi">
-                                
+                              <strong class="text-success"><i class="fas fa-book mr-1 text-success"></i> CIP</strong>
+                                <p class="text-muted"> <?php echo $_SESSION['codigo_cip']; ?></p>
+
+                                <hr class="my-1">
+
+                                <strong class="text-success"><i class="fa-regular fa-envelope mr-1 text-success"></i> Correo</strong>
+                                <p class="text-muted"><?php echo $_SESSION['email']; ?></p>
+
+                                <hr class="my-1">
+
+                                <strong class="text-success"><i class="fa-regular fa-calendar-days mr-1 text-success"></i> Fecha Incorporacion</strong>
+                                <p class="text-muted"><?php echo $_SESSION['fecha_incorporacion']; ?></p>
+
+                                <hr class="my-1">
+
+                                <strong class="text-success"><i class="fa-regular fa-id-badge mr-1 text-success"></i> Capitulo</strong>
+                                <p class="text-muted"><?php echo $_SESSION['capitulo']; ?></p>
                               </div>
                               <!-- /.card-body -->
                             </div>
@@ -136,16 +152,19 @@
                                 <!-- /.post -->
 
                                 <!-- Post -->
-                                <div class="post clearfix" id="div-hijos">
+                                <div class="post clearfix" >
                                   <div class="user-block">
                                     <!-- <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image"> -->
                                     <span class="username ml-0">
                                       <a href="#">Hijos</a>
                                       <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                                     </span>
-                                    <span class="description ml-0" id="actualizado-hijos">Actualizado el: </span>
+                                    <span class="description ml-0" id="actualizado-hijos">Lista de hijos </span>
                                   </div>
-                                  <!-- /.user-block -->                                   
+                                  <!-- /.user-block -->      
+                                  <div class="row" id="div-hijos">
+
+                                  </div>                             
                                 </div>
                                 <!-- /.post -->
                                 

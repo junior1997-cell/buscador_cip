@@ -13,7 +13,7 @@
   } else {
 
     //Validamos el acceso solo al usuario logueado y autorizado.
-    if ($_SESSION['colegiado'] == 1) {
+    if ($_SESSION['colegiado'] == 1 || $_SESSION['admin'] == 1) {
 
       require_once "../modelos/Datos_hijos.php";
 

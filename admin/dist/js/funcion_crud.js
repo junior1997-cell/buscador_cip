@@ -518,9 +518,9 @@ function ver_errores(e) {
       cancelButtonAriaLabel: 'Thumbs down'
     }).then((result) => {
       if (result.isConfirmed) {        
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/vistas/escritorio.php':window.location.origin+'/vistas/escritorio.php'}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin/':window.location.origin+'/admin'}`;
       } else {
-        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/vistas/escritorio.php':window.location.origin+'/vistas/escritorio.php'}`;
+        window.location.href = `${window.location.host=='localhost'?'http://localhost/buscador_cip/admin/':window.location.origin+'/admin'}`;
       }
     });
   

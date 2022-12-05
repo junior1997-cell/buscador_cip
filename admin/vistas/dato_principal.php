@@ -23,7 +23,7 @@
           <?php
           require 'nav.php';
           require 'aside.php';
-          if ($_SESSION['colegiado']==1){
+          if ($_SESSION['colegiado']==1 || $_SESSION['admin'] == 1){
             //require 'enmantenimiento.php';
             ?>
 
