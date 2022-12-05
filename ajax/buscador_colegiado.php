@@ -18,7 +18,7 @@
 
       require_once "../modelos/Buscador_colegiado.php";
 
-      $trabajador = new Buscador_colegiado();
+      $buscador_colegiado = new Buscador_colegiado();
 
       date_default_timezone_set('America/Lima');  $date_now = date("d-m-Y h.i.s A");
 
@@ -40,7 +40,7 @@
       switch ($_GET["op"]) {
 
         case 'buscar':
-          $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
+          $rspta=$buscador_colegiado->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
           $data = [];         
           $cont=1;          
 
@@ -53,7 +53,7 @@
 
               $data[] = [
                 "0"=>$cont++,
-                "1" => ' <button class="btn btn-info btn-sm" onclick="detalle_colegiado('.$reg['idcolegiado'].')" ><i class="far fa-eye"></i></button>',                  
+                "1" => '<button class="btn '. ($reg['count_exp'] == 0 ? 'btn-outline-info' : 'btn-info' ) .'  btn-sm" onclick="detalle_colegiado('.$reg['idcolegiado'].')" style="cursor: pointer !important;" ><i class="far fa-eye"></i></button>',                  
                 "2" => '<div class="user-block w-300px">
                   <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg['foto'] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg['foto']. '\', \''.$reg['nombres_y_apellidos'].'\')" width="50px">
                   <span class="username"><p class="text-primary m-b-02rem" >'. $reg['nombres_y_apellidos'].'</p></span>
@@ -81,6 +81,14 @@
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
         break;   
+
+        case 'ver_detalle_colegiado':
+
+          $rspta=$buscador_colegiado->ver_detalle_colegiado($_POST["id"]);
+          //Codificar el resultado utilizando json
+          echo json_encode($rspta, true);
+
+        break;
         
         // case 'buscar_pg':
         //   $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);

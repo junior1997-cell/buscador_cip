@@ -201,8 +201,6 @@ function buscar_dni() {
   $('.div-resultado').show();
 }
 
-
-
 function ver_perfil_colegiado(ruta, nombre) {
   $('#title-name-modal').html(nombre);
   $('#div-ver-perfil').html( `<img src="${ruta}" alt="" width="100%" onerror="this.src='dist/svg/user_default.svg';" >` );
@@ -215,7 +213,7 @@ function detalle_colegiado(id) {
   $('#div-html-lista-experiencia').html(`<div class="col-lg-12 text-center"><i class="fas fa-spinner fa-pulse fa-6x"></i><br/><br/><h4>Cargando...</h4></div>`);
   $(".tooltip").removeClass("show").addClass("hidde");   
 
-  $.post("../ajax/experiencia_laboral.php?op=listar_datos_experiencia", function (e, status) {
+  $.post("ajax/buscador_colegiado.php?op=ver_detalle_colegiado", { 'id':id }, function (e, status) {
 
     e = JSON.parse(e);  console.log(e);   
 
@@ -225,7 +223,7 @@ function detalle_colegiado(id) {
 
       if (e.data.length === 0) {
 
-        $('#div-html-lista-experiencia').html("─ Asigna tu experiencia laboral.");
+        $('#div-html-lista-experiencia').html("─ No tieen actualziado su experiencia laboral.");
 
       } else {
 
@@ -237,62 +235,57 @@ function detalle_colegiado(id) {
 
           data_html = data_html.concat(`
             <!-- timeline time label -->
-            <div class="time-label">
-              <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
-            </div>
+            
             <!-- /.timeline-label -->
-            <!-- timeline item -->
-            <div class="mb-5">
-              <i class="fas fa-briefcase ${val.bg_color}"></i>
-              <div class="timeline-item">
-                <span class="time"><i class="fas fa-clock"></i> ${moment(val.updated_at).format('LT')}</span>
-                <h3 class="timeline-header"><a href="${val.url_empresa}" target="_blank">${val.razon_social}</a> click para visitar</h3>
-
-                <div class="timeline-body">
-                  <div class="row">
-                    <div class="col-6">
-                      <div class="text-primary"><label for="">DETALLE COLEGIADO</label></div>
-                    </div>
-                    <div class="col-6">                       
-                      <div class="text-primary"><label for="">DETALLE EMPRESA</label></div>                       
-                    </div>
-                    <div class="col-6" >
-                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
-                        <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
-                        <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
-                        <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
-                        <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
-                      </div> 
-                    </div>              
-
-                    <div class="col-6" >
-                      <div class="card px-3 py-2" style="box-shadow: 0 0 1px rgb(0 0 0), 0 1px 3px rgb(0 0 0 / 60%); ">
-                        <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
-                        <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
-                        <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
-                        <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
-                        <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>                        
-                      </div> 
+            <div class="col-6">
+              <div class="row">
+                <div class="col-12 time-label">
+                  <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
+                </div>
+                <div class="col-12">
+                  DATOS DEL COLEGIADO
+                </div>
+                <div class="col-12">
+                  <!-- card -->
+                  <div class="card" style="margin: 5px;">
+                    <div class="card-body">
+                      <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
+                      <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
+                      <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
+                      <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
                     </div>
                   </div>
-                  
+                  <!-- card -->
                 </div>
-                <div class="timeline-footer">
-                  <button class="btn btn-warning btn-sm" onclick="mostrar_editar_experiencia(${val.idexperiencia_laboral})"><i class="fa-solid fa-pencil"></i> Editar</button>
-                  <button class="btn btn-danger btn-sm" onclick="eliminar_experiencia(${val.idexperiencia_laboral}, '${val.razon_social}')"><i class="fa-solid fa-trash-can"></i> Eliminar</button>
+              </div>                  
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="col-12">
+                  DATOS DEL COLEGIADO
                 </div>
-              </div>
-            </div>                   
+                <div class="col-12">
+                  <!-- card -->
+                  <div class="card" style="margin: 5px;">
+                    <div class="card-body">
+                      <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
+                      <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
+                      <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
+                      <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
+                      <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>   
+                    </div>
+                  </div>
+                  <!-- card -->
+                </div>
+              </div>                  
+            </div>
+            <div class="col-12">
+              <hr style="background-color: #fa001f;height: 2px;margin: 5px;">
+            </div>       
           `);
         }); 
 
-        $('#div-html-lista-experiencia').html(`
-          <div class="col-md-12">
-            <!-- The time line -->
-            <div class="timeline"> ${data_html} <div><i class="fas fa-clock bg-gray"></i></div> </div>
-            <!-- END timeline item -->
-          </div>
-        `);
+        $('#div-html-lista-experiencia').html(`${data_html}`);
       }      
 
       $('[data-toggle="tooltip"]').tooltip();
@@ -301,6 +294,12 @@ function detalle_colegiado(id) {
       ver_errores(e);
     }    
   }).fail( function(e) { ver_errores(e); } );
+}
+
+// ::::::::::::::::::::::::::: ver detalle :::::::::::::::::::::::::::::
+
+function ver_detalle_colegiado(id) {
+  
 }
 
 

@@ -12,7 +12,7 @@
 
     // ══════════════════════════════════════ conexion a Mysql ══════════════════════════════════════
     public function buscar_all($capitulo, $nombre, $tipo) {
-      
+      $data_array = [];
       $filtro_cap = (empty($capitulo) || $capitulo == '0' || $capitulo == 0 ) ? '' : "AND capitulo = '$capitulo'" ;
 
       $filtro_tipo = "";
@@ -27,6 +27,50 @@
       }
 
       $sql_1="SELECT * FROM colegiado  WHERE situacion = 'VIVO' $filtro_cap $filtro_tipo  order by nombres_y_apellidos";
+      $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
+
+      foreach ($colegiado_0['data'] as $key => $value) {
+
+        $sql_2="SELECT COUNT(idcolegiado) as cantidad FROM experiencia_laboral WHERE idcolegiado = '".$value['idcolegiado']."'";
+        $contador = ejecutarConsultaSimpleFila($sql_2);  if ($contador['status'] == false) { return  $contador;}
+
+        $data_array[] = [
+          'idcolegiado'       => $value['idcolegiado'], 
+          'id_colegiado_cip'  => $value['id_colegiado_cip'], 
+          'foto'              => $value['foto'], 
+          'nombres_y_apellidos' => $value['nombres_y_apellidos'], 
+          'dni'               => $value['dni'], 
+          'codigo_cip'        => $value['codigo_cip'], 
+          'capitulo'          => $value['capitulo'], 
+          'especialidad'      => $value['especialidad'], 
+          'documento_cv'      => $value['documento_cv'], 
+          'usuario'           => $value['usuario'], 
+          'password'          => $value['password'], 
+          'estado'            => $value['estado'], 
+          'fecha_incorporacion' => $value['fecha_incorporacion'], 
+          'situacion'         => $value['situacion'], 
+          'email'             => $value['email'], 
+          'celular'           => $value['celular'], 
+          'direccion'         => $value['direccion'], 
+          'hosting'           => $value['hosting'], 
+          'updated_at'        => $value['updated_at'],
+          'created_at'        => $value['created_at'],
+
+          'count_exp'         => empty($contador['data']) ? 0 : (empty($contador['data']['cantidad']) ? 0 : intval($contador['data']['cantidad']) ) ,
+        ];
+      }
+      
+      return  array( 
+        'count' => count($colegiado_0['data']), 
+        'status' => true, 
+        'message' => 'Salió todo ok, en ejecutarConsultaArray()', 
+        'data' => $data_array, 
+      );
+    }
+
+    public function ver_detalle_colegiado($id) {      
+
+      $sql_1="SELECT * FROM experiencia_laboral WHERE estado ='1' AND idcolegiado = '$id';";
       $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
       
       return  array( 
