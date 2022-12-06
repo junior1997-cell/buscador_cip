@@ -56,11 +56,11 @@
                 "1" => '<button class="btn '. ($reg['count_exp'] == 0 ? 'btn-outline-info' : 'btn-info' ) .'  btn-sm" onclick="detalle_colegiado('.$reg['idcolegiado'].')" style="cursor: pointer !important;" ><i class="far fa-eye"></i></button>',                  
                 "2" => '<div class="user-block w-300px">
                   <img class="profile-user-img img-circle cursor-pointer" src="http://ciptarapoto.com/intranet/web/' . $reg['foto'] . '" alt="user image" onerror="'.$imagen_error.'" onclick="ver_perfil_colegiado(\'http://ciptarapoto.com/intranet/web/'.$reg['foto']. '\', \''.$reg['nombres_y_apellidos'].'\')" width="50px">
-                  <span class="username"><p class="text-primary m-b-02rem" >'. $reg['nombres_y_apellidos'].'</p></span>
+                  <span class="username"><p class="text-danger-2 m-b-02rem" >'. $reg['nombres_y_apellidos'].'</p></span>
                   <span class="description">DNI: '. $reg['dni'] .' </span>
                 </div>' ,
                 "3" => $reg['codigo_cip'], 
-                "4" => '<div class="w-200px">' . $reg['capitulo'] . '<br> <span class="text-primary">'.$reg['especialidad'].'</span> </div>', 
+                "4" => '<div class="w-200px">' . $reg['capitulo'] . '<br> <span class="text-danger-2">'.$reg['especialidad'].'</span> </div>', 
                 "5" => '<div class="font-size-10px">' . ($reg['estado'] == 'f' ? '<span class="text-center p-1 badge-danger">NO HABILITADO</span>' : '<span class="text-center p-1 badge-success">HABILITADO</span>') . '</div>',
                 "6" => date("d/m/Y", strtotime($reg['fecha_incorporacion'])),
                 "7" => $reg['situacion'] ,
