@@ -223,7 +223,7 @@ function detalle_colegiado(id) {
 
       if (e.data.length === 0) {
 
-        $('#div-html-lista-experiencia').html("─ No tieen actualziado su experiencia laboral.");
+        $('#div-html-lista-experiencia').html("─ No tiene actualizado su experiencia laboral.");
 
       } else {
 
@@ -304,6 +304,8 @@ $(function () {
 
   // $('#unidad_medida').on('change', function() { $(this).trigger('blur'); });
 
+  $.validator.addMethod("regex", function(value, element, regexp) { var re = new RegExp(regexp); return this.optional(element) || re.test(value); },"Ingrese Solo texto, lo <b>números NO</b> estan permitidos." );
+
   $("#form-buscar-all").validate({
     rules: {
       capitulo_all: { required: true, },
@@ -355,11 +357,11 @@ $(function () {
   $("#form-buscar-cip").validate({
     rules: {
       capitulo_cip: { required: true, },
-      nombre_cip:   { required: true, minlength:2, maxlength:50 },      
+      nombre_cip:   { required: true, minlength:2, maxlength:50, number: true, },      
     },
     messages: {
       capitulo_cip: { required: "Campo requerido", },
-      nombre_cip:   { required: "Campo requerido",  minlength:"Minimo 8 caracteres", maxlength:"Maximo 8 caracteres"}, 
+      nombre_cip:   { required: "Campo requerido", number: 'Ingrese un número', minlength:"Minimo 8 caracteres", maxlength:"Maximo 8 caracteres"}, 
     },
 
     errorElement: "span",
@@ -399,6 +401,8 @@ $(function () {
       buscar_dni(e);
     },
   });
+
+  $("#nombre_nombre").rules("add", { regex: /^[a-zA-Z ]+$/ })
 
   // $('#unidad_medida').rules('add', { required: true, messages: {  required: "Campo requerido" } });
 });
