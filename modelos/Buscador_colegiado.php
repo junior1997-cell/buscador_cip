@@ -70,7 +70,11 @@
 
     public function ver_detalle_colegiado($id) {      
 
-      $sql_1="SELECT * FROM experiencia_laboral WHERE estado ='1' AND idcolegiado = '$id';";
+      $sql_1="SELECT el.idexperiencia_laboral, el.idcolegiado, el.idempresa, el.fecha_inicio, el.fecha_fin, el.trabajo_actual, 
+      el.cargo_laboral, el.url_empresa, el.certificado, el.bg_color, el.updated_at, e.razon_social, e.ruc, e.direccion, 
+      e.celular, e.correo
+      FROM experiencia_laboral as el, empresa as e
+      WHERE el.idempresa = e.idempresa AND el.estado = '1' AND el.idcolegiado =  '$id';";
       $colegiado_0 = ejecutarConsultaArray($sql_1);  if ($colegiado_0['status'] == false) { return  $colegiado_0;}
       
       return  array( 

@@ -64,7 +64,7 @@
                         <div class="card card-widget">
                           <div class="card-header">
                             <div class="user-block">
-                              <img class="img-circle" src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>" alt="User Image">
+                              <img class="img-circle" src="<?php echo $_SESSION['hosting'] . $_SESSION['imagen'] ;?>" alt="User Image" onerror="this.src='../dist/svg/user_default.svg'">
                               <span class="username"><a href="#"><?php echo $_SESSION['nombre']; ?></a></span>
                               <span class="description"><?php echo $_SESSION['especialidad']; ?></span>
                             </div>

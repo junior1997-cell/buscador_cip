@@ -48,8 +48,8 @@
             foreach ($rspta['data'] as $key => $reg) {              
   
               $ficha_tecnica = empty($reg['documento_cv'])
-              ? ( '<div><center><button class="btn btn-danger"><i class="fa fa-file-pdf-o fa-2x text-gray-50"></i></button></center></div>')
-              : ( '<center><a target="_blank" href="admin/dist/docs/colegiado/cv/' . $reg['documento_cv'] . '"><i class="far fa-file-pdf-o fa-2x" style="color:#ff0000c4"></i></a></center>');
+              ? ( '<div><center><button class="btn btn-outline-danger"><i class="fa fa-file-pdf-o fa-2x"></i></button></center></div>')
+              : ( '<center><a target="_blank" class="btn btn-danger cursor-pointer" href="admin/dist/docs/colegiado/cv/' . $reg['documento_cv'] . '"><i class="far fa-file-pdf-o fa-2x"></i></a></center>');
 
               $data[] = [
                 "0"=>$cont++,

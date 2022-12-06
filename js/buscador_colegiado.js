@@ -231,17 +231,14 @@ function detalle_colegiado(id) {
 
           var fecha_fin = val.trabajo_actual == '0' ? `${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}`: 'Actual' ;
 
-          var certificado = val.certificado == '' || val.certificado == null  ? `<button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-original-title="Vacio"><i class="fa-regular fa-file-pdf fa-2x"></i></button>`:  `<a href="../dist/docs/experiencia_laboral/certificado/${val.certificado}" class="btn btn-info btn-sm" target="_blank" data-toggle="tooltip" data-original-title="Ver doc"><i class="fa-regular fa-file-pdf fa-2x"></i></a>`;
+          var certificado = val.certificado == '' || val.certificado == null  ? `<button class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-original-title="Vacio"><i class="fa fa-file-pdf-o fa-2x"></i></button>`:  `<a href="admin/dist/docs/experiencia_laboral/certificado/${val.certificado}" class="btn btn-info btn-sm" target="_blank" data-toggle="tooltip" data-original-title="Ver doc"><i class="fa fa-file-pdf-o fa-2x"></i></a>`;
 
           data_html = data_html.concat(`
-            <!-- timeline time label -->
-            
-            <!-- /.timeline-label -->
+            <div class="col-12 text-center m-b-10px">
+              <span class="text-success font-size-17px">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="text-success font-size-17px">${fecha_fin}</span>
+            </div>
             <div class="col-6">
-              <div class="row">
-                <div class="col-12 time-label">
-                  <span class="${val.bg_color}">${moment(val.fecha_inicio).format('DD')} ${extraer_nombre_mes_abreviados(val.fecha_inicio)} ${moment(val.fecha_inicio).format('YYYY')}</span> &nbsp; al &nbsp; <span class="${val.bg_color}">${fecha_fin}</span>
-                </div>
+              <div class="row">                
                 <div class="col-12">
                   DATOS DEL COLEGIADO
                 </div>
@@ -249,10 +246,10 @@ function detalle_colegiado(id) {
                   <!-- card -->
                   <div class="card" style="margin: 5px;">
                     <div class="card-body">
-                      <div class="mt-2"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
-                      <div class="mt-2"><span class="text-bold">Fecha Fin: </span> ${val.fecha_fin} </div>
-                      <div class="mt-2"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
-                      <div class="mt-2"><span class="text-bold">Certificado: </span> ${certificado} </div>
+                      <div class="mt-1"><span class="text-bold">Fecha Inicio: </span> ${format_d_m_a(val.fecha_inicio)} </div>
+                      <div class="mt-1"><span class="text-bold">Fecha Fin: </span> ${val.trabajo_actual == '0' ? format_d_m_a(val.fecha_fin) : 'Actual'} </div>
+                      <div class="mt-1"><span class="text-bold">Cargo Laboral: </span> ${val.cargo_laboral} </div>
+                      <div class="mt-1"><span class="text-bold">Certificado: </span> ${certificado} </div>
                     </div>
                   </div>
                   <!-- card -->
@@ -262,17 +259,17 @@ function detalle_colegiado(id) {
             <div class="col-6">
               <div class="row">
                 <div class="col-12">
-                  DATOS DEL COLEGIADO
+                  DATOS DEL LA EMPRESA
                 </div>
                 <div class="col-12">
                   <!-- card -->
                   <div class="card" style="margin: 5px;">
                     <div class="card-body">
-                      <div class="mt-2"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
-                      <div class="mt-2"><span class="text-bold">RUC: </span> ${val.ruc} </div>
-                      <div class="mt-2"><span class="text-bold">Celular: </span> ${val.celular} </div> 
-                      <div class="mt-2"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
-                      <div class="mt-2"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>   
+                      <div class="mt-1"><span class="text-bold">Razon Social: </span> ${val.razon_social} </div>
+                      <div class="mt-1"><span class="text-bold">RUC: </span> ${val.ruc} </div>
+                      <div class="mt-1"><span class="text-bold">Celular: </span> ${val.celular} </div> 
+                      <div class="mt-1"><span class="text-bold">Dirección: </span> ${val.direccion} </div>
+                      <div class="mt-1"><span class="text-bold">Correo: </span><a href="mailto:${val.correo}">${val.correo}</a></div>   
                     </div>
                   </div>
                   <!-- card -->
