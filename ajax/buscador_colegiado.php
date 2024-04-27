@@ -80,18 +80,27 @@
           } else {
             echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-        break;   
+        break;  
+        
+        case 'buscar_api':
 
+          $rspta=$buscador_colegiado->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
+          //Codificar el resultado utilizando json
+          echo json_encode($rspta, true);
+
+        break;  
+        
         case 'ver_detalle_colegiado':
 
           $rspta=$buscador_colegiado->ver_detalle_colegiado($_POST["id"]);
           //Codificar el resultado utilizando json
           echo json_encode($rspta, true);
 
-        break;
+        break;  
+        
         
         // case 'buscar_pg':
-        //   $rspta=$trabajador->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
+        //   $rspta=$buscador_colegiado->buscar_all($_GET["capitulo"], $_GET["nombre"], $_GET["tipo_busqueda"]);
         //   $data = [];         
         //   $cont=1;          
 
@@ -134,7 +143,7 @@
         // break;
         
         // case 'buscar_export_csv':
-        //   $rspta=$trabajador->buscar_export_csv_pg();
+        //   $rspta=$buscador_colegiado->buscar_export_csv_pg();
         //   $data = [];         
         //   $cont=1;          
 

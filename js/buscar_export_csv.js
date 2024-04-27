@@ -8,8 +8,9 @@ function buscar_export_csv() {
     dom: "<Bl<f>rtip>", //Definimos los elementos del control de tabla
     buttons: [
       { extend: 'copyHtml5',  }, 
-      { extend: 'excelHtml5',  }, 
-      { extend: 'csvHtml5',  },      
+      { extend: 'excelHtml5', exportOptions: { columns: [0,9,10], }  }, 
+      { extend: 'csvHtml5',  },     
+      { extend:'colvis'} 
     ],
     ajax: {
       url: `ajax/buscador_colegiado.php?op=buscar_export_csv`,

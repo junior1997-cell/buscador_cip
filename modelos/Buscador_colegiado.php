@@ -1,6 +1,6 @@
 <?php
   //Incluímos inicialmente la conexión a la base de datos
-  // require "../config/ConexionPg.php";
+  //require "../config/ConexionPg.php";
   require "../config/ConexionMySql.php";
 
   class Buscador_colegiado
@@ -119,8 +119,7 @@
     //   );
     // }
     
-    // public function buscar_export_csv_pg() {
-      
+    // public function buscar_export_csv_pg() {      
 
     //   $sql_1="SELECT col.idcolegiado, 
     //   col.foto,  
